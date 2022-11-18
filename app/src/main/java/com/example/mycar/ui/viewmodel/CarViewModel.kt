@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.example.mycar.data.MyCarDao
 import com.example.mycar.model.MyCar
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -46,7 +47,7 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
             productionYear = productionYear.toInt()
         )
 
-        viewModelScope.launch {
+        CoroutineScope(Dispatchers.IO).launch {
             try {
                 myCarDao.insert(car)
             } catch (e: Exception) {

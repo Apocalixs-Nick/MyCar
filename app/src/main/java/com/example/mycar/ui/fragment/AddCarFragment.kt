@@ -52,8 +52,8 @@ class AddCarFragment : Fragment() {
             _binding = FragmentAddCarBinding.inflate(inflater, container, false)
             return binding.root
         } catch (e: Exception) {
-            Log.e("ErrorAdd", "onCreateViewAddCarFragment", e);
-            throw e;
+            Log.e("ErrorAdd", "onCreateViewAddCarFragment", e)
+            throw e
         }
 
     }
@@ -80,21 +80,18 @@ class AddCarFragment : Fragment() {
 
     //to review
     private fun addCar() {
-        lifecycleScope.launch{
-            if (isValidEntry()) {
-                viewModel.addCar(
-                    binding.nameCarInput.text.toString(),
-                    binding.brandCarInput.text.toString(),
-                    binding.powerCarInput.text.toString(),
-                    binding.doorsCarInput.text.toString(),
-                    binding.yearCarInput.text.toString()
-                )
-                findNavController().navigate(
-                    R.id.action_addCarFragment_to_carListFragment
-                )
-            }
+        if (isValidEntry()) {
+            viewModel.addCar(
+                binding.nameCarInput.text.toString(),
+                binding.brandCarInput.text.toString(),
+                binding.powerCarInput.text.toString(),
+                binding.doorsCarInput.text.toString(),
+                binding.yearCarInput.text.toString()
+            )
+            findNavController().navigate(
+                R.id.action_addCarFragment_to_carListFragment
+            )
         }
-
     }
 
     //to review
