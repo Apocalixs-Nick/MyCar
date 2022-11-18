@@ -32,15 +32,14 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
             productionYear = productionYear
         )
 
-            viewModelScope.launch {
-                try {
-                    myCarDao.insert(car)
-                }
-                catch (e: Exception){
-                    Log.e("ciao",e.toString())
-                }
+        viewModelScope.launch {
+            try {
+                myCarDao.insert(car)
+            } catch (e: Exception) {
+                Log.e("NOT ADD CAR", e.toString())
             }
         }
+    }
 
 
     /**

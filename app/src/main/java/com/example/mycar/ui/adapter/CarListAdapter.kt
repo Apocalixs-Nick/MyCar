@@ -11,7 +11,6 @@ import com.example.mycar.model.MyCar
 class CarListAdapter(private val clickListener: (MyCar) -> Unit) :
     ListAdapter<MyCar, CarListAdapter.CarViewHolder>(DiffCallback) {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarViewHolder {
         //val layoutInflater = LayoutInflater.from(parent.context)
         return CarViewHolder(
@@ -48,13 +47,12 @@ class CarListAdapter(private val clickListener: (MyCar) -> Unit) :
     companion object {
         private val DiffCallback = object : DiffUtil.ItemCallback<MyCar>() {
             override fun areItemsTheSame(oldItem: MyCar, newItem: MyCar): Boolean {
-                return oldItem.id == newItem.id
+                return oldItem === newItem
             }
 
             override fun areContentsTheSame(oldItem: MyCar, newItem: MyCar): Boolean {
-                return oldItem == newItem
+                return oldItem.id == newItem.id
             }
-
         }
     }
 }
