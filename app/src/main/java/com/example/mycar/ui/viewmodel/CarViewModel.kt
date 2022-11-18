@@ -12,6 +12,20 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
     //Variable for the acquisition of all the cars of the database
     val allCar: LiveData<List<MyCar>> = myCarDao.getCars().asLiveData()
 
+    fun isValidEntry(
+        name: String,
+        brand: String,
+        power: String,
+        numberDoors: String,
+        productionYear: String
+    ): Boolean {
+
+        if ((name.isBlank() || brand.isBlank() || power.isBlank() || numberDoors.isBlank() || productionYear.isBlank() )) {
+            return false
+        }
+        return true
+    }
+
     /**
      * Function to recover a car via id
      */
@@ -22,14 +36,14 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
     /**
      * Function for add a new car
      */
-    fun addCar(name: String, brand: String, power: Int, numberDoors: Int, productionYear: Int) {
+    fun addCar(name: String, brand: String, power: String, numberDoors: String, productionYear: String) {
 
         val car = MyCar(
             name = name,
             brand = brand,
-            power = power,
-            numberDoors = numberDoors,
-            productionYear = productionYear
+            power = power.toInt(),
+            numberDoors = numberDoors.toInt(),
+            productionYear = productionYear.toInt()
         )
 
         viewModelScope.launch {
@@ -41,7 +55,6 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         }
     }
 
-
     /**
      * Function for update a car
      */
@@ -49,18 +62,18 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         id: Long,
         name: String,
         brand: String,
-        power: Int,
-        numberDoors: Int,
-        productionYear: Int
+        power: String,
+        numberDoors: String,
+        productionYear: String
     ) {
 
         val car = MyCar(
             id = id,
             name = name,
             brand = brand,
-            power = power,
-            numberDoors = numberDoors,
-            productionYear = productionYear
+            power = power.toInt(),
+            numberDoors = numberDoors.toInt(),
+            productionYear = productionYear.toInt()
         )
 
         viewModelScope.launch {
@@ -75,23 +88,6 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             myCarDao.delete(car)
         }
-    }
-
-
-    fun isValidEntry(
-        name: String,
-        brand: String,
-        power: Int,
-        numberDoors: Int,
-        productionYear: Int
-    ): Boolean {
-
-        if (!((name.isBlank() && brand.isBlank() && (power == 0) && (numberDoors == 0) && (productionYear == 0)))) {
-
-            return true
-        }
-        return false
-
     }
 
 

@@ -1,13 +1,16 @@
 package com.example.mycar.ui.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.mycar.BaseApplication
@@ -16,6 +19,8 @@ import com.example.mycar.databinding.FragmentAddCarBinding
 import com.example.mycar.model.MyCar
 import com.example.mycar.ui.viewmodel.CarViewModel
 import com.example.mycar.ui.viewmodel.CarViewModelFactory
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 /**
  * A simple [Fragment] subclass.
@@ -26,13 +31,13 @@ class AddCarFragment : Fragment() {
 
     private val navigation: AddCarFragmentArgs by navArgs()
 
+    private lateinit var car: MyCar
+
     private val viewModel: CarViewModel by activityViewModels {
         CarViewModelFactory(
             (activity?.application as BaseApplication).database.myCarDao()
         )
     }
-
-    private lateinit var car: MyCar
 
     private var _binding: FragmentAddCarBinding? = null
 
@@ -75,18 +80,21 @@ class AddCarFragment : Fragment() {
 
     //to review
     private fun addCar() {
-        if (isValidEntry()) {
-            viewModel.addCar(
-                binding.nameCarInput.text.toString(),
-                binding.brandCarInput.text.toString(),
-                binding.powerCarInput.text.toString().toInt(),
-                binding.doorsCarInput.text.toString().toInt(),
-                binding.yearCarInput.text.toString().toInt()
-            )
-            findNavController().navigate(
-                R.id.action_addCarFragment_to_carListFragment
-            )
+        lifecycleScope.launch{
+            if (isValidEntry()) {
+                viewModel.addCar(
+                    binding.nameCarInput.text.toString(),
+                    binding.brandCarInput.text.toString(),
+                    binding.powerCarInput.text.toString(),
+                    binding.doorsCarInput.text.toString(),
+                    binding.yearCarInput.text.toString()
+                )
+                findNavController().navigate(
+                    R.id.action_addCarFragment_to_carListFragment
+                )
+            }
         }
+
     }
 
     //to review
@@ -96,9 +104,9 @@ class AddCarFragment : Fragment() {
                 id = navigation.id,
                 name = binding.nameCarInput.text.toString(),
                 brand = binding.brandCarInput.text.toString(),
-                power = binding.powerCarInput.text.toString().toInt(),
-                numberDoors = binding.doorsCarInput.text.toString().toInt(),
-                productionYear = binding.yearCarInput.text.toString().toInt()
+                power = binding.powerCarInput.text.toString(),
+                numberDoors = binding.doorsCarInput.text.toString(),
+                productionYear = binding.yearCarInput.text.toString()
             )
             findNavController().navigate(
                 R.id.action_addCarFragment_to_carListFragment
@@ -110,9 +118,9 @@ class AddCarFragment : Fragment() {
         return viewModel.isValidEntry(
             binding.nameCarInput.text.toString(),
             binding.brandCarInput.text.toString(),
-            binding.doorsCarInput.text.toString().toInt(),
-            binding.powerCarInput.text.toString().toInt(),
-            binding.yearCarInput.text.toString().toInt()
+            binding.doorsCarInput.text.toString(),
+            binding.powerCarInput.text.toString(),
+            binding.yearCarInput.text.toString()
         )
     }
 
@@ -144,6 +152,9 @@ class AddCarFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        val inputMethodManager = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as
+                InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(requireActivity().currentFocus?.windowToken, 0)
         _binding = null
     }
 }
