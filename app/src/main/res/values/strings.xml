@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MyCar</string>
+    <string name="detail_car">Details Car</string>
+    <string name="information_car">Car data implementation</string>
+    <string name="name_model">Name Model</string>
+    <string name="brand">Brand</string>
+    <string name="power_kw">Power(kW)</string>
+    <string name="number_of_doors">Number of doors</string>
+    <string name="production_year">Production year</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+</resources>
