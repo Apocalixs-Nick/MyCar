@@ -1,5 +1,6 @@
 package com.example.mycar.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.mycar.data.MyCarDao
 import com.example.mycar.model.MyCar
@@ -31,10 +32,16 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
             productionYear = productionYear
         )
 
-        viewModelScope.launch {
-            myCarDao.insert(car)
+            viewModelScope.launch {
+                try {
+                    myCarDao.insert(car)
+                }
+                catch (e: Exception){
+                    Log.e("ciao",e.toString())
+                }
+            }
         }
-    }
+
 
     /**
      * Function for update a car
@@ -74,13 +81,18 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
 
     fun isValidEntry(
         name: String,
-        brand: String, power: Int, numberDoors: Int, productionYear: Int
+        brand: String,
+        power: Int,
+        numberDoors: Int,
+        productionYear: Int
     ): Boolean {
 
-        if (name.isBlank() || brand.isBlank() || power!=0 || numberDoors!=0 || productionYear!=0) {
-            return false
+        if (!((name.isBlank() && brand.isBlank() && (power == 0) && (numberDoors == 0) && (productionYear == 0)))) {
+
+            return true
         }
-        return true
+        return false
+
     }
 
 

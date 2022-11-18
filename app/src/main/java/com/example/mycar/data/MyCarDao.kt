@@ -10,7 +10,7 @@ interface MyCarDao {
     fun getCars(): Flow<List<MyCar>>
     @Query("SELECT * from my_car_database WHERE id = :id")
     fun getCar(id: Long): Flow<MyCar>
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(myCar: MyCar)
     @Update
     fun update(myCar: MyCar)
