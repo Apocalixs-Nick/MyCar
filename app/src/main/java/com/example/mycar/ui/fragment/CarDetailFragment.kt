@@ -15,6 +15,7 @@ import com.example.mycar.databinding.FragmentAddCarBinding
 import com.example.mycar.databinding.FragmentCarDetailBinding
 import com.example.mycar.model.MyCar
 import com.example.mycar.ui.adapter.CarListAdapter
+import com.example.mycar.ui.fragment.CarDetailFragmentDirections.Companion.actionCarDetailFragmentToAddCarFragment
 import com.example.mycar.ui.viewmodel.CarViewModel
 import com.example.mycar.ui.viewmodel.CarViewModelFactory
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -71,6 +72,7 @@ class CarDetailFragment : Fragment() {
             brandCar.text = car.brand
             powerCar.text = car.power.toString()
             doorCar.text = car.numberDoors.toString()
+            fuelCar.text = car.fuel.toString()
             yearCar.text = car.productionYear.toString()
             deleteCar.setOnClickListener { showConfirmationDialog() }
             editCar.setOnClickListener { editCar() }
@@ -95,8 +97,9 @@ class CarDetailFragment : Fragment() {
     }
 
     private fun editCar() {
-        val action = CarListFragmentDirections.actionCarListFragmentToAddCarFragment(
-            car.id
+        val action = CarDetailFragmentDirections.actionCarDetailFragmentToAddCarFragment(
+            car.id,
+            getString(R.string.edit_fragment_title)
         )
         this.findNavController().navigate(action)
     }

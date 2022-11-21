@@ -5,12 +5,15 @@
     <string name="name_model">Name Model</string>
     <string name="brand">Brand</string>
     <string name="power_kw">Power(kW)</string>
+    <string name="kw">kW</string>
     <string name="number_of_doors">Number of doors</string>
     <string name="production_year">Production year</string>
+    <string name="fuel">Fuel</string>
     <string name="save">Save</string>
     <string name="delete">Delete</string>
-    <string name="delete_question">Are you sure you want to delete?</string>
+    <string name="delete_question">Are you sure you want to delete the car?</string>
     <string name="no">No</string>
     <string name="yes">Yes</string>
     <string name="edit_fragment_title">Edit Car</string>
+    <string name="add_car">Add Car</string>
 </resources>

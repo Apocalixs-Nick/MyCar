@@ -9,10 +9,12 @@ import android.view.View.inflate
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mycar.BaseApplication
 import com.example.mycar.R
 import com.example.mycar.databinding.FragmentCarDetailBinding
 import com.example.mycar.databinding.FragmentCarListBinding
+import com.example.mycar.model.MyCar
 import com.example.mycar.ui.adapter.CarListAdapter
 import com.example.mycar.ui.viewmodel.CarViewModel
 import com.example.mycar.ui.viewmodel.CarViewModelFactory
@@ -55,13 +57,13 @@ class CarListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         try {
-
             val adapter = CarListAdapter { car ->
                 val action = CarListFragmentDirections
-                    .actionCarListFragmentToCarDetailFragment(car.id)
+                    .actionCarListFragmentToCarDetailFragment(
+                        car.id
+                    )
                 findNavController().navigate(action)
             }
-
 
             viewModel.allCar.observe(this.viewLifecycleOwner) { cars ->
                 cars.let {
@@ -69,15 +71,18 @@ class CarListFragment : Fragment() {
                 }
             }
 
-            binding.apply {
-                recyclerView.adapter = adapter
-                addCar.setOnClickListener {
-                    findNavController().navigate(
-                        R.id.action_carListFragment_to_addCarFragment
+
+                binding.recyclerView.layoutManager = LinearLayoutManager(context)
+                binding.recyclerView.adapter = adapter
+                binding.addCar.setOnClickListener {
+                    val addAction = CarListFragmentDirections.actionCarListFragmentToAddCarFragment(
+                        id = 0,
+                        getString(R.string.add_car)
+                    )
+                    this.findNavController().navigate(
+                        addAction
                     )
                 }
-            }
-
         } catch (e: Exception) {
             Log.e("ErrorList", "onViewCreateCarListFragment", e);
             throw e;

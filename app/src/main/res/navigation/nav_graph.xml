@@ -27,8 +27,7 @@
             app:destination="@id/addCarFragment" />
         <argument
             android:name="id"
-            app:argType="long"
-            android:defaultValue="0L" />
+            app:argType="long" />
     </fragment>
     <fragment
         android:id="@+id/addCarFragment"
@@ -39,7 +38,9 @@
             android:id="@+id/action_addCarFragment_to_carListFragment"
             app:destination="@id/carListFragment" />
         <argument android:name="id"
-            app:argType="long"
-            android:defaultValue="0L" />
+            app:argType="long" />
+        <argument
+            android:name="title"
+            app:argType="string" />
     </fragment>
 </navigation>

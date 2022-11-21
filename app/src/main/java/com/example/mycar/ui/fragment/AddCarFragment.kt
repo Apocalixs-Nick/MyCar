@@ -42,7 +42,6 @@ class AddCarFragment : Fragment() {
     private var _binding: FragmentAddCarBinding? = null
 
     private val binding get() = _binding!!
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -67,10 +66,10 @@ class AddCarFragment : Fragment() {
                 bindCar(car)
             }
 
-            binding.deleteBtn.visibility = View.VISIBLE
+            /*binding.deleteBtn.visibility = View.VISIBLE
             binding.deleteBtn.setOnClickListener {
                 deleteCar(car)
-            }
+            }*/
         } else {
             binding.saveBtn.setOnClickListener {
                 addCar()
@@ -82,11 +81,12 @@ class AddCarFragment : Fragment() {
     private fun addCar() {
         if (isValidEntry()) {
             viewModel.addCar(
-                binding.nameCarInput.text.toString(),
-                binding.brandCarInput.text.toString(),
-                binding.powerCarInput.text.toString(),
-                binding.doorsCarInput.text.toString(),
-                binding.yearCarInput.text.toString()
+                name =binding.nameCarInput.text.toString(),
+                brand = binding.brandCarInput.text.toString(),
+                power = binding.powerCarInput.text.toString(),
+                numberDoors = binding.doorsCarInput.text.toString(),
+                fuel =binding.fuelCarInput.text.toString(),
+                productionYear = binding.yearCarInput.text.toString()
             )
             findNavController().navigate(
                 R.id.action_addCarFragment_to_carListFragment
@@ -103,6 +103,7 @@ class AddCarFragment : Fragment() {
                 brand = binding.brandCarInput.text.toString(),
                 power = binding.powerCarInput.text.toString(),
                 numberDoors = binding.doorsCarInput.text.toString(),
+                fuel = binding.fuelCarInput.text.toString(),
                 productionYear = binding.yearCarInput.text.toString()
             )
             findNavController().navigate(
@@ -117,6 +118,7 @@ class AddCarFragment : Fragment() {
             binding.brandCarInput.text.toString(),
             binding.doorsCarInput.text.toString(),
             binding.powerCarInput.text.toString(),
+            binding.fuelCarInput.text.toString(),
             binding.yearCarInput.text.toString()
         )
     }
@@ -138,9 +140,10 @@ class AddCarFragment : Fragment() {
         binding.apply {
             nameCarInput.setText(car.name, TextView.BufferType.SPANNABLE)
             brandCarInput.setText(car.brand, TextView.BufferType.SPANNABLE)
-            doorsCarInput.setText(car.numberDoors, TextView.BufferType.SPANNABLE)
-            powerCarInput.setText(car.power, TextView.BufferType.SPANNABLE)
-            yearCarInput.setText(car.productionYear, TextView.BufferType.SPANNABLE)
+            doorsCarInput.setText(car.numberDoors.toString(), TextView.BufferType.SPANNABLE)
+            fuelCarInput.setText(car.fuel, TextView.BufferType.SPANNABLE)
+            powerCarInput.setText(car.power.toString(), TextView.BufferType.SPANNABLE)
+            yearCarInput.setText(car.productionYear.toString(), TextView.BufferType.SPANNABLE)
             saveBtn.setOnClickListener {
                 updateCar()
             }

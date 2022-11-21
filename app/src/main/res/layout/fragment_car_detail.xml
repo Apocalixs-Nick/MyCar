@@ -96,6 +96,26 @@
         app:layout_constraintStart_toEndOf="@id/ic_year_car"
         tools:text="Year Production"/>
 
+    <ImageView
+        android:id="@+id/ic_fuel_car"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_pump"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/year_car"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/fuel_car"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintTop_toTopOf="@id/ic_fuel_car"
+        app:layout_constraintBottom_toBottomOf="@id/ic_fuel_car"
+        app:layout_constraintStart_toEndOf="@id/ic_fuel_car"
+        tools:text="Fuel"/>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/delete_car"
         style="?attr/materialButtonOutlinedStyle"

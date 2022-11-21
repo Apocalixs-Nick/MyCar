@@ -18,10 +18,11 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         brand: String,
         power: String,
         numberDoors: String,
+        fuel: String,
         productionYear: String
     ): Boolean {
 
-        if ((name.isBlank() || brand.isBlank() || power.isBlank() || numberDoors.isBlank() || productionYear.isBlank() )) {
+        if ((name.isBlank() || brand.isBlank() || power.isBlank() || fuel.isBlank() || numberDoors.isBlank() || productionYear.isBlank() )) {
             return false
         }
         return true
@@ -37,12 +38,13 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
     /**
      * Function for add a new car
      */
-    fun addCar(name: String, brand: String, power: String, numberDoors: String, productionYear: String) {
+    fun addCar(name: String, brand: String, power: String, fuel: String, numberDoors: String, productionYear: String) {
 
         val car = MyCar(
             name = name,
             brand = brand,
             power = power.toInt(),
+            fuel = fuel,
             numberDoors = numberDoors.toInt(),
             productionYear = productionYear.toInt()
         )
@@ -64,6 +66,7 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         name: String,
         brand: String,
         power: String,
+        fuel: String,
         numberDoors: String,
         productionYear: String
     ) {
@@ -73,11 +76,12 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
             name = name,
             brand = brand,
             power = power.toInt(),
+            fuel = fuel,
             numberDoors = numberDoors.toInt(),
             productionYear = productionYear.toInt()
         )
 
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             myCarDao.update(car)
         }
     }

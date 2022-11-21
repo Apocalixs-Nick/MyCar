@@ -16,6 +16,8 @@ data class MyCar (
     val power: Int,
     @ColumnInfo(name = "number_doors")
     val numberDoors: Int,
+    @ColumnInfo(name = "fuel")
+    val fuel: String,
     @ColumnInfo(name = "production_year")
     val productionYear: Int
 )
