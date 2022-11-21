@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.mycar.BaseApplication
 import com.example.mycar.R
@@ -16,6 +17,7 @@ import com.example.mycar.model.MyCar
 import com.example.mycar.ui.adapter.CarListAdapter
 import com.example.mycar.ui.viewmodel.CarViewModel
 import com.example.mycar.ui.viewmodel.CarViewModelFactory
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 /**
  * A simple [Fragment] subclass.
@@ -70,6 +72,32 @@ class CarDetailFragment : Fragment() {
             powerCar.text = car.power.toString()
             doorCar.text = car.numberDoors.toString()
             yearCar.text = car.productionYear.toString()
+            deleteCar.setOnClickListener { showConfirmationDialog() }
+            editCar.setOnClickListener { editCar() }
         }
+    }
+
+    private fun showConfirmationDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(getString(android.R.string.dialog_alert_title))
+            .setMessage(getString(R.string.delete_question))
+            .setCancelable(false)
+            .setNegativeButton(getString(R.string.no)) { _, _ -> }
+            .setPositiveButton(getString(R.string.yes)) { _, _ ->
+                deleteCar()
+            }
+            .show()
+    }
+
+    private fun deleteCar() {
+        viewModel.deleteCar(car)
+        findNavController().navigateUp()
+    }
+
+    private fun editCar() {
+        val action = CarListFragmentDirections.actionCarListFragmentToAddCarFragment(
+            car.id
+        )
+        this.findNavController().navigate(action)
     }
 }

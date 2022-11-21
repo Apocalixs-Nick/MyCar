@@ -96,6 +96,19 @@
         app:layout_constraintStart_toEndOf="@id/ic_year_car"
         tools:text="Year Production"/>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/delete_car"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:backgroundTint="@color/primaryColor"
+        android:textColor="@color/white"
+        android:text="@string/delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/year_car" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/edit_car"
         android:layout_width="wrap_content"

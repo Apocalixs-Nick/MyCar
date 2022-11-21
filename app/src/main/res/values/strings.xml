@@ -9,4 +9,8 @@
     <string name="production_year">Production year</string>
     <string name="save">Save</string>
     <string name="delete">Delete</string>
+    <string name="delete_question">Are you sure you want to delete?</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="edit_fragment_title">Edit Car</string>
 </resources>
