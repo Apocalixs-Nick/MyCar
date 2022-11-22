@@ -72,7 +72,7 @@ class CarDetailFragment : Fragment() {
         binding.apply {
             nameCar.text = car.name
             brandCar.text = car.brand
-            powerCar.text = car.power.toString()
+            powerCar.text = car.power.toString() + " kW"
             doorCar.text = car.numberDoors.toString()
             fuelCar.text = car.fuel.toString()
             yearCar.text = car.productionYear.toString()
