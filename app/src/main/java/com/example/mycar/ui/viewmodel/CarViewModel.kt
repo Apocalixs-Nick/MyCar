@@ -1,5 +1,6 @@
 package com.example.mycar.ui.viewmodel
 
+import android.graphics.Bitmap
 import android.util.Log
 import androidx.lifecycle.*
 import com.example.mycar.data.MyCarDao
@@ -7,6 +8,7 @@ import com.example.mycar.model.MyCar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.ByteArrayOutputStream
 
 class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
 
@@ -19,10 +21,11 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         power: String,
         numberDoors: String,
         fuel: String,
-        productionYear: String
+        productionYear: String,
+        //image: ByteArray
     ): Boolean {
 
-        if ((name.isBlank() || brand.isBlank() || power.isBlank() || fuel.isBlank() || numberDoors.isBlank() || productionYear.isBlank() )) {
+        if ((name.isBlank() || brand.isBlank() || power.isBlank() || fuel.isBlank() || numberDoors.isBlank() || productionYear.isBlank() /*|| image.isEmpty()*/)) {
             return false
         }
         return true
@@ -38,13 +41,22 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
     /**
      * Function for add a new car
      */
-    fun addCar(name: String, brand: String, power: String, fuel: String, numberDoors: String, productionYear: String) {
-
+    fun addCar(
+        name: String,
+        brand: String,
+        power: String,
+        fuel: String,
+        numberDoors: String,
+        productionYear: String,
+        image: Bitmap
+    ) {
+//image = image.toByteArray()
         val car = MyCar(
             name = name,
             brand = brand,
             power = power.toInt(),
             fuel = fuel,
+            image = image.toByteArray(),
             numberDoors = numberDoors.toInt(),
             productionYear = productionYear.toInt()
         )
@@ -68,9 +80,10 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         power: String,
         fuel: String,
         numberDoors: String,
-        productionYear: String
+        productionYear: String,
+        image: Bitmap
     ) {
-
+//image = image.toByteArray()
         val car = MyCar(
             id = id,
             name = name,
@@ -78,7 +91,8 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
             power = power.toInt(),
             fuel = fuel,
             numberDoors = numberDoors.toInt(),
-            productionYear = productionYear.toInt()
+            productionYear = productionYear.toInt(),
+            image = image.toByteArray()
         )
 
         viewModelScope.launch(Dispatchers.IO) {
@@ -94,7 +108,6 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
             myCarDao.delete(car)
         }
     }
-
 
     /*fun isValidEntryInt(power: Int, numberDoors: Int, productionYear: Int): Boolean {
         var state: Boolean
@@ -115,6 +128,12 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
     }*/
 }
 
+
+private fun Bitmap.toByteArray(quality: Int = 50): ByteArray {
+    val stream = ByteArrayOutputStream()
+    compress(Bitmap.CompressFormat.JPEG, quality, stream)
+    return stream.toByteArray()
+}
 
 class CarViewModelFactory(private val myCarDao: MyCarDao) :
     ViewModelProvider.Factory {

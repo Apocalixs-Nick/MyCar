@@ -1,5 +1,7 @@
 package com.example.mycar.ui.fragment
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -50,8 +52,8 @@ class CarDetailFragment : Fragment() {
             _binding = FragmentCarDetailBinding.inflate(inflater, container, false)
             return binding.root
         } catch (e: Exception) {
-            Log.e("ErrorDetails", "onCreateViewCarDetailsFragment", e);
-            throw e;
+            Log.e("ErrorDetails", "onCreateViewCarDetailsFragment", e)
+            throw e
         }
     }
 
@@ -76,8 +78,20 @@ class CarDetailFragment : Fragment() {
             yearCar.text = car.productionYear.toString()
             deleteCar.setOnClickListener { showConfirmationDialog() }
             editCar.setOnClickListener { editCar() }
+            if (imageCar != null) {
+                imageCar.setImageBitmap(
+                    Bitmap.createScaledBitmap(
+                        BitmapFactory.decodeByteArray(
+                            car.image, 0, car.image.size
+                        ), 200, 200, false
+                    )
+                )
+            } else {
+                imageCar.setImageResource(R.drawable.ic_car)
+            }
         }
     }
+
 
     private fun showConfirmationDialog() {
         MaterialAlertDialogBuilder(requireContext())

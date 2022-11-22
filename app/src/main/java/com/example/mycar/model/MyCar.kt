@@ -19,5 +19,7 @@ data class MyCar (
     @ColumnInfo(name = "fuel")
     val fuel: String,
     @ColumnInfo(name = "production_year")
-    val productionYear: Int
+    val productionYear: Int,
+    @ColumnInfo(name = "image", typeAffinity = ColumnInfo.BLOB)
+    val image: ByteArray
 )

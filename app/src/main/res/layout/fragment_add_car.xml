@@ -110,7 +110,33 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="200dp"
+        android:layout_height="157dp"
+        android:layout_marginTop="350dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_anchor="@+id/linearLayout"
+        app:layout_anchorGravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fuel_car_label">
+
+        <ImageView
+            android:id="@+id/preview_image"
+            android:layout_width="200dp"
+            android:layout_height="120dp"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toTopOf="@+id/fuel_car_label"
+            app:layout_constraintStart_toStartOf="@+id/import_image"
+            app:layout_constraintTop_toBottomOf="@+id/import_image" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="347dp"
         android:layout_height="258dp"
         android:layout_marginTop="350dp"
@@ -119,6 +145,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fuel_car_label">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/img_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/import_image" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/save_btn"
