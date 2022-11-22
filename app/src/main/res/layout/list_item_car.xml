@@ -44,6 +44,16 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:text="Year"/>
 
+        <TextView
+            android:id="@+id/fuel_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintTop_toBottomOf="@id/brand_car"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="300dp"
+            tools:text="Fuel"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
