@@ -36,6 +36,16 @@
             tools:text="Brand Car"/>
 
         <TextView
+            android:id="@+id/power_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintTop_toBottomOf="@id/name_car"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="300dp"
+            tools:text="0kW"/>
+
+        <TextView
             android:id="@+id/year_car"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
