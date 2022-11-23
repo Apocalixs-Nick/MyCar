@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="detail_car">Dettagli Auto</string>
+    <string name="information_car">Aggiunta dei dati dell\'auto</string>
+    <string name="name_model">Nome Modello</string>
+    <string name="brand">Brand</string>
+    <string name="power_kw">Potenza(kW)</string>
+    <string name="kw">kW</string>
+    <string name="number_of_doors">Numero di porte</string>
+    <string name="production_year">Anno di produzione</string>
+    <string name="fuel">Combustibile</string>
+    <string name="save">Salva</string>
+    <string name="delete">Elimina</string>
+    <string name="delete_question">Sei sicuro di voler eliminare la macchina?</string>
+    <string name="no">No</string>
+    <string name="yes">Si</string>
+    <string name="edit_fragment_title">Modifica auto</string>
+    <string name="add_car">Aggiungi auto</string>
+    <string name="import_image">Importa immagine</string>
+    <string name="second_fuel">Secondo combustibile(Opzionale)</string>
+</resources>
