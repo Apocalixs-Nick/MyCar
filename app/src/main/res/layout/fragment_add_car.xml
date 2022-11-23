@@ -110,6 +110,23 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/second_fuel_car_label"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="@string/second_fuel"
+        android:layout_marginTop="420dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/second_fuel_car_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textAutoComplete" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -122,14 +139,14 @@
         app:layout_anchorGravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fuel_car_label">
+        app:layout_constraintTop_toBottomOf="@id/second_fuel_car_label">
 
         <ImageView
             android:id="@+id/preview_image"
-            android:layout_width="200dp"
-            android:layout_height="120dp"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
             android:importantForAccessibility="no"
-            app:layout_constraintBottom_toTopOf="@+id/fuel_car_label"
+            app:layout_constraintBottom_toTopOf="@+id/second_fuel_car_label"
             app:layout_constraintStart_toStartOf="@+id/import_image"
             app:layout_constraintTop_toBottomOf="@+id/import_image" />
 
@@ -137,14 +154,15 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="347dp"
-        android:layout_height="258dp"
+        android:layout_width="360dp"
+        android:layout_height="419dp"
         android:layout_marginTop="350dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fuel_car_label">
+        app:layout_constraintTop_toBottomOf="@id/preview_image"
+        app:layout_constraintTop_toTopOf="@id/preview_image">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/img_btn"

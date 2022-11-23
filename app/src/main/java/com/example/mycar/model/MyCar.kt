@@ -18,6 +18,8 @@ data class MyCar (
     val numberDoors: Int,
     @ColumnInfo(name = "fuel")
     val fuel: String,
+    @ColumnInfo(name = "second_fuel")
+    val secondFuel: String?,
     @ColumnInfo(name = "production_year")
     val productionYear: Int,
     @ColumnInfo(name = "image", typeAffinity = ColumnInfo.BLOB)

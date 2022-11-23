@@ -38,7 +38,7 @@ class CarListAdapter(private val clickListener: (MyCar) -> Unit) :
                 brandCar.text = car.brand
                 yearCar.text = car.productionYear.toString()
                 fuelCar.text = car.fuel
-                powerCar.text = car.power.toString()
+                powerCar.text = car.power.toString() + " kW"
             }
             /*binding.car = car
             binding.executePendingBindings()*/

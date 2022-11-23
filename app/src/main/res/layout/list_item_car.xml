@@ -42,7 +42,7 @@
             android:textAppearance="?attr/textAppearanceBody2"
             app:layout_constraintTop_toBottomOf="@id/name_car"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="300dp"
+            android:layout_marginStart="270dp"
             tools:text="0kW"/>
 
         <TextView
@@ -61,7 +61,7 @@
             android:textAppearance="?attr/textAppearanceBody2"
             app:layout_constraintTop_toBottomOf="@id/brand_car"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="300dp"
+            android:layout_marginStart="270dp"
             tools:text="Fuel"/>
 
         <View

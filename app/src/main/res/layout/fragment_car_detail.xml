@@ -116,6 +116,28 @@
         app:layout_constraintStart_toEndOf="@id/ic_fuel_car"
         tools:text="Fuel"/>
 
+    <ImageView
+        android:id="@+id/ic_second_fuel_car"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_second_pump"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/fuel_car"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/second_fuel_car"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintTop_toTopOf="@id/ic_second_fuel_car"
+        app:layout_constraintBottom_toBottomOf="@id/ic_second_fuel_car"
+        app:layout_constraintStart_toEndOf="@id/ic_second_fuel_car"
+        tools:text="Second Fuel"
+        android:visibility="gone"/>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/delete_car"
         style="?attr/materialButtonOutlinedStyle"

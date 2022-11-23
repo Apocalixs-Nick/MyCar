@@ -46,6 +46,7 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         brand: String,
         power: String,
         fuel: String,
+        secondFuel: String?,
         numberDoors: String,
         productionYear: String,
         image: Bitmap
@@ -56,6 +57,7 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
             brand = brand,
             power = power.toInt(),
             fuel = fuel,
+            secondFuel = secondFuel,
             image = image.toByteArray(),
             numberDoors = numberDoors.toInt(),
             productionYear = productionYear.toInt()
@@ -70,6 +72,14 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         }
     }
 
+     fun controlFuel(car: MyCar): Boolean {
+
+        if (car.fuel != car.secondFuel) {
+            return true
+        }
+        return false
+    }
+
     /**
      * Function for update a car
      */
@@ -79,6 +89,7 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         brand: String,
         power: String,
         fuel: String,
+        secondFuel: String?,
         numberDoors: String,
         productionYear: String,
         image: Bitmap
@@ -90,6 +101,7 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
             brand = brand,
             power = power.toInt(),
             fuel = fuel,
+            secondFuel = secondFuel,
             numberDoors = numberDoors.toInt(),
             productionYear = productionYear.toInt(),
             image = image.toByteArray()

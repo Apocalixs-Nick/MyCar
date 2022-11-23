@@ -17,4 +17,5 @@
     <string name="edit_fragment_title">Edit Car</string>
     <string name="add_car">Add Car</string>
     <string name="import_image">Import image</string>
+    <string name="second_fuel">Second fuel(Optional)</string>
 </resources>

@@ -68,6 +68,13 @@ class CarDetailFragment : Fragment() {
         }
     }
 
+    private fun noSecondFuel(car: MyCar):Boolean {
+        if (car.secondFuel?.isBlank() == true) {
+            return false
+        }
+        return true
+    }
+
     private fun bindCar() {
         binding.apply {
             nameCar.text = car.name
@@ -75,6 +82,11 @@ class CarDetailFragment : Fragment() {
             powerCar.text = car.power.toString() + " kW"
             doorCar.text = car.numberDoors.toString()
             fuelCar.text = car.fuel.toString()
+            if (noSecondFuel(car)) {
+                binding.icSecondFuelCar.visibility = View.VISIBLE
+                binding.secondFuelCar.visibility = View.VISIBLE
+            }
+            secondFuelCar.text = car.secondFuel.toString()
             yearCar.text = car.productionYear.toString()
             deleteCar.setOnClickListener { showConfirmationDialog() }
             editCar.setOnClickListener { editCar() }
