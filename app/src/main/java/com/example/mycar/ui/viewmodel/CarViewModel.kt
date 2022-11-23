@@ -72,13 +72,13 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         }
     }
 
-     fun controlFuel(car: MyCar): Boolean {
+     /*fun controlFuel(car: MyCar): Boolean {
 
         if (car.fuel != car.secondFuel) {
             return true
         }
         return false
-    }
+    }*/
 
     /**
      * Function for update a car

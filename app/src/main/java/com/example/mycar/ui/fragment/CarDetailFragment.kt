@@ -95,7 +95,7 @@ class CarDetailFragment : Fragment() {
                     Bitmap.createScaledBitmap(
                         BitmapFactory.decodeByteArray(
                             car.image, 0, car.image.size
-                        ), 350, 200, false
+                        ), 1050, 600, false
                     )
                 )
             } else {
