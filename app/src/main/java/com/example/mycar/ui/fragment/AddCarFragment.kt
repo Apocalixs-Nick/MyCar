@@ -28,6 +28,17 @@ import com.example.mycar.ui.viewmodel.CarViewModelFactory
  * Use the [AddCarFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+
+/*enum class TypeFuel {
+    GASOLINE,
+    DIESEL,
+    BEV,
+    EREV,
+    FCEV,
+    PHEV,
+    MHEV;
+}
+*/
 class AddCarFragment : Fragment() {
 
     private val navigation: AddCarFragmentArgs by navArgs()
@@ -60,6 +71,7 @@ class AddCarFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //viewModel.brandAcquisition()
         binding.imgBtn.setOnClickListener {
             imageChooser()
         }
@@ -243,4 +255,18 @@ class AddCarFragment : Fragment() {
         view.buildDrawingCache()
         return view.drawingCache
     }
+
+    /*private fun typeOfFuel(typeOfFuel: String): TypeFuel {
+        return when (typeOfFuel) {
+            "Gasoline" -> TypeFuel.GASOLINE
+            "Diesel" -> TypeFuel.DIESEL
+            "BEV (Battery Electric Vehicle)" -> TypeFuel.BEV
+            "E-REV (Range Extender Vehicle)" -> TypeFuel.EREV
+            "PHEV (Plug-in Hybrid Electric Vehicle)" -> TypeFuel.PHEV
+            "MHEV (Mild Hybrid Electric Vehicle)" -> TypeFuel.MHEV
+            else -> {
+                TypeFuel.GASOLINE
+            }
+        }
+    }*/
 }

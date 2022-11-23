@@ -5,15 +5,34 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.example.mycar.data.MyCarDao
 import com.example.mycar.model.MyCar
+import com.example.mycar.network.MyCarApi
+import com.example.mycar.network.MyCarInfo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.ByteArrayOutputStream
+import java.io.IOException
 
 class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
 
     //Variable for the acquisition of all the cars of the database
     val allCar: LiveData<List<MyCar>> = myCarDao.getCars().asLiveData()
+
+    private val _brand = MutableLiveData<List<MyCarInfo>>()
+
+    val brand: LiveData<List<MyCarInfo>>
+        get() = _brand
+
+    private var _eventNetworkError = MutableLiveData<Boolean>(false)
+
+    val eventNetworkError: LiveData<Boolean>
+        get() = _eventNetworkError
+
+    private var _isNetworkErrorShown = MutableLiveData<Boolean>(false)
+
+    val isNetworkErrorShown: LiveData<Boolean>
+        get() = _isNetworkErrorShown
+
 
     fun isValidEntry(
         name: String,
@@ -138,6 +157,27 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         }
         return state
     }*/
+
+     //TO REVIEW
+     fun brandAcquisition() { try {
+            if (_brand.value == null)
+            {
+                _brand.value = MyCarApi.retrofitService.getMyCarInfo()
+            }
+
+            _eventNetworkError.value = false
+            _isNetworkErrorShown.value = false
+
+        } catch (networkError: IOException) {
+            _eventNetworkError.value = true
+        }
+    }
+
+    fun getDistinctModelByBrand(maker: String){
+        val makerList = _brand.value!!.filter { e -> e.maker == maker }
+    }
+
+
 }
 
 

@@ -67,4 +67,15 @@ dependencies {
 
     //Sliding panel layout
     implementation "androidx.slidingpanelayout:slidingpanelayout:1.2.0"
+
+
+    // Retrofit & OkHttp
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation("com.google.code.gson:gson:2.9.0")
+
+    // JSON Converter
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+
 }

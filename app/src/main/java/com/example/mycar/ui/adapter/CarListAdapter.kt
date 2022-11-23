@@ -1,6 +1,7 @@
 package com.example.mycar.ui.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -38,11 +39,23 @@ class CarListAdapter(private val clickListener: (MyCar) -> Unit) :
                 brandCar.text = car.brand
                 yearCar.text = car.productionYear.toString()
                 fuelCar.text = car.fuel
+                if (noSecondFuel(car)) {
+                    secondFuelCar.visibility = View.VISIBLE
+                }
+                secondFuelCar.text = car.secondFuel
                 powerCar.text = car.power.toString() + " kW"
             }
             /*binding.car = car
             binding.executePendingBindings()*/
         }
+
+        private fun noSecondFuel(car: MyCar):Boolean {
+            if (car.secondFuel?.isBlank() == true) {
+                return false
+            }
+            return true
+        }
+
     }
 
     //DiffCallback : DiffUtil.ItemCallback<MyCar>()
