@@ -13,7 +13,6 @@ class CarListAdapter(private val clickListener: (MyCar) -> Unit) :
     ListAdapter<MyCar, CarListAdapter.CarViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarViewHolder {
-        //val layoutInflater = LayoutInflater.from(parent.context)
         return CarViewHolder(
             ListItemCarBinding.inflate(
                 LayoutInflater.from(
@@ -45,11 +44,9 @@ class CarListAdapter(private val clickListener: (MyCar) -> Unit) :
                 secondFuelCar.text = car.secondFuel
                 powerCar.text = car.power.toString() + " kW"
             }
-            /*binding.car = car
-            binding.executePendingBindings()*/
         }
 
-        private fun noSecondFuel(car: MyCar):Boolean {
+        private fun noSecondFuel(car: MyCar): Boolean {
             if (car.secondFuel?.isBlank() == true) {
                 return false
             }
@@ -58,7 +55,6 @@ class CarListAdapter(private val clickListener: (MyCar) -> Unit) :
 
     }
 
-    //DiffCallback : DiffUtil.ItemCallback<MyCar>()
     companion object {
         private val DiffCallback = object : DiffUtil.ItemCallback<MyCar>() {
             override fun areItemsTheSame(oldItem: MyCar, newItem: MyCar): Boolean {

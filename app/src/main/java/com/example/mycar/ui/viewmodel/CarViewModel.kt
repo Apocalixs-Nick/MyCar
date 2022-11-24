@@ -46,10 +46,9 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         productionYear: String,
         places: String,
         color: String
-        //image: ByteArray
     ): Boolean {
 
-        if ((name.isBlank() || brand.isBlank() || power.isBlank() || fuel.isBlank() || numberDoors.isBlank() || productionYear.isBlank() || places.isBlank() || color.isBlank() /*|| image.isEmpty()*/)) {
+        if ((name.isBlank() || brand.isBlank() || power.isBlank() || fuel.isBlank() || numberDoors.isBlank() || productionYear.isBlank() || places.isBlank() || color.isBlank())) {
             return false
         }
         return true
@@ -77,7 +76,6 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         places: String,
         color: String
     ) {
-//image = image.toByteArray()
         val car = MyCar(
             name = name,
             brand = brand,
@@ -100,6 +98,7 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         }
     }
 
+    //can serve
     /*fun controlFuel(car: MyCar): Boolean {
 
        if (car.fuel != car.secondFuel) {
@@ -124,7 +123,6 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         places: String,
         color: String
     ) {
-//image = image.toByteArray()
         val car = MyCar(
             id = id,
             name = name,
@@ -153,25 +151,6 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         }
     }
 
-    /*fun isValidEntryInt(power: Int, numberDoors: Int, productionYear: Int): Boolean {
-        var state: Boolean
-        if (power != 0) {
-            if (numberDoors != 0) {
-                if (productionYear != 0) {
-                        state = true
-                } else {
-                        state = false
-                }
-            } else {
-                state = false
-            }
-        } else {
-            state = false
-        }
-        return state
-    }*/
-
-    //TO REVIEW
     fun brandAcquisition() = CoroutineScope(Dispatchers.Main).launch {
         try {
             if (_brand.value == null) {

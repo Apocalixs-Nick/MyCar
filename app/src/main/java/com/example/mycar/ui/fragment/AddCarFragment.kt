@@ -30,17 +30,6 @@ import com.example.mycar.ui.viewmodel.CarViewModelFactory
  * Use the [AddCarFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-
-/*enum class TypeFuel {
-    GASOLINE,
-    DIESEL,
-    BEV,
-    EREV,
-    FCEV,
-    PHEV,
-    MHEV;
-}
-*/
 class AddCarFragment : Fragment() {
 
     private val navigation: AddCarFragmentArgs by navArgs()
@@ -84,6 +73,7 @@ class AddCarFragment : Fragment() {
                 bindCar(car)
             }
 
+            //can serve
             /*binding.deleteBtn.visibility = View.VISIBLE
             binding.deleteBtn.setOnClickListener {
                 deleteCar(car)
@@ -119,7 +109,7 @@ class AddCarFragment : Fragment() {
             }
         }
     }
-    //to review
+
     private fun addCar() {
         if (isValidEntry() || noSecondFuel(car)) {
             calledViewModelAdd()
@@ -185,12 +175,7 @@ class AddCarFragment : Fragment() {
         )
     }
 
-    /*private fun isValidEntryInt() = viewModel.isValidEntryInt {
-            binding.doorsCarInput.text.toString()
-            binding.powerCarInput.text.toString()
-            binding.yearCarInput.text.toString()
-    }*/
-
+    //can serve
     /*private fun deleteCar(car: MyCar) {
         viewModel.deleteCar(car)
         findNavController().navigate(
@@ -314,18 +299,4 @@ class AddCarFragment : Fragment() {
         view.buildDrawingCache()
         return view.drawingCache
     }
-
-    /*private fun typeOfFuel(typeOfFuel: String): TypeFuel {
-        return when (typeOfFuel) {
-            "Gasoline" -> TypeFuel.GASOLINE
-            "Diesel" -> TypeFuel.DIESEL
-            "BEV (Battery Electric Vehicle)" -> TypeFuel.BEV
-            "E-REV (Range Extender Vehicle)" -> TypeFuel.EREV
-            "PHEV (Plug-in Hybrid Electric Vehicle)" -> TypeFuel.PHEV
-            "MHEV (Mild Hybrid Electric Vehicle)" -> TypeFuel.MHEV
-            else -> {
-                TypeFuel.GASOLINE
-            }
-        }
-    }*/
 }

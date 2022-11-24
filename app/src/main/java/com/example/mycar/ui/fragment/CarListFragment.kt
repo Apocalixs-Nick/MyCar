@@ -32,8 +32,6 @@ class CarListFragment : Fragment() {
         )
     }
 
-
-    //to review
     private var _binding: FragmentCarListBinding? = null
 
     private val binding get() = _binding!!
@@ -70,8 +68,6 @@ class CarListFragment : Fragment() {
                     adapter.submitList(it)
                 }
             }
-
-
                 binding.recyclerView.layoutManager = LinearLayoutManager(context)
                 binding.recyclerView.adapter = adapter
                 binding.addCar.setOnClickListener {
