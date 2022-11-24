@@ -88,6 +88,8 @@ class CarDetailFragment : Fragment() {
             }
             secondFuelCar.text = car.secondFuel.toString()
             yearCar.text = car.productionYear.toString()
+            placesCar.text = car.places.toString()
+            colorCar.text = car.color.toString()
             deleteCar.setOnClickListener { showConfirmationDialog() }
             editCar.setOnClickListener { editCar() }
             if (imageCar != null) {

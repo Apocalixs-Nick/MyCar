@@ -1,7 +1,9 @@
 package com.example.mycar.ui.fragment
 
 import android.app.Activity.RESULT_OK
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -71,7 +73,7 @@ class AddCarFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //viewModel.brandAcquisition()
+        viewModel.brandAcquisition()
         binding.imgBtn.setOnClickListener {
             imageChooser()
         }
@@ -90,9 +92,33 @@ class AddCarFragment : Fragment() {
             binding.saveBtn.setOnClickListener {
                 addCar()
             }
+            binding.brandCarInput.setOnClickListener {
+                val listBrandCar = viewModel.getBrand()
+                val items = arrayOfNulls<CharSequence>(listBrandCar.size)
+                for (i in listBrandCar.indices) {
+                    items[i] = listBrandCar[i]
+                }
+                val builder: AlertDialog.Builder = AlertDialog.Builder(context)
+                builder.setTitle(R.string.choose_car)
+                builder.setSingleChoiceItems(
+                    items,
+                    viewModel.checkedItemBrand
+                ) { _: DialogInterface, which ->
+                    viewModel.checkedItemBrand = which
+                }
+                builder.setItems(items) { _: DialogInterface, which ->
+                    viewModel.checkedItemBrand = which
+                }
+                builder.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
+                    binding.brandCarInput.setText(items[viewModel.checkedItemBrand].toString())
+                }
+                builder.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
+                    binding.brandCarInput.setText("")
+                }
+                builder.show()
+            }
         }
     }
-
     //to review
     private fun addCar() {
         if (isValidEntry() || noSecondFuel(car)) {
@@ -119,6 +145,8 @@ class AddCarFragment : Fragment() {
             secondFuel = binding.secondFuelCarInput.text.toString(),
             productionYear = binding.yearCarInput.text.toString(),
             image = createBitmapFromView(binding.previewImage),
+            places = binding.placesCarInput.text.toString(),
+            color = binding.colorCarInput.text.toString()
         )
     }
 
@@ -134,7 +162,9 @@ class AddCarFragment : Fragment() {
                 fuel = binding.fuelCarInput.text.toString(),
                 secondFuel = binding.secondFuelCarInput.text.toString(),
                 image = createBitmapFromView(binding.previewImage),
-                productionYear = binding.yearCarInput.text.toString()
+                productionYear = binding.yearCarInput.text.toString(),
+                places = binding.placesCarInput.text.toString(),
+                color = binding.colorCarInput.text.toString()
             )
             findNavController().navigate(
                 R.id.action_addCarFragment_to_carListFragment
@@ -150,6 +180,8 @@ class AddCarFragment : Fragment() {
             binding.powerCarInput.text.toString(),
             binding.fuelCarInput.text.toString(),
             binding.yearCarInput.text.toString(),
+            binding.placesCarInput.text.toString(),
+            binding.colorCarInput.text.toString()
         )
     }
 
@@ -199,8 +231,35 @@ class AddCarFragment : Fragment() {
 
             powerCarInput.setText(car.power.toString(), TextView.BufferType.SPANNABLE)
             yearCarInput.setText(car.productionYear.toString(), TextView.BufferType.SPANNABLE)
+            placesCarInput.setText(car.places.toString(), TextView.BufferType.SPANNABLE)
+            colorCarInput.setText(car.color, TextView.BufferType.SPANNABLE)
             saveBtn.setOnClickListener {
                 updateCar()
+            }
+            binding.brandCarInput.setOnClickListener {
+                val listBrandCar = viewModel.getBrand()
+                val items = arrayOfNulls<CharSequence>(listBrandCar.size)
+                for (i in listBrandCar.indices) {
+                    items[i] = listBrandCar[i]
+                }
+                val builder: AlertDialog.Builder = AlertDialog.Builder(context)
+                builder.setTitle(R.string.choose_car)
+                builder.setSingleChoiceItems(
+                    items,
+                    viewModel.checkedItemBrand
+                ) { _: DialogInterface, which ->
+                    viewModel.checkedItemBrand = which
+                }
+                builder.setItems(items) { _: DialogInterface, which ->
+                    viewModel.checkedItemBrand = which
+                }
+                builder.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
+                    binding.brandCarInput.setText(items[viewModel.checkedItemBrand].toString())
+                }
+                builder.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
+                    binding.brandCarInput.setText("")
+                }
+                builder.show()
             }
         }
     }

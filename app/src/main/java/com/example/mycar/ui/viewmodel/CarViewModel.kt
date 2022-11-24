@@ -6,6 +6,7 @@ import androidx.lifecycle.*
 import com.example.mycar.data.MyCarDao
 import com.example.mycar.model.MyCar
 import com.example.mycar.network.MyCarApi
+import com.example.mycar.network.MyCarApiService
 import com.example.mycar.network.MyCarInfo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -22,6 +23,8 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
 
     val brand: LiveData<List<MyCarInfo>>
         get() = _brand
+
+    var checkedItemBrand = -1
 
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
 
@@ -41,10 +44,12 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         numberDoors: String,
         fuel: String,
         productionYear: String,
+        places: String,
+        color: String
         //image: ByteArray
     ): Boolean {
 
-        if ((name.isBlank() || brand.isBlank() || power.isBlank() || fuel.isBlank() || numberDoors.isBlank() || productionYear.isBlank() /*|| image.isEmpty()*/)) {
+        if ((name.isBlank() || brand.isBlank() || power.isBlank() || fuel.isBlank() || numberDoors.isBlank() || productionYear.isBlank() || places.isBlank() || color.isBlank() /*|| image.isEmpty()*/)) {
             return false
         }
         return true
@@ -68,7 +73,9 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         secondFuel: String?,
         numberDoors: String,
         productionYear: String,
-        image: Bitmap
+        image: Bitmap,
+        places: String,
+        color: String
     ) {
 //image = image.toByteArray()
         val car = MyCar(
@@ -79,7 +86,9 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
             secondFuel = secondFuel,
             image = image.toByteArray(),
             numberDoors = numberDoors.toInt(),
-            productionYear = productionYear.toInt()
+            productionYear = productionYear.toInt(),
+            places = places.toInt(),
+            color = color
         )
 
         CoroutineScope(Dispatchers.IO).launch {
@@ -91,13 +100,13 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         }
     }
 
-     /*fun controlFuel(car: MyCar): Boolean {
+    /*fun controlFuel(car: MyCar): Boolean {
 
-        if (car.fuel != car.secondFuel) {
-            return true
-        }
-        return false
-    }*/
+       if (car.fuel != car.secondFuel) {
+           return true
+       }
+       return false
+   }*/
 
     /**
      * Function for update a car
@@ -111,7 +120,9 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         secondFuel: String?,
         numberDoors: String,
         productionYear: String,
-        image: Bitmap
+        image: Bitmap,
+        places: String,
+        color: String
     ) {
 //image = image.toByteArray()
         val car = MyCar(
@@ -123,7 +134,9 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
             secondFuel = secondFuel,
             numberDoors = numberDoors.toInt(),
             productionYear = productionYear.toInt(),
-            image = image.toByteArray()
+            image = image.toByteArray(),
+            places = places.toInt(),
+            color = color
         )
 
         viewModelScope.launch(Dispatchers.IO) {
@@ -158,11 +171,12 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         return state
     }*/
 
-     //TO REVIEW
-     fun brandAcquisition() { try {
-            if (_brand.value == null)
-            {
-                _brand.value = MyCarApi.retrofitService.getMyCarInfo()
+    //TO REVIEW
+    fun brandAcquisition() = CoroutineScope(Dispatchers.Main).launch {
+        try {
+            if (_brand.value == null) {
+                //_brand.value = MyCarApi.retrofitService.getMyCarInfo()
+                _brand.postValue(MyCarApi.retrofitService.getMyCarInfo())
             }
 
             _eventNetworkError.value = false
@@ -173,8 +187,8 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         }
     }
 
-    fun getDistinctModelByBrand(maker: String){
-        val makerList = _brand.value!!.filter { e -> e.maker == maker }
+    fun getBrand(): List<String> {
+        return _brand.value!!.map { e -> e.maker }.distinct()
     }
 
 

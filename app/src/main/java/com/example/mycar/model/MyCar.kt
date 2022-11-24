@@ -23,5 +23,9 @@ data class MyCar (
     @ColumnInfo(name = "production_year")
     val productionYear: Int,
     @ColumnInfo(name = "image", typeAffinity = ColumnInfo.BLOB)
-    val image: ByteArray
+    val image: ByteArray,
+    @ColumnInfo(name = "places")
+    val places: Int,
+    @ColumnInfo(name = "color")
+    val color: String
 )

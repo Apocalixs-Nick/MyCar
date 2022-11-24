@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">MyCar</string>
     <string name="detail_car">Dettagli Auto</string>
     <string name="information_car">Aggiunta dei dati dell\'auto</string>
     <string name="name_model">Nome Modello</string>
@@ -18,4 +19,10 @@
     <string name="add_car">Aggiungi auto</string>
     <string name="import_image">Importa immagine</string>
     <string name="second_fuel">Secondo combustibile(Opzionale)</string>
+
+    <string name="choose_car">Scegli il brand della tua auto</string>
+    <string name="Ok">Ok</string>
+    <string name="cancel">Cancella</string>
+    <string name="color_car">Colore auto</string>
+    <string name="seat_car">Posti auto</string>
 </resources>

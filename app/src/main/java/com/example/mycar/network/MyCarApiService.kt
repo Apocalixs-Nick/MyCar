@@ -19,12 +19,14 @@ var gson: Gson = GsonBuilder()
  * object.
  */
 private val retrofit =
-    Retrofit.Builder().addConverterFactory(GsonConverterFactory.create(gson)).baseUrl(BASE_URL)
+    Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 
 
 /**
- * A public interface that exposes the [getVehicleInfo] method
+ * A public interface that exposes the [getMyCarInfo] method
  */
 interface MyCarApiService {
 
@@ -33,9 +35,9 @@ interface MyCarApiService {
      * The @GET annotation indicates that the "year" endpoint will be requested with the GET
      * HTTP method
      */
-    @Headers("Content-Type")
+    @Headers("Content-Type: application/json")
     @GET("jsondata.json")
-    fun getMyCarInfo(): List<MyCarInfo>
+    suspend fun getMyCarInfo(): List<MyCarInfo>
 }
 
 /**
