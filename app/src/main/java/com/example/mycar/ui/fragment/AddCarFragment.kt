@@ -168,7 +168,8 @@ class AddCarFragment : Fragment() {
             productionYear = binding.yearCarInput.text.toString(),
             image = createBitmapFromView(binding.previewImage),
             places = binding.placesCarInput.text.toString(),
-            color = binding.colorCarInput.text.toString()
+            color = binding.colorCarInput.text.toString(),
+            km = binding.kmCarInput.text.toString()
         )
     }
 
@@ -186,7 +187,8 @@ class AddCarFragment : Fragment() {
                 image = createBitmapFromView(binding.previewImage),
                 productionYear = binding.yearCarInput.text.toString(),
                 places = binding.placesCarInput.text.toString(),
-                color = binding.colorCarInput.text.toString()
+                color = binding.colorCarInput.text.toString(),
+                km = binding.kmCarInput.text.toString()
             )
             findNavController().navigate(
                 R.id.action_addCarFragment_to_carListFragment
@@ -203,7 +205,8 @@ class AddCarFragment : Fragment() {
             binding.fuelCarInput.text.toString(),
             binding.yearCarInput.text.toString(),
             binding.placesCarInput.text.toString(),
-            binding.colorCarInput.text.toString()
+            binding.colorCarInput.text.toString(),
+            binding.kmCarInput.text.toString()
         )
     }
 

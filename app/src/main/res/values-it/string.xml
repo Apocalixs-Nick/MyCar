@@ -26,4 +26,5 @@
     <string name="color_car">Colore auto</string>
     <string name="seat_car">Posti auto</string>
     <string name="search_car">Scegli la tua auto</string>
+    <string name="kilometres">Chilometri</string>
 </resources>

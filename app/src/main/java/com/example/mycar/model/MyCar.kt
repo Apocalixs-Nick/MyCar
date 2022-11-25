@@ -27,5 +27,7 @@ data class MyCar (
     @ColumnInfo(name = "places")
     val places: Int,
     @ColumnInfo(name = "color")
-    val color: String
+    val color: String,
+    @ColumnInfo(name = "kilometres")
+    val kM: Int,
 )

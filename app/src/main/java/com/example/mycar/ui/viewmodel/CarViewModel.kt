@@ -47,10 +47,11 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         fuel: String,
         productionYear: String,
         places: String,
-        color: String
+        color: String,
+        km: String
     ): Boolean {
 
-        if ((name.isBlank() || brand.isBlank() || power.isBlank() || fuel.isBlank() || numberDoors.isBlank() || productionYear.isBlank() || places.isBlank() || color.isBlank())) {
+        if ((name.isBlank() || brand.isBlank() || power.isBlank() || fuel.isBlank() || numberDoors.isBlank() || productionYear.isBlank() || places.isBlank() || color.isBlank() || km.isBlank())) {
             return false
         }
         return true
@@ -76,7 +77,8 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         productionYear: String,
         image: Bitmap,
         places: String,
-        color: String
+        color: String,
+        km: String
     ) {
         val car = MyCar(
             name = name,
@@ -88,7 +90,8 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
             numberDoors = numberDoors.toInt(),
             productionYear = productionYear.toInt(),
             places = places.toInt(),
-            color = color
+            color = color,
+            kM = km.toInt()
         )
 
         CoroutineScope(Dispatchers.IO).launch {
@@ -123,7 +126,8 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         productionYear: String,
         image: Bitmap,
         places: String,
-        color: String
+        color: String,
+        km: String
     ) {
         val car = MyCar(
             id = id,
@@ -136,7 +140,8 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
             productionYear = productionYear.toInt(),
             image = image.toByteArray(),
             places = places.toInt(),
-            color = color
+            color = color,
+            kM = km.toInt()
         )
 
         viewModelScope.launch(Dispatchers.IO) {
