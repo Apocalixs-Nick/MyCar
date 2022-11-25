@@ -6,39 +6,38 @@
     android:layout_height="match_parent">
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:padding="16dp"
         tools:context=".ui.fragment.AddCarFragment">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/name_car_label"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/name_model"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/name_car_input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textAutoComplete"
-                android:singleLine="true" />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/brand_car_label"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/brand"
-            android:layout_marginTop="70dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/name_car_label">
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/brand_car_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textAutoComplete"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name_car_label"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/name_model"
+            android:layout_marginTop="70dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/brand_car_label">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/name_car_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textAutoComplete"

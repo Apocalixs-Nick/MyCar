@@ -15,7 +15,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import android.widget.TextView
+import android.widget.*
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.fragment.app.activityViewModels
@@ -107,6 +107,32 @@ class AddCarFragment : Fragment() {
                 }
                 builder.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
                     binding.brandCarInput.setText("")
+                }
+                builder.show()
+            }
+
+            binding.nameCarInput.setOnClickListener {
+                val listModelCar = viewModel.getModel(binding.brandCarInput.text.toString())
+                val itemsCar = arrayOfNulls<CharSequence>(listModelCar.size)
+                for (i in listModelCar.indices) {
+                    itemsCar[i] = listModelCar[i]
+                }
+                val builder: AlertDialog.Builder = AlertDialog.Builder(context)
+                builder.setTitle(R.string.search_car)
+                builder.setSingleChoiceItems(
+                    itemsCar,
+                    viewModel.checkedItemModel
+                ) { _: DialogInterface, which ->
+                    viewModel.checkedItemModel = which
+                }
+                builder.setItems(itemsCar) { _: DialogInterface, which ->
+                    viewModel.checkedItemModel = which
+                }
+                builder.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
+                    binding.nameCarInput.setText(itemsCar[viewModel.checkedItemModel].toString())
+                }
+                builder.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
+                    binding.nameCarInput.setText("")
                 }
                 builder.show()
             }
@@ -250,7 +276,34 @@ class AddCarFragment : Fragment() {
                 builder.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
                     binding.brandCarInput.setText("")
                 }
+                builder.setView(view)
                 builder.show()
+            }
+
+            binding.nameCarInput.setOnClickListener {
+                val listModelCar = viewModel.getModel(binding.brandCarInput.text.toString())
+                val itemsCar = arrayOfNulls<CharSequence>(listModelCar.size)
+                for (i in listModelCar.indices) {
+                    itemsCar[i] = listModelCar[i]
+                }
+                val builderModel: AlertDialog.Builder = AlertDialog.Builder(context)
+                builderModel.setTitle(R.string.search_car)
+                builderModel.setSingleChoiceItems(
+                    itemsCar,
+                    viewModel.checkedItemModel
+                ) { _: DialogInterface, which ->
+                    viewModel.checkedItemModel = which
+                }
+                builderModel.setItems(itemsCar) { _: DialogInterface, which ->
+                    viewModel.checkedItemModel = which
+                }
+                builderModel.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
+                    binding.nameCarInput.setText(itemsCar[viewModel.checkedItemModel].toString())
+                }
+                builderModel.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
+                    binding.nameCarInput.setText("")
+                }
+                builderModel.show()
             }
         }
     }

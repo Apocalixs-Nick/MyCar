@@ -2,7 +2,7 @@
     <string name="app_name">MyCar</string>
     <string name="detail_car">Details Car</string>
     <string name="information_car">Car data implementation</string>
-    <string name="name_model">Name Model</string>
+    <string name="name_model">Model</string>
     <string name="brand">Brand</string>
     <string name="power_kw">Power(kW)</string>
     <string name="kw">kW</string>
@@ -24,4 +24,5 @@
     <string name="cancel">Cancel</string>
     <string name="color_car">Color car</string>
     <string name="seat_car">Seat car</string>
+    <string name="search_car">Choose yours car</string>
 </resources>

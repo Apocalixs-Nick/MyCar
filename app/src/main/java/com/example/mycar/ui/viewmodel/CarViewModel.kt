@@ -26,6 +26,8 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
 
     var checkedItemBrand = -1
 
+    var checkedItemModel = -1
+
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
 
     val eventNetworkError: LiveData<Boolean>
@@ -170,6 +172,10 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         return _brand.value!!.map { e -> e.maker }.distinct()
     }
 
+    fun getModel(maker: String): List<String> {
+        val makerList = _brand.value!!.filter { e -> e.maker == maker }
+        return makerList.map { e -> e.model }.distinct().sorted()
+    }
 
 }
 
