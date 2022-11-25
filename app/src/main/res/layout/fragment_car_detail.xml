@@ -178,7 +178,7 @@
         tools:text="Second Fuel"
         android:visibility="gone"/>
 
-    <com.google.android.material.button.MaterialButton
+    <!--<com.google.android.material.button.MaterialButton
         android:id="@+id/delete_car"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="wrap_content"
@@ -189,17 +189,23 @@
         android:text="@string/delete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/year_car" />
+        app:layout_constraintTop_toBottomOf="@id/year_car" /> -->
 
-    <ImageView
-        android:id="@+id/image_car"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="44dp"
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/delete_car"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fuel_car" />
+        app:layout_constraintTop_toBottomOf="@id/image_car"
+        app:layout_constraintVertical_bias="0.486" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/edit_car"
