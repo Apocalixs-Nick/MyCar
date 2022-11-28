@@ -101,6 +101,7 @@ class CarDetailFragment : Fragment() {
                         ), 600, 250, false
                     )
                 )
+                imageCar.scaleType
             } else {
                 imageCar.setImageResource(R.drawable.ic_car)
             }

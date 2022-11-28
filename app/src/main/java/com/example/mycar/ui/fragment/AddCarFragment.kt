@@ -86,55 +86,11 @@ class AddCarFragment : Fragment() {
                 addCar()
             }
             binding.brandCarInput.setOnClickListener {
-                val listBrandCar = viewModel.getBrand()
-                val items = arrayOfNulls<CharSequence>(listBrandCar.size)
-                for (i in listBrandCar.indices) {
-                    items[i] = listBrandCar[i]
-                }
-                val builder: AlertDialog.Builder = AlertDialog.Builder(context)
-                builder.setTitle(R.string.choose_car)
-                builder.setSingleChoiceItems(
-                    items,
-                    viewModel.checkedItemBrand
-                ) { _: DialogInterface, which ->
-                    viewModel.checkedItemBrand = which
-                }
-                builder.setItems(items) { _: DialogInterface, which ->
-                    viewModel.checkedItemBrand = which
-                }
-                builder.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
-                    binding.brandCarInput.setText(items[viewModel.checkedItemBrand].toString())
-                }
-                builder.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
-                    binding.brandCarInput.setText("")
-                }
-                builder.show()
+                setBrandCar()
             }
 
             binding.nameCarInput.setOnClickListener {
-                val listModelCar = viewModel.getModel(binding.brandCarInput.text.toString())
-                val itemsCar = arrayOfNulls<CharSequence>(listModelCar.size)
-                for (i in listModelCar.indices) {
-                    itemsCar[i] = listModelCar[i]
-                }
-                val builder: AlertDialog.Builder = AlertDialog.Builder(context)
-                builder.setTitle(R.string.search_car)
-                builder.setSingleChoiceItems(
-                    itemsCar,
-                    viewModel.checkedItemModel
-                ) { _: DialogInterface, which ->
-                    viewModel.checkedItemModel = which
-                }
-                builder.setItems(itemsCar) { _: DialogInterface, which ->
-                    viewModel.checkedItemModel = which
-                }
-                builder.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
-                    binding.nameCarInput.setText(itemsCar[viewModel.checkedItemModel].toString())
-                }
-                builder.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
-                    binding.nameCarInput.setText("")
-                }
-                builder.show()
+                setModelCar()
             }
         }
     }
@@ -257,58 +213,72 @@ class AddCarFragment : Fragment() {
                 updateCar()
             }
             binding.brandCarInput.setOnClickListener {
-                val listBrandCar = viewModel.getBrand()
-                val items = arrayOfNulls<CharSequence>(listBrandCar.size)
-                for (i in listBrandCar.indices) {
-                    items[i] = listBrandCar[i]
-                }
-                val builder: AlertDialog.Builder = AlertDialog.Builder(context)
-                builder.setTitle(R.string.choose_car)
-                builder.setSingleChoiceItems(
-                    items,
-                    viewModel.checkedItemBrand
-                ) { _: DialogInterface, which ->
-                    viewModel.checkedItemBrand = which
-                }
-                builder.setItems(items) { _: DialogInterface, which ->
-                    viewModel.checkedItemBrand = which
-                }
-                builder.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
-                    binding.brandCarInput.setText(items[viewModel.checkedItemBrand].toString())
-                }
-                builder.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
-                    binding.brandCarInput.setText("")
-                }
-                builder.setView(view)
-                builder.show()
+                setBrandCar()
             }
 
             binding.nameCarInput.setOnClickListener {
-                val listModelCar = viewModel.getModel(binding.brandCarInput.text.toString())
-                val itemsCar = arrayOfNulls<CharSequence>(listModelCar.size)
-                for (i in listModelCar.indices) {
-                    itemsCar[i] = listModelCar[i]
-                }
-                val builderModel: AlertDialog.Builder = AlertDialog.Builder(context)
-                builderModel.setTitle(R.string.search_car)
-                builderModel.setSingleChoiceItems(
-                    itemsCar,
-                    viewModel.checkedItemModel
-                ) { _: DialogInterface, which ->
-                    viewModel.checkedItemModel = which
-                }
-                builderModel.setItems(itemsCar) { _: DialogInterface, which ->
-                    viewModel.checkedItemModel = which
-                }
-                builderModel.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
-                    binding.nameCarInput.setText(itemsCar[viewModel.checkedItemModel].toString())
-                }
-                builderModel.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
-                    binding.nameCarInput.setText("")
-                }
-                builderModel.show()
+                setModelCar()
             }
+            binding.kmCarInput.setText(car.kM.toString(), TextView.BufferType.SPANNABLE)
         }
+    }
+
+    /**
+     * Private function for the appearance of an AlertDialog to select the car brand via API
+     */
+    private fun setBrandCar() {
+        val listBrandCar = viewModel.getBrand()
+        val items = arrayOfNulls<CharSequence>(listBrandCar.size)
+        for (i in listBrandCar.indices) {
+            items[i] = listBrandCar[i]
+        }
+        val builder: AlertDialog.Builder = AlertDialog.Builder(context)
+        builder.setTitle(R.string.choose_car)
+        builder.setSingleChoiceItems(
+            items,
+            viewModel.checkedItemBrand
+        ) { _: DialogInterface, which ->
+            viewModel.checkedItemBrand = which
+        }
+        builder.setItems(items) { _: DialogInterface, which ->
+            viewModel.checkedItemBrand = which
+        }
+        builder.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
+            binding.brandCarInput.setText(items[viewModel.checkedItemBrand].toString())
+        }
+        builder.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
+            binding.brandCarInput.setText("")
+        }
+        builder.show()
+    }
+
+    /**
+     * Private function for the appearance of an AlertDialog to select the model of the selected brand via API
+     */
+    private fun setModelCar() {
+        val listModelCar = viewModel.getModel(binding.brandCarInput.text.toString())
+        val itemsCar = arrayOfNulls<CharSequence>(listModelCar.size)
+        for (i in listModelCar.indices) {
+            itemsCar[i] = listModelCar[i]
+        }
+        val builderModel: AlertDialog.Builder = AlertDialog.Builder(context)
+        builderModel.setTitle(R.string.search_car)
+        builderModel.setSingleChoiceItems(
+            itemsCar,
+            viewModel.checkedItemModel
+        ) { _: DialogInterface, which ->
+            viewModel.checkedItemModel = which
+        }
+        builderModel.setItems(itemsCar) { _: DialogInterface, which ->
+            viewModel.checkedItemModel = which
+        }
+        builderModel.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
+            binding.nameCarInput.setText(itemsCar[viewModel.checkedItemModel].toString())
+        }
+        builderModel.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
+            binding.nameCarInput.setText("")
+        }
+        builderModel.show()
     }
 
     override fun onDestroyView() {

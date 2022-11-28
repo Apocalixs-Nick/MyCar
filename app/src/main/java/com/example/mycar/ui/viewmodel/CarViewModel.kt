@@ -185,7 +185,7 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
 }
 
 
-private fun Bitmap.toByteArray(quality: Int = 50): ByteArray {
+private fun Bitmap.toByteArray(quality: Int = 100): ByteArray {
     val stream = ByteArrayOutputStream()
     compress(Bitmap.CompressFormat.JPEG, quality, stream)
     return stream.toByteArray()
