@@ -103,10 +103,8 @@ class CarDetailFragment : Fragment() {
             editCar.setOnClickListener { editCar() }
             if (imageCar != null) {
                 imageCar.setImageBitmap(
-                    Bitmap.createScaledBitmap(
-                        BitmapFactory.decodeByteArray(
-                            car.image, 0, car.image.size
-                        ), 600, 250, false
+                    BitmapFactory.decodeByteArray(
+                        car.image, 0, car.image.size
                     )
                 )
             } else {

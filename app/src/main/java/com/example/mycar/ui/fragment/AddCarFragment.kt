@@ -174,7 +174,7 @@ class AddCarFragment : Fragment() {
         )
     }*/
 
-    private fun noSecondFuel(car: MyCar):Boolean {
+    private fun noSecondFuel(car: MyCar): Boolean {
         if (car.secondFuel?.isBlank() == true) {
             return false
         }
@@ -195,10 +195,8 @@ class AddCarFragment : Fragment() {
 
             if (previewImage != null) {
                 previewImage.setImageBitmap(
-                    Bitmap.createScaledBitmap(
-                        BitmapFactory.decodeByteArray(
-                            car.image, 0, car.image.size
-                        ), 600, 250, false
+                    BitmapFactory.decodeByteArray(
+                        car.image, 0, car.image.size
                     )
                 )
             } else {
