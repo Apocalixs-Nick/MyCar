@@ -26,4 +26,8 @@
     <string name="seat_car">Seat car</string>
     <string name="search_car">Choose yours car</string>
     <string name="kilometres">Kilometres</string>
+    <string name="share_car">Hi, look at my car located in MyCar app</string>
+    <string name="car">My car:</string>
+    <string name="share">Share car</string>
+    <string name="sharing_not_available">Sharing Not Available</string>
 </resources>

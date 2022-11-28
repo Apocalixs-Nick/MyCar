@@ -27,4 +27,8 @@
     <string name="seat_car">Posti auto</string>
     <string name="search_car">Scegli la tua auto</string>
     <string name="kilometres">Chilometri</string>
+    <string name="share_car">Ciao, guarda la mia auto che si trova in MyCar app</string>
+    <string name="car">La mia auto:</string>
+    <string name="share">Condividi l\'auto</string>
+    <string name="sharing_not_available">Condivisione non disponibile</string>
 </resources>

@@ -1,5 +1,9 @@
 package com.example.mycar.ui.fragment
 
+import android.annotation.SuppressLint
+import android.content.ActivityNotFoundException
+import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -8,6 +12,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.app.ShareCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -21,6 +28,7 @@ import com.example.mycar.ui.fragment.CarDetailFragmentDirections.Companion.actio
 import com.example.mycar.ui.viewmodel.CarViewModel
 import com.example.mycar.ui.viewmodel.CarViewModelFactory
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 
 /**
  * A simple [Fragment] subclass.
@@ -68,7 +76,7 @@ class CarDetailFragment : Fragment() {
         }
     }
 
-    private fun noSecondFuel(car: MyCar):Boolean {
+    private fun noSecondFuel(car: MyCar): Boolean {
         if (car.secondFuel?.isBlank() == true) {
             return false
         }
@@ -101,13 +109,49 @@ class CarDetailFragment : Fragment() {
                         ), 600, 250, false
                     )
                 )
-                imageCar.scaleType
             } else {
                 imageCar.setImageResource(R.drawable.ic_car)
+            }
+            shareCar.setOnClickListener {
+                shareCar()
             }
         }
     }
 
+    fun shareCar() {
+        if (noSecondFuel(car)) {
+            context?.let {
+                shareCreation(
+                    it,
+                    getString(R.string.share_car),
+                    getString(R.string.car) + "\nBrand: ${car.brand}\nModel: ${car.name}\nYear: ${car.productionYear}\nkM: ${car.kM} kM\nFuel: ${car.fuel}\nSecond fuel: ${car.secondFuel}"
+                )
+            }
+        } else {
+            context?.let {
+                shareCreation(
+                    it,
+                    getString(R.string.share_car),
+                    getString(R.string.car) + "\nBrand: ${car.brand}\nModel: ${car.name}\nYear: ${car.productionYear}\nkM: ${car.kM} kM\nFuel: ${car.fuel}"
+                )
+            }
+        }
+    }
+
+    private fun shareCreation(context: Context, subject: String, text: String) {
+        val type = "text/plain"
+
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = type
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject)
+        intent.putExtra(Intent.EXTRA_TEXT, text)
+
+        ContextCompat.startActivity(
+            context,
+            Intent.createChooser(intent, getString(R.string.share)),
+            null
+        )
+    }
 
     private fun showConfirmationDialog() {
         MaterialAlertDialogBuilder(requireContext())
