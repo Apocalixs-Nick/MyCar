@@ -75,9 +75,7 @@ class CarDetailFragment : Fragment() {
         viewModel.retrieveCar(id).observe(this.viewLifecycleOwner) { selectCar ->
             car = selectCar
             bindCar()
-            if (car.kM.equals(kmCoupon)) {
-                viewModelNotification.scheduleReminder(5, TimeUnit.SECONDS, car.name.toString())
-            }
+
         }
     }
 

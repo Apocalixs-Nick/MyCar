@@ -16,14 +16,18 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.mycar.BaseApplication
 import com.example.mycar.R
 import com.example.mycar.databinding.FragmentAddCarBinding
 import com.example.mycar.model.MyCar
+import com.example.mycar.ui.viewmodel.CarNotificationViewModel
+import com.example.mycar.ui.viewmodel.CarNotificationViewModelFactory
 import com.example.mycar.ui.viewmodel.CarViewModel
 import com.example.mycar.ui.viewmodel.CarViewModelFactory
+import java.util.concurrent.TimeUnit
 
 /**
  * A simple [Fragment] subclass.
@@ -40,6 +44,10 @@ class AddCarFragment : Fragment() {
         CarViewModelFactory(
             (activity?.application as BaseApplication).database.myCarDao()
         )
+    }
+
+    private val viewModelNotification: CarNotificationViewModel by viewModels {
+        CarNotificationViewModelFactory(requireActivity().application)
     }
 
     private var _binding: FragmentAddCarBinding? = null
@@ -124,6 +132,8 @@ class AddCarFragment : Fragment() {
             color = binding.colorCarInput.text.toString(),
             km = binding.kmCarInput.text.toString()
         )
+
+        viewModelNotification.scheduleReminder(5,TimeUnit.SECONDS,binding.nameCarInput.text.toString(), binding.kmCarInput.text.toString().toInt())
     }
 
     //to review
@@ -143,6 +153,8 @@ class AddCarFragment : Fragment() {
                 color = binding.colorCarInput.text.toString(),
                 km = binding.kmCarInput.text.toString()
             )
+
+            viewModelNotification.scheduleReminder(5,TimeUnit.SECONDS,binding.nameCarInput.text.toString(), binding.kmCarInput.text.toString().toInt())
             findNavController().navigate(
                 R.id.action_addCarFragment_to_carListFragment
             )

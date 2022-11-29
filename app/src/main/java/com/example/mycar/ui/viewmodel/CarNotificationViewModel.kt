@@ -10,24 +10,26 @@ import androidx.work.WorkManager
 import com.example.mycar.workers.CarWorker
 import java.util.concurrent.TimeUnit
 
-class CarNotificationViewModel(application: Application): ViewModel() {
+class CarNotificationViewModel(application: Application) : ViewModel() {
 
     private val workManager = WorkManager.getInstance(application)
 
     internal fun scheduleReminder(
         duration: Long,
         unit: TimeUnit,
-        carName: String
+        carName: String,
+        km: Int
     ) {
 
-        val data = Data.Builder().putString(CarWorker.nameKey, carName).build()
+        if (km >= 150000) {
+            val data = Data.Builder().putString(CarWorker.nameKey, carName).build()
+            val carReminderBuilder = OneTimeWorkRequestBuilder<CarWorker>()
+                .setInitialDelay(duration, unit)
+                .setInputData(data)
+                .build()
+            workManager.enqueueUniqueWork(carName, ExistingWorkPolicy.REPLACE, carReminderBuilder)
+        }
 
-        val carReminderBuilder = OneTimeWorkRequestBuilder<CarWorker>()
-            .setInitialDelay(duration, unit)
-            .setInputData(data)
-            .build()
-
-        workManager.enqueueUniqueWork(carName, ExistingWorkPolicy.REPLACE, carReminderBuilder)
     }
 }
 
