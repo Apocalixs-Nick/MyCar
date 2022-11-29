@@ -61,6 +61,9 @@ class CarDetailFragment : Fragment() {
             // Inflate the layout for this fragment
             _binding = FragmentCarDetailBinding.inflate(inflater, container, false)
             return binding.root
+            binding.apply {
+                lifecycleOwner = viewLifecycleOwner
+            }
         } catch (e: Exception) {
             Log.e("ErrorDetails", "onCreateViewCarDetailsFragment", e)
             throw e

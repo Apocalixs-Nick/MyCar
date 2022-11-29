@@ -61,6 +61,9 @@ class AddCarFragment : Fragment() {
             // Inflate the layout for this fragment
             _binding = FragmentAddCarBinding.inflate(inflater, container, false)
             return binding.root
+            binding.apply {
+                lifecycleOwner = viewLifecycleOwner
+            }
         } catch (e: Exception) {
             Log.e("ErrorAdd", "onCreateViewAddCarFragment", e)
             throw e
@@ -71,6 +74,7 @@ class AddCarFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.brandAcquisition()
+        viewModel.fuelAcquisition()
         binding.imgBtn.setOnClickListener {
             imageChooser()
         }
@@ -93,9 +97,11 @@ class AddCarFragment : Fragment() {
             binding.brandCarInput.setOnClickListener {
                 setBrandCar()
             }
-
             binding.nameCarInput.setOnClickListener {
                 setModelCar()
+            }
+            binding.fuelCarInput.setOnClickListener {
+                setFuelCar()
             }
         }
     }
@@ -226,6 +232,9 @@ class AddCarFragment : Fragment() {
             binding.nameCarInput.setOnClickListener {
                 setModelCar()
             }
+            binding.fuelCarInput.setOnClickListener {
+                setFuelCar()
+            }
             binding.kmCarInput.setText(car.kM.toString(), TextView.BufferType.SPANNABLE)
         }
     }
@@ -286,6 +295,35 @@ class AddCarFragment : Fragment() {
             binding.nameCarInput.setText("")
         }
         builderModel.show()
+    }
+
+    /**
+     * Private function for the appearance of an AlertDialog to select the fuel
+     */
+    private fun setFuelCar() {
+        val listFuelCar = viewModel.getFuel()
+        val itemsFuel = arrayOfNulls<CharSequence>(listFuelCar.size)
+        for (i in listFuelCar.indices) {
+            itemsFuel[i] = listFuelCar[i]
+        }
+        val builderFuel: AlertDialog.Builder = AlertDialog.Builder(context)
+        builderFuel.setTitle(R.string.type_fuel)
+        builderFuel.setSingleChoiceItems(
+            itemsFuel,
+            viewModel.checkedItemFuel
+        ) { _: DialogInterface, which ->
+            viewModel.checkedItemFuel = which
+        }
+        builderFuel.setItems(itemsFuel) { _: DialogInterface, which ->
+            viewModel.checkedItemFuel = which
+        }
+        builderFuel.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
+            binding.fuelCarInput.setText(itemsFuel[viewModel.checkedItemFuel].toString())
+        }
+        builderFuel.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
+            binding.fuelCarInput.setText("")
+        }
+        builderFuel.show()
     }
 
     override fun onDestroyView() {

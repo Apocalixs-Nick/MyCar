@@ -7,10 +7,7 @@ import androidx.lifecycle.*
 import com.example.mycar.R
 import com.example.mycar.data.MyCarDao
 import com.example.mycar.model.MyCar
-import com.example.mycar.network.MyCarApi
-import com.example.mycar.network.MyCarApiLogo
-import com.example.mycar.network.MyCarInfo
-import com.example.mycar.network.MyCarLogo
+import com.example.mycar.network.*
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,6 +16,12 @@ import java.io.ByteArrayOutputStream
 import java.io.IOException
 
 enum class LogoApiStatus {
+    LOADING,
+    ERROR,
+    DONE
+}
+
+enum class FuelApiStatus {
     LOADING,
     ERROR,
     DONE
@@ -38,6 +41,8 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
 
     var checkedItemModel = -1
 
+    var checkedItemFuel = -1
+
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
 
     val eventNetworkError: LiveData<Boolean>
@@ -49,12 +54,25 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         get() = _isNetworkErrorShown
 
 
+    private val _fuel = MutableLiveData<List<FuelInfo>>()
+
+    val fuel: LiveData<List<FuelInfo>>
+        get() = _fuel
+
+    // Status Fuel Api
+    private val _statusFuelApi = MutableLiveData<FuelApiStatus>()
+    val statusFuelApi: LiveData<FuelApiStatus> = _statusFuelApi
+
     // Status Logo Api
     private val _statusLogApi = MutableLiveData<LogoApiStatus>()
     val statusLogApi: LiveData<LogoApiStatus> = _statusLogApi
 
     private val _logoDataApi = MutableLiveData<List<MyCarLogo>>()
     val logoDataApi: LiveData<List<MyCarLogo>> = _logoDataApi
+
+    init {
+        getLogo()
+    }
 
     fun isValidEntry(
         name: String,
@@ -198,7 +216,6 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         val makerList = _brand.value!!.filter { e -> e.maker == maker }
         return makerList.map { e -> e.model }.distinct().sorted()
     }
-
     /**
      * Gets Logo information from the Vehicle API Retrofit service and updates the
      * [_logoDataApi] [List] [LiveData].
@@ -214,6 +231,43 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
                 _logoDataApi.value = listOf()
             }
         }
+    }
+
+    fun fuelAcquisition() = CoroutineScope(Dispatchers.Main).launch {
+        /*_statusFuelApi.value = FuelApiStatus.LOADING
+        try {
+            _fuel.value = FuelApi.retrofitService.getFuelInfo()
+            _statusFuelApi.value = FuelApiStatus.DONE
+        } catch (e: java.lang.Exception) {
+            _statusFuelApi.value = FuelApiStatus.ERROR
+            _fuel.value = listOf()
+        }*/
+
+        try {
+            if (_fuel.value == null) {
+                _fuel.postValue(FuelApi.retrofitService.getFuelInfo())
+            }
+
+            _eventNetworkError.value = false
+            _isNetworkErrorShown.value = false
+
+        } catch (networkError: IOException) {
+            _eventNetworkError.value = true
+        }
+    }
+
+    fun getFuel(): List<String> {
+        /*CoroutineScope(Dispatchers.Main).launch {
+            _statusFuelApi.value = FuelApiStatus.LOADING
+            try {
+                _fuel.value = FuelApi.retrofitService.getFuelInfo()
+                _statusFuelApi.value = FuelApiStatus.DONE
+            } catch (e: java.lang.Exception) {
+                _statusFuelApi.value = FuelApiStatus.ERROR
+                _fuel.value = listOf()
+            }
+        }*/
+        return _fuel.value!!.map { e -> e.nameFuel }.distinct()
     }
 }
 

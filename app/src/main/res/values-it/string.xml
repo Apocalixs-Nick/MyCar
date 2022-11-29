@@ -34,4 +34,5 @@
 
     <string name="channel_name">car_channel</string>
     <string name="channel_description">car_reminder</string>
+    <string name="type_fuel">Scegli il tuo combustibile</string>
 </resources>
