@@ -1,10 +1,7 @@
 package com.example.mycar.ui.fragment
 
-import android.annotation.SuppressLint
-import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
@@ -12,29 +9,30 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.app.ShareCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.mycar.BaseApplication
 import com.example.mycar.R
-import com.example.mycar.databinding.FragmentAddCarBinding
 import com.example.mycar.databinding.FragmentCarDetailBinding
 import com.example.mycar.model.MyCar
-import com.example.mycar.ui.adapter.CarListAdapter
-import com.example.mycar.ui.fragment.CarDetailFragmentDirections.Companion.actionCarDetailFragmentToAddCarFragment
+import com.example.mycar.ui.viewmodel.CarNotificationViewModel
+import com.example.mycar.ui.viewmodel.CarNotificationViewModelFactory
 import com.example.mycar.ui.viewmodel.CarViewModel
 import com.example.mycar.ui.viewmodel.CarViewModelFactory
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.Snackbar
+import java.util.concurrent.TimeUnit
 
 /**
  * A simple [Fragment] subclass.
  * Use the [CarDetailFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+
+const val kmCoupon = 150000
+
 class CarDetailFragment : Fragment() {
 
     private val navigation: CarDetailFragmentArgs by navArgs()
@@ -43,6 +41,10 @@ class CarDetailFragment : Fragment() {
         CarViewModelFactory(
             (activity?.application as BaseApplication).database.myCarDao()
         )
+    }
+
+    private val viewModelNotification: CarNotificationViewModel by viewModels {
+        CarNotificationViewModelFactory(requireActivity().application)
     }
 
     private lateinit var car: MyCar
@@ -73,6 +75,9 @@ class CarDetailFragment : Fragment() {
         viewModel.retrieveCar(id).observe(this.viewLifecycleOwner) { selectCar ->
             car = selectCar
             bindCar()
+            if (car.kM.equals(kmCoupon)) {
+                viewModelNotification.scheduleReminder(5, TimeUnit.SECONDS, car.name.toString())
+            }
         }
     }
 

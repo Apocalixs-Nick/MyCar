@@ -5,19 +5,17 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.inflate
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mycar.BaseApplication
 import com.example.mycar.R
-import com.example.mycar.databinding.FragmentCarDetailBinding
 import com.example.mycar.databinding.FragmentCarListBinding
-import com.example.mycar.model.MyCar
 import com.example.mycar.ui.adapter.CarListAdapter
 import com.example.mycar.ui.viewmodel.CarViewModel
 import com.example.mycar.ui.viewmodel.CarViewModelFactory
+import java.util.concurrent.TimeUnit
 
 /**
  * A simple [Fragment] subclass.
@@ -53,15 +51,15 @@ class CarListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel.getLogo()
         try {
-            val adapter = CarListAdapter { car ->
+            val adapter = CarListAdapter(logoDataApi = viewModel.logoDataApi.value, clickListener =  { car ->
                 val action = CarListFragmentDirections
                     .actionCarListFragmentToCarDetailFragment(
                         car.id
                     )
                 findNavController().navigate(action)
-            }
+            })
 
             viewModel.allCar.observe(this.viewLifecycleOwner) { cars ->
                 cars.let {

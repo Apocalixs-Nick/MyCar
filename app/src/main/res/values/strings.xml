@@ -30,4 +30,7 @@
     <string name="car">My car:</string>
     <string name="share">Share car</string>
     <string name="sharing_not_available">Sharing Not Available</string>
+
+    <string name="channel_name">car_channel</string>
+    <string name="channel_description">car_reminder</string>
 </resources>

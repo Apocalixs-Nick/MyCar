@@ -2,17 +2,27 @@ package com.example.mycar.ui.viewmodel
 
 import android.graphics.Bitmap
 import android.util.Log
+import android.widget.ImageView
 import androidx.lifecycle.*
+import com.example.mycar.R
 import com.example.mycar.data.MyCarDao
 import com.example.mycar.model.MyCar
 import com.example.mycar.network.MyCarApi
-import com.example.mycar.network.MyCarApiService
+import com.example.mycar.network.MyCarApiLogo
 import com.example.mycar.network.MyCarInfo
+import com.example.mycar.network.MyCarLogo
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.ByteArrayOutputStream
 import java.io.IOException
+
+enum class LogoApiStatus {
+    LOADING,
+    ERROR,
+    DONE
+}
 
 class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
 
@@ -38,6 +48,13 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
     val isNetworkErrorShown: LiveData<Boolean>
         get() = _isNetworkErrorShown
 
+
+    // Status Logo Api
+    private val _statusLogApi = MutableLiveData<LogoApiStatus>()
+    val statusLogApi: LiveData<LogoApiStatus> = _statusLogApi
+
+    private val _logoDataApi = MutableLiveData<List<MyCarLogo>>()
+    val logoDataApi: LiveData<List<MyCarLogo>> = _logoDataApi
 
     fun isValidEntry(
         name: String,
@@ -182,6 +199,22 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         return makerList.map { e -> e.model }.distinct().sorted()
     }
 
+    /**
+     * Gets Logo information from the Vehicle API Retrofit service and updates the
+     * [_logoDataApi] [List] [LiveData].
+     */
+    fun getLogo() {
+        viewModelScope.launch {
+            _statusLogApi.value = LogoApiStatus.LOADING
+            try {
+                _logoDataApi.value = MyCarApiLogo.retrofitService.getMyCarLogo()
+                _statusLogApi.value = LogoApiStatus.DONE
+            } catch (e: java.lang.Exception) {
+                _statusLogApi.value = LogoApiStatus.ERROR
+                _logoDataApi.value = listOf()
+            }
+        }
+    }
 }
 
 

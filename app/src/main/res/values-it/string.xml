@@ -31,4 +31,7 @@
     <string name="car">La mia auto:</string>
     <string name="share">Condividi l\'auto</string>
     <string name="sharing_not_available">Condivisione non disponibile</string>
+
+    <string name="channel_name">car_channel</string>
+    <string name="channel_description">car_reminder</string>
 </resources>

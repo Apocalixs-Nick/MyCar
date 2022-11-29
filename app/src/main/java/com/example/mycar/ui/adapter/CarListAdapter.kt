@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mycar.databinding.ListItemCarBinding
 import com.example.mycar.model.MyCar
+import com.example.mycar.network.MyCarLogo
+import com.example.mycar.ui.setAndGetUriByBrandParsingListOfLogoAndImageView
 
-class CarListAdapter(private val clickListener: (MyCar) -> Unit) :
+class CarListAdapter(private val clickListener: (MyCar) -> Unit, private val logoDataApi: List<MyCarLogo>?) :
     ListAdapter<MyCar, CarListAdapter.CarViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarViewHolder {
@@ -27,13 +29,14 @@ class CarListAdapter(private val clickListener: (MyCar) -> Unit) :
         holder.itemView.setOnClickListener {
             clickListener(car)
         }
-        holder.bind(car)
+        holder.bind(car, logoDataApi)
     }
 
     class CarViewHolder(private var binding: ListItemCarBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(car: MyCar) {
+        fun bind(car: MyCar, logoDataApi: List<MyCarLogo>?  ) {
             binding.apply {
+                setAndGetUriByBrandParsingListOfLogoAndImageView(logoDataApi, car.brand, logoCar)
                 nameCar.text = car.name
                 brandCar.text = car.brand
                 yearCar.text = car.productionYear.toString()

@@ -79,5 +79,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
 
     // WorkManager dependency
-    implementation "androidx.work:work-runtime-ktx:$work"
+    implementation("androidx.work:work-runtime-ktx:$work_version")
+
+    // Picasso
+    implementation 'com.squareup.picasso:picasso:2.8'
 }
