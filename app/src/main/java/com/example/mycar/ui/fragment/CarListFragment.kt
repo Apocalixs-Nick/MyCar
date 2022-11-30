@@ -6,9 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,9 +17,6 @@ import com.example.mycar.network.logo.MyCarLogo
 import com.example.mycar.ui.adapter.CarListAdapter
 import com.example.mycar.ui.viewmodel.CarViewModel
 import com.example.mycar.ui.viewmodel.CarViewModelFactory
-import coil.load
-import coil.loadAny
-import com.example.mycar.network.logo.gsonLogo
 
 /**
  * A simple [Fragment] subclass.
