@@ -34,4 +34,5 @@
     <string name="channel_name">car_channel</string>
     <string name="channel_description">car_reminder</string>
     <string name="type_fuel">Choose your fuel</string>
+    <string name="labels_blank">Warning! Required fields are blank.</string>
 </resources>

@@ -27,6 +27,7 @@ import com.example.mycar.ui.viewmodel.CarNotificationViewModel
 import com.example.mycar.ui.viewmodel.CarNotificationViewModelFactory
 import com.example.mycar.ui.viewmodel.CarViewModel
 import com.example.mycar.ui.viewmodel.CarViewModelFactory
+import com.google.android.material.snackbar.Snackbar
 import java.util.concurrent.TimeUnit
 
 /**
@@ -110,20 +111,25 @@ class AddCarFragment : Fragment() {
      * Private function for adding a new car
      */
     private fun addCar() {
-        if (isValidEntry() || noSecondFuel(car)) {
-            calledViewModelAdd()
-            findNavController().navigate(
-                R.id.action_addCarFragment_to_carListFragment
-            )
-            binding.saveBtn.setOnClickListener {
+        if (isValidEntry()) {
+            if (isValidEntry() || noSecondFuel(car)) {
+                calledViewModelAdd()
+                findNavController().navigate(
+                    R.id.action_addCarFragment_to_carListFragment
+                )
+                binding.saveBtn.setOnClickListener {
 
+                }
+            } else {
+                calledViewModelAdd()
+                findNavController().navigate(
+                    R.id.action_addCarFragment_to_carListFragment
+                )
             }
         } else {
-            calledViewModelAdd()
-            findNavController().navigate(
-                R.id.action_addCarFragment_to_carListFragment
-            )
+            view?.let { Snackbar.make(it, R.string.labels_blank, Snackbar.LENGTH_SHORT).show() }
         }
+
     }
 
 
@@ -145,7 +151,12 @@ class AddCarFragment : Fragment() {
             km = binding.kmCarInput.text.toString()
         )
 
-        viewModelNotification.scheduleReminder(5,TimeUnit.SECONDS,binding.nameCarInput.text.toString(), binding.kmCarInput.text.toString().toInt())
+        viewModelNotification.scheduleReminder(
+            5,
+            TimeUnit.SECONDS,
+            binding.nameCarInput.text.toString(),
+            binding.kmCarInput.text.toString().toInt()
+        )
     }
 
     /**
@@ -168,10 +179,17 @@ class AddCarFragment : Fragment() {
                 km = binding.kmCarInput.text.toString()
             )
 
-            viewModelNotification.scheduleReminder(5,TimeUnit.SECONDS,binding.nameCarInput.text.toString(), binding.kmCarInput.text.toString().toInt())
+            viewModelNotification.scheduleReminder(
+                5,
+                TimeUnit.SECONDS,
+                binding.nameCarInput.text.toString(),
+                binding.kmCarInput.text.toString().toInt()
+            )
             findNavController().navigate(
                 R.id.action_addCarFragment_to_carListFragment
             )
+        } else {
+            view?.let { Snackbar.make(it, R.string.labels_blank, Snackbar.LENGTH_SHORT).show() }
         }
     }
 
