@@ -2,13 +2,15 @@ package com.example.mycar.ui.viewmodel
 
 import android.graphics.Bitmap
 import android.util.Log
-import android.widget.ImageView
 import androidx.lifecycle.*
-import com.example.mycar.R
 import com.example.mycar.data.MyCarDao
 import com.example.mycar.model.MyCar
-import com.example.mycar.network.*
-import com.squareup.picasso.Picasso
+import com.example.mycar.network.car.MyCarApi
+import com.example.mycar.network.car.MyCarInfo
+import com.example.mycar.network.fuel.FuelApi
+import com.example.mycar.network.fuel.FuelInfo
+import com.example.mycar.network.logo.MyCarApiLogo
+import com.example.mycar.network.logo.MyCarLogo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -74,6 +76,9 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         getLogo()
     }
 
+    /**
+     * Function for checking the entered fields that they are not blank
+     */
     fun isValidEntry(
         name: String,
         brand: String,
@@ -193,6 +198,9 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         }
     }
 
+    /**
+     * Function for capturing car data via API
+     */
     fun brandAcquisition() = CoroutineScope(Dispatchers.Main).launch {
         try {
             if (_brand.value == null) {
@@ -208,14 +216,21 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         }
     }
 
+    /**
+     * Function for brand acquisition via API
+     */
     fun getBrand(): List<String> {
         return _brand.value!!.map { e -> e.maker }.distinct()
     }
 
+    /**
+     * Function for capturing patterns by brand via API
+     */
     fun getModel(maker: String): List<String> {
         val makerList = _brand.value!!.filter { e -> e.maker == maker }
         return makerList.map { e -> e.model }.distinct().sorted()
     }
+
     /**
      * Gets Logo information from the Vehicle API Retrofit service and updates the
      * [_logoDataApi] [List] [LiveData].
@@ -233,16 +248,10 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         }
     }
 
+    /**
+     * Function for acquiring fuel data via API
+     */
     fun fuelAcquisition() = CoroutineScope(Dispatchers.Main).launch {
-        /*_statusFuelApi.value = FuelApiStatus.LOADING
-        try {
-            _fuel.value = FuelApi.retrofitService.getFuelInfo()
-            _statusFuelApi.value = FuelApiStatus.DONE
-        } catch (e: java.lang.Exception) {
-            _statusFuelApi.value = FuelApiStatus.ERROR
-            _fuel.value = listOf()
-        }*/
-
         try {
             if (_fuel.value == null) {
                 _fuel.postValue(FuelApi.retrofitService.getFuelInfo())
@@ -256,17 +265,10 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         }
     }
 
+    /**
+     * Function to save fuel fuels in a list by API
+     */
     fun getFuel(): List<String> {
-        /*CoroutineScope(Dispatchers.Main).launch {
-            _statusFuelApi.value = FuelApiStatus.LOADING
-            try {
-                _fuel.value = FuelApi.retrofitService.getFuelInfo()
-                _statusFuelApi.value = FuelApiStatus.DONE
-            } catch (e: java.lang.Exception) {
-                _statusFuelApi.value = FuelApiStatus.ERROR
-                _fuel.value = listOf()
-            }
-        }*/
         return _fuel.value!!.map { e -> e.nameFuel }.distinct()
     }
 }

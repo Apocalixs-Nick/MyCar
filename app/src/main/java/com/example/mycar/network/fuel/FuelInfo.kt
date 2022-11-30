@@ -1,4 +1,4 @@
-package com.example.mycar.network
+package com.example.mycar.network.fuel
 
 import com.google.gson.annotations.SerializedName
 

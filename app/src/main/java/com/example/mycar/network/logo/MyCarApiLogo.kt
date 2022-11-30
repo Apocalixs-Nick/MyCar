@@ -1,4 +1,4 @@
-package com.example.mycar.network
+package com.example.mycar.network.logo
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -8,9 +8,9 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 
 private const val BASE_URL =
-    "https://raw.githubusercontent.com/ElyesDer/Vehicule-data-DB/master/"
+    "https://raw.githubusercontent.com/ErCrasher27/carl-maker-logos.json/main/"
 
-var gson: Gson = GsonBuilder()
+var gsonLogo: Gson = GsonBuilder()
     .setLenient()
     .create()
 
@@ -21,28 +21,28 @@ var gson: Gson = GsonBuilder()
 private val retrofit =
     Retrofit.Builder()
         .baseUrl(BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create(gson))
+        .addConverterFactory(GsonConverterFactory.create(gsonLogo))
         .build()
 
 
 /**
- * A public interface that exposes the [getMyCarInfo] method
+ * A public interface that exposes the [getMyCarLogo] method
  */
-interface MyCarApiService {
+interface MyCarApiLogoService {
 
     /**
-     * Returns a [List] of [MyCarInfo] and this method can be called from a Coroutine.
+     * Returns a [List] of [MyCarApiLogo] and this method can be called from a Coroutine.
      * The @GET annotation indicates that the "year" endpoint will be requested with the GET
      * HTTP method
      */
     @Headers("Content-Type: application/json")
-    @GET("jsondata.json")
-    suspend fun getMyCarInfo(): List<MyCarInfo>
+    @GET("carl-maker-logos.json")
+    suspend fun getMyCarLogo(): List<MyCarLogo>
 }
 
 /**
  * A public Api object that exposes the lazy-initialized Retrofit service
  */
-object MyCarApi {
-    val retrofitService: MyCarApiService by lazy { retrofit.create(MyCarApiService::class.java) }
+object MyCarApiLogo {
+    val retrofitService: MyCarApiLogoService by lazy { retrofit.create(MyCarApiLogoService::class.java) }
 }

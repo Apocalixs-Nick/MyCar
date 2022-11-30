@@ -1,4 +1,4 @@
-package com.example.mycar.network
+package com.example.mycar.network.logo
 
 import com.google.gson.annotations.SerializedName
 

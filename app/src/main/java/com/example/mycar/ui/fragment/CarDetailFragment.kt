@@ -82,6 +82,9 @@ class CarDetailFragment : Fragment() {
         }
     }
 
+    /**
+     * Private function to control the second fuel other than the primary fuel
+     */
     private fun noSecondFuel(car: MyCar): Boolean {
         if (car.secondFuel?.isBlank() == true) {
             return false
@@ -89,6 +92,9 @@ class CarDetailFragment : Fragment() {
         return true
     }
 
+    /**
+     * Private function for setting fields
+     */
     private fun bindCar() {
         binding.apply {
             nameCar.text = car.name
@@ -122,6 +128,9 @@ class CarDetailFragment : Fragment() {
         }
     }
 
+    /**
+     * Function for sharing a vehicle
+     */
     fun shareCar() {
         if (noSecondFuel(car)) {
             context?.let {
@@ -142,6 +151,9 @@ class CarDetailFragment : Fragment() {
         }
     }
 
+    /**
+     * Private function for creating the share
+     */
     private fun shareCreation(context: Context, subject: String, text: String) {
         val type = "text/plain"
 
@@ -157,6 +169,9 @@ class CarDetailFragment : Fragment() {
         )
     }
 
+    /**
+     * Private function for pop up display to confirm the deletion of a vehicle
+     */
     private fun showConfirmationDialog() {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(getString(android.R.string.dialog_alert_title))
@@ -169,11 +184,17 @@ class CarDetailFragment : Fragment() {
             .show()
     }
 
+    /**
+     * Private function for delete a vehicle
+     */
     private fun deleteCar() {
         viewModel.deleteCar(car)
         findNavController().navigateUp()
     }
 
+    /**
+     * Private function for edit a vehicle
+     */
     private fun editCar() {
         val action = CarDetailFragmentDirections.actionCarDetailFragmentToAddCarFragment(
             car.id,

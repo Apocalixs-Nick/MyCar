@@ -106,6 +106,9 @@ class AddCarFragment : Fragment() {
         }
     }
 
+    /**
+     * Private function for adding a new car
+     */
     private fun addCar() {
         if (isValidEntry() || noSecondFuel(car)) {
             calledViewModelAdd()
@@ -124,6 +127,9 @@ class AddCarFragment : Fragment() {
     }
 
 
+    /**
+     * Private function for calling the addCar() function of the viewModel
+     */
     private fun calledViewModelAdd() {
         viewModel.addCar(
             name = binding.nameCarInput.text.toString(),
@@ -142,7 +148,9 @@ class AddCarFragment : Fragment() {
         viewModelNotification.scheduleReminder(5,TimeUnit.SECONDS,binding.nameCarInput.text.toString(), binding.kmCarInput.text.toString().toInt())
     }
 
-    //to review
+    /**
+     * Private function for editing data from an existing machine in the DB
+     */
     private fun updateCar() {
         if (isValidEntry()) {
             viewModel.updateCar(
@@ -167,6 +175,9 @@ class AddCarFragment : Fragment() {
         }
     }
 
+    /**
+     * Private function for checking fields that are not blank
+     */
     private fun isValidEntry(): Boolean {
         return viewModel.isValidEntry(
             binding.nameCarInput.text.toString(),
@@ -189,6 +200,9 @@ class AddCarFragment : Fragment() {
         )
     }*/
 
+    /**
+     * Private function to control the second fuel other than the primary fuel
+     */
     private fun noSecondFuel(car: MyCar): Boolean {
         if (car.secondFuel?.isBlank() == true) {
             return false
@@ -196,6 +210,9 @@ class AddCarFragment : Fragment() {
         return true
     }
 
+    /**
+     * Private function for setting fields
+     */
     private fun bindCar(car: MyCar) {
         binding.apply {
             nameCarInput.setText(car.name, TextView.BufferType.SPANNABLE)

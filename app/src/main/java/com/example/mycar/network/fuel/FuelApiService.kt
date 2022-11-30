@@ -1,4 +1,4 @@
-package com.example.mycar.network
+package com.example.mycar.network.fuel
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -8,9 +8,9 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 
 private const val BASE_URL =
-    "https://raw.githubusercontent.com/ErCrasher27/carl-maker-logos.json/main/"
+    "https://raw.githubusercontent.com/Apocalixs-Nick/type-fuel-car.json/main/"
 
-var gsonLogo: Gson = GsonBuilder()
+var gsonFuel: Gson = GsonBuilder()
     .setLenient()
     .create()
 
@@ -21,28 +21,22 @@ var gsonLogo: Gson = GsonBuilder()
 private val retrofit =
     Retrofit.Builder()
         .baseUrl(BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create(gsonLogo))
+        .addConverterFactory(GsonConverterFactory.create(gsonFuel))
         .build()
 
-
-/**
- * A public interface that exposes the [getMyCarLogo] method
- */
-interface MyCarApiLogoService {
-
+interface FuelApiService {
     /**
-     * Returns a [List] of [MyCarApiLogo] and this method can be called from a Coroutine.
+     * Returns a [List] of [FuelInfo] and this method can be called from a Coroutine.
      * The @GET annotation indicates that the "year" endpoint will be requested with the GET
      * HTTP method
      */
     @Headers("Content-Type: application/json")
-    @GET("carl-maker-logos.json")
-    suspend fun getMyCarLogo(): List<MyCarLogo>
+    @GET("type-fuel-car.json")
+    suspend fun getFuelInfo(): List<FuelInfo>
 }
-
 /**
  * A public Api object that exposes the lazy-initialized Retrofit service
  */
-object MyCarApiLogo {
-    val retrofitService: MyCarApiLogoService by lazy { retrofit.create(MyCarApiLogoService::class.java) }
+object FuelApi {
+    val retrofitService: FuelApiService by lazy { retrofit.create(FuelApiService::class.java) }
 }

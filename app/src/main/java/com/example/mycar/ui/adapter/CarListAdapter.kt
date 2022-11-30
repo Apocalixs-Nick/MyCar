@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mycar.databinding.ListItemCarBinding
 import com.example.mycar.model.MyCar
-import com.example.mycar.network.MyCarLogo
+import com.example.mycar.network.logo.MyCarLogo
 import com.example.mycar.ui.setAndGetUriByBrandParsingListOfLogoAndImageView
 
 class CarListAdapter(private val clickListener: (MyCar) -> Unit, private val logoDataApi: List<MyCarLogo>?) :
