@@ -6,19 +6,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mycar.BaseApplication
 import com.example.mycar.R
 import com.example.mycar.databinding.FragmentCarListBinding
+import com.example.mycar.network.logo.MyCarLogo
 import com.example.mycar.ui.adapter.CarListAdapter
-import com.example.mycar.ui.viewmodel.CarNotificationViewModel
-import com.example.mycar.ui.viewmodel.CarNotificationViewModelFactory
 import com.example.mycar.ui.viewmodel.CarViewModel
 import com.example.mycar.ui.viewmodel.CarViewModelFactory
-import java.util.concurrent.TimeUnit
+import coil.load
+import coil.loadAny
+import com.example.mycar.network.logo.gsonLogo
 
 /**
  * A simple [Fragment] subclass.
@@ -36,7 +39,6 @@ class CarListFragment : Fragment() {
     private var _binding: FragmentCarListBinding? = null
 
     private val binding get() = _binding!!
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -57,10 +59,9 @@ class CarListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getLogo()
         try {
             val adapter =
-                CarListAdapter(logoDataApi = viewModel.logoDataApi.value, clickListener = { car ->
+                CarListAdapter(logoDataApi = viewModel.logoDataApi, clickListener = { car ->
                     val action = CarListFragmentDirections
                         .actionCarListFragmentToCarDetailFragment(
                             car.id
@@ -68,6 +69,10 @@ class CarListFragment : Fragment() {
                     findNavController().navigate(action)
                 })
 
+            val observer = Observer<List<MyCarLogo>> {
+                binding.recyclerView.adapter = adapter
+            }
+            viewModel.logoDataApi.observe(viewLifecycleOwner, observer)
             viewModel.allCar.observe(this.viewLifecycleOwner) { cars ->
                 cars.let {
                     adapter.submitList(it)

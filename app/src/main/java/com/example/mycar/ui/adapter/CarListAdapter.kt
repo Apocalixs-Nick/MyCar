@@ -3,15 +3,20 @@ package com.example.mycar.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.loadAny
+import com.example.mycar.R
 import com.example.mycar.databinding.ListItemCarBinding
 import com.example.mycar.model.MyCar
 import com.example.mycar.network.logo.MyCarLogo
 import com.example.mycar.ui.setAndGetUriByBrandParsingListOfLogoAndImageView
 
-class CarListAdapter(private val clickListener: (MyCar) -> Unit, private val logoDataApi: List<MyCarLogo>?) :
+class CarListAdapter(private val clickListener: (MyCar) -> Unit, private val logoDataApi: LiveData<List<MyCarLogo>>) :
     ListAdapter<MyCar, CarListAdapter.CarViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarViewHolder {
@@ -34,9 +39,9 @@ class CarListAdapter(private val clickListener: (MyCar) -> Unit, private val log
 
     class CarViewHolder(private var binding: ListItemCarBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(car: MyCar, logoDataApi: List<MyCarLogo>?  ) {
+        fun bind(car: MyCar, logoDataApi: LiveData<List<MyCarLogo>>) {
             binding.apply {
-                setAndGetUriByBrandParsingListOfLogoAndImageView(logoDataApi, car.brand, logoCar)
+                setAndGetUriByBrandParsingListOfLogoAndImageView(logoDataApi.value, car.brand, logoCar)
                 nameCar.text = car.name
                 brandCar.text = car.brand
                 yearCar.text = car.productionYear.toString()
