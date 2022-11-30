@@ -12,12 +12,16 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.mycar.BaseApplication
 import com.example.mycar.R
 import com.example.mycar.databinding.FragmentCarDetailBinding
 import com.example.mycar.model.MyCar
+import com.example.mycar.network.logo.MyCarLogo
+import com.example.mycar.ui.setAndGetUriByBrandParsingListOfLogoAndImageView
 import com.example.mycar.ui.viewmodel.CarNotificationViewModel
 import com.example.mycar.ui.viewmodel.CarNotificationViewModelFactory
 import com.example.mycar.ui.viewmodel.CarViewModel
@@ -31,8 +35,6 @@ import java.util.concurrent.TimeUnit
  * create an instance of this fragment.
  */
 
-const val kmCoupon = 150000
-
 class CarDetailFragment : Fragment() {
 
     private val navigation: CarDetailFragmentArgs by navArgs()
@@ -42,7 +44,6 @@ class CarDetailFragment : Fragment() {
             (activity?.application as BaseApplication).database.myCarDao()
         )
     }
-
     private val viewModelNotification: CarNotificationViewModel by viewModels {
         CarNotificationViewModelFactory(requireActivity().application)
     }
@@ -52,7 +53,6 @@ class CarDetailFragment : Fragment() {
     private var _binding: FragmentCarDetailBinding? = null
 
     private val binding get() = _binding!!
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -125,6 +125,10 @@ class CarDetailFragment : Fragment() {
             shareCar.setOnClickListener {
                 shareCar()
             }
+            val observer = Observer<List<MyCarLogo>> {
+                setAndGetUriByBrandParsingListOfLogoAndImageView(viewModel.logoDataApi.value, car.brand,icBrandCar)
+            }
+            viewModel.logoDataApi.observe(viewLifecycleOwner, observer)
         }
     }
 
