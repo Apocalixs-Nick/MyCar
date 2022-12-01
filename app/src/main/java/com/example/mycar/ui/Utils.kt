@@ -19,5 +19,5 @@ fun setAndGetUriByBrandParsingListOfLogoAndImageView(
             return
         }
     }
-    logo.setImageResource(R.drawable.ic_car)
+    logo.setImageResource(R.drawable.ic_vehicle)
 }
