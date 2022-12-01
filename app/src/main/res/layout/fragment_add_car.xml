@@ -26,6 +26,8 @@
                     android:id="@+id/brand_car_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:longClickable="false"
+                    android:focusable="false"
                     android:inputType="textCapSentences|textAutoCorrect"
                     android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -43,6 +45,8 @@
                     android:id="@+id/name_car_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:longClickable="false"
+                    android:focusable="false"
                     android:inputType="textCapSentences|textAutoCorrect"
                     android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -166,6 +170,8 @@
                     android:id="@+id/fuel_car_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:longClickable="false"
+                    android:focusable="false"
                     android:inputType="textCapSentences|textAutoCorrect" />
 
             </com.google.android.material.textfield.TextInputLayout>
