@@ -36,4 +36,16 @@
     <string name="channel_description">car_reminder</string>
     <string name="type_fuel">Scegli il tuo combustibile</string>
     <string name="labels_blank">Attenzione! I campi obbligatori sono vuoti.</string>
+
+    <string name="blank_brand">Campo brand vuoto!</string>
+    <string name="blank_model">Campo modello vuoto!</string>
+    <string name="blank_power">Campo potenza vuoto!</string>
+    <string name="blank_door">Campo porte vuoto!</string>
+    <string name="blank_fuel">Campo combustibile vuoto!</string>
+    <string name="blank_year">Campo anno vuoto!</string>
+    <string name="blank_places">Campo posti vuoto!</string>
+    <string name="blank_color">Campo colore vuoto!</string>
+    <string name="blank_km">Campo kM vuoto!</string>
+
+    <string name="error_snackbar">Error Snackbar, i campi sono pieni</string>
 </resources>

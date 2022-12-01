@@ -35,6 +35,7 @@ import java.util.concurrent.TimeUnit
  * Use the [AddCarFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+
 class AddCarFragment : Fragment() {
 
     private val navigation: AddCarFragmentArgs by navArgs()
@@ -54,6 +55,9 @@ class AddCarFragment : Fragment() {
     private var _binding: FragmentAddCarBinding? = null
 
     private val binding get() = _binding!!
+
+    private val error = ""
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -127,11 +131,28 @@ class AddCarFragment : Fragment() {
                 )
             }
         } else {
-            view?.let { Snackbar.make(it, R.string.labels_blank, Snackbar.LENGTH_SHORT).show() }
+            view?.let { Snackbar.make(it, snackBarBlank(), Snackbar.LENGTH_SHORT).show() }
         }
 
     }
 
+    /**
+     * Function for the watching the field blank
+     */
+    fun snackBarBlank(): Int {
+        return when (error.isBlank()) {
+            binding.brandCarInput.text.toString().isBlank() -> R.string.blank_brand
+            binding.nameCarInput.text.toString().isBlank() -> R.string.blank_model
+            binding.powerCarInput.text.toString().isBlank() -> R.string.blank_power
+            binding.doorsCarInput.text.toString().isBlank() -> R.string.blank_door
+            binding.yearCarInput.text.toString().isBlank() -> R.string.blank_year
+            binding.placesCarInput.text.toString().isBlank() -> R.string.blank_places
+            binding.colorCarInput.text.toString().isBlank() -> R.string.blank_color
+            binding.kmCarInput.text.toString().isBlank() -> R.string.blank_km
+            binding.fuelCarInput.text.toString().isBlank() -> R.string.blank_fuel
+            else -> R.string.error_snackbar
+        }
+    }
 
     /**
      * Private function for calling the addCar() function of the viewModel
@@ -189,7 +210,7 @@ class AddCarFragment : Fragment() {
                 R.id.action_addCarFragment_to_carListFragment
             )
         } else {
-            view?.let { Snackbar.make(it, R.string.labels_blank, Snackbar.LENGTH_SHORT).show() }
+            view?.let { Snackbar.make(it, snackBarBlank(), Snackbar.LENGTH_SHORT).show() }
         }
     }
 

@@ -35,4 +35,16 @@
     <string name="channel_description">car_reminder</string>
     <string name="type_fuel">Choose your fuel</string>
     <string name="labels_blank">Warning! Required fields are blank.</string>
+
+    <string name="blank_brand">Blank brand field!</string>
+    <string name="blank_model">Blank model field!</string>
+    <string name="blank_power">Blank power field!</string>
+    <string name="blank_door">Blank doors field!</string>
+    <string name="blank_fuel">Blank fuel field!</string>
+    <string name="blank_year">Blank year field!</string>
+    <string name="blank_places">Blank places field!</string>
+    <string name="blank_color">Blank color field!</string>
+    <string name="blank_km">Blank kM field!</string>
+
+    <string name="error_snackbar">Error Snackbar, the fields are full</string>
 </resources>
