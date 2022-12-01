@@ -43,9 +43,6 @@ class CarListFragment : Fragment() {
             // Inflate the layout for this fragment
             _binding = FragmentCarListBinding.inflate(inflater, container, false)
             return binding.root
-            binding.apply {
-                lifecycleOwner = viewLifecycleOwner
-            }
         } catch (e: Exception) {
             Log.e("ErrorList", "onCreateViewCarListFragment", e)
             throw e
