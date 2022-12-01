@@ -76,6 +76,7 @@
                     android:id="@+id/doors_car_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLength="1"
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,6 +93,7 @@
                     android:id="@+id/year_car_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLength="4"
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -108,6 +110,7 @@
                     android:id="@+id/places_car_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLength="1"
                     android:inputType="number" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -212,9 +215,9 @@
 
             <LinearLayout
                 android:id="@+id/linearLayout"
-                android:layout_width="360dp"
+                android:layout_width="match_parent"
                 android:layout_height="419dp"
-                android:layout_marginTop="770dp"
+                android:layout_marginTop="700dp"
                 android:gravity="center"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
