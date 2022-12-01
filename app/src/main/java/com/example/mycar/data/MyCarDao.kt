@@ -8,12 +8,16 @@ import kotlinx.coroutines.flow.Flow
 interface MyCarDao {
     @Query("SELECT * from my_car_database")
     fun getCars(): Flow<List<MyCar>>
+
     @Query("SELECT * from my_car_database WHERE id = :id")
     fun getCar(id: Long): Flow<MyCar>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(myCar: MyCar)
+
     @Update
     fun update(myCar: MyCar)
+
     @Delete
     fun delete(myCar: MyCar)
 }

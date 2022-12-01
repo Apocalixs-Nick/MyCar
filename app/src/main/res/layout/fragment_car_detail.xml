@@ -2,263 +2,262 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragment.CarDetailFragment">
-
-
-    <ImageView
-        android:id="@+id/image_car"
-        android:layout_width="600dp"
-        android:layout_height="250dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="44dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:cropToPadding="false"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/name_car"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:gravity="center"
-        android:textAppearance="?attr/textAppearanceHeadline6"
-        app:layout_constraintTop_toBottomOf="@id/image_car"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Name car"/>
-
-    <ImageView
-        android:id="@+id/ic_brand_car"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:src="@drawable/ic_car"
-        android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@id/name_car"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/brand_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textAppearance="?attr/textAppearanceBody2"
-        app:layout_constraintTop_toTopOf="@id/ic_brand_car"
-        app:layout_constraintBottom_toBottomOf="@id/ic_brand_car"
-        app:layout_constraintStart_toEndOf="@id/ic_brand_car"
-        tools:text="Brand car"/>
-
-    <ImageView
-        android:id="@+id/ic_places_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_places"
-        android:layout_marginStart="172dp"
-        app:layout_constraintTop_toTopOf="@id/brand_car"
-        app:layout_constraintStart_toStartOf="@id/brand_car" />
-
-    <TextView
-        android:id="@+id/places_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="220dp"
-        android:textAppearance="?attr/textAppearanceBody2"
-        app:layout_constraintTop_toTopOf="@id/ic_places_car"
-        app:layout_constraintBottom_toBottomOf="@id/ic_places_car"
-        app:layout_constraintStart_toEndOf="@id/ic_brand_car"
-        tools:text="Places car"/>
-
-    <ImageView
-        android:id="@+id/ic_power_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_flash"
-        android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@id/brand_car"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/power_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textAppearance="?attr/textAppearanceBody2"
-        app:layout_constraintTop_toTopOf="@id/ic_power_car"
-        app:layout_constraintBottom_toBottomOf="@id/ic_power_car"
-        app:layout_constraintStart_toEndOf="@id/ic_power_car"
-        tools:text="Power car"/>
-
-    <ImageView
-        android:id="@+id/ic_color_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_color"
-        android:layout_marginStart="180dp"
-        app:layout_constraintTop_toTopOf="@id/power_car"
-        app:layout_constraintStart_toStartOf="@id/power_car" />
-
-    <TextView
-        android:id="@+id/color_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textAppearance="?attr/textAppearanceBody2"
-        app:layout_constraintTop_toTopOf="@id/ic_color_car"
-        app:layout_constraintBottom_toBottomOf="@id/ic_color_car"
-        app:layout_constraintStart_toEndOf="@id/ic_color_car"
-        tools:text="Color"/>
-
-    <ImageView
-        android:id="@+id/ic_door_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_door"
-        android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@id/power_car"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/door_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textAppearance="?attr/textAppearanceBody2"
-        app:layout_constraintTop_toTopOf="@id/ic_door_car"
-        app:layout_constraintBottom_toBottomOf="@id/ic_door_car"
-        app:layout_constraintStart_toEndOf="@id/ic_door_car"
-        tools:text="Number doors"/>
-
-    <ImageView
-        android:id="@+id/ic_km_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_km"
-        android:layout_marginStart="180dp"
-        app:layout_constraintTop_toTopOf="@id/door_car"
-        app:layout_constraintStart_toStartOf="@id/door_car" />
-
-    <TextView
-        android:id="@+id/km_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textAppearance="?attr/textAppearanceBody2"
-        app:layout_constraintTop_toTopOf="@id/ic_km_car"
-        app:layout_constraintBottom_toBottomOf="@id/ic_km_car"
-        app:layout_constraintStart_toEndOf="@id/ic_km_car"
-        tools:text="Kilometres"/>
-
-    <ImageView
-        android:id="@+id/ic_year_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_calendar"
-        android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@id/door_car"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/year_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textAppearance="?attr/textAppearanceBody2"
-        app:layout_constraintTop_toTopOf="@id/ic_year_car"
-        app:layout_constraintBottom_toBottomOf="@id/ic_year_car"
-        app:layout_constraintStart_toEndOf="@id/ic_year_car"
-        tools:text="Year Production"/>
-
-    <ImageView
-        android:id="@+id/ic_fuel_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_pump"
-        android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@id/year_car"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/fuel_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textAppearance="?attr/textAppearanceBody2"
-        app:layout_constraintTop_toTopOf="@id/ic_fuel_car"
-        app:layout_constraintBottom_toBottomOf="@id/ic_fuel_car"
-        app:layout_constraintStart_toEndOf="@id/ic_fuel_car"
-        tools:text="Fuel"/>
-
-    <ImageView
-        android:id="@+id/ic_second_fuel_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_second_pump"
-        android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@id/fuel_car"
-        app:layout_constraintStart_toStartOf="parent"
-        android:visibility="gone"/>
-
-    <TextView
-        android:id="@+id/second_fuel_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textAppearance="?attr/textAppearanceBody2"
-        app:layout_constraintTop_toTopOf="@id/ic_second_fuel_car"
-        app:layout_constraintBottom_toBottomOf="@id/ic_second_fuel_car"
-        app:layout_constraintStart_toEndOf="@id/ic_second_fuel_car"
-        tools:text="Second Fuel"
-        android:visibility="gone"/>
-
-    <!--<com.google.android.material.button.MaterialButton
-        android:id="@+id/delete_car"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:backgroundTint="@color/primaryColor"
-        android:textColor="@color/white"
-        android:text="@string/delete"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/year_car" /> -->
+        android:layout_height="match_parent"
+        tools:context=".ui.fragment.CarDetailFragment">
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/delete_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:layout_marginEnd="4dp"
-        android:src="@drawable/ic_delete"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/edit_car"/>
+        <ImageView
+            android:id="@+id/image_car"
+            android:layout_width="600dp"
+            android:layout_height="250dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="44dp"
+            android:cropToPadding="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/edit_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_edit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <TextView
+            android:id="@+id/name_car"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_car"
+            tools:text="Name car" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/share_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_share"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/edit_car"/>
+        <ImageView
+            android:id="@+id/ic_brand_car"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_car"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name_car" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/brand_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintBottom_toBottomOf="@id/ic_brand_car"
+            app:layout_constraintStart_toEndOf="@id/ic_brand_car"
+            app:layout_constraintTop_toTopOf="@id/ic_brand_car"
+            tools:text="Brand car" />
+
+        <ImageView
+            android:id="@+id/ic_places_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="172dp"
+            android:src="@drawable/ic_places"
+            app:layout_constraintStart_toStartOf="@id/brand_car"
+            app:layout_constraintTop_toTopOf="@id/brand_car" />
+
+        <TextView
+            android:id="@+id/places_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="220dp"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintBottom_toBottomOf="@id/ic_places_car"
+            app:layout_constraintStart_toEndOf="@id/ic_brand_car"
+            app:layout_constraintTop_toTopOf="@id/ic_places_car"
+            tools:text="Places car" />
+
+        <ImageView
+            android:id="@+id/ic_power_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_flash"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/brand_car" />
+
+        <TextView
+            android:id="@+id/power_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintBottom_toBottomOf="@id/ic_power_car"
+            app:layout_constraintStart_toEndOf="@id/ic_power_car"
+            app:layout_constraintTop_toTopOf="@id/ic_power_car"
+            tools:text="Power car" />
+
+        <ImageView
+            android:id="@+id/ic_color_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="180dp"
+            android:src="@drawable/ic_color"
+            app:layout_constraintStart_toStartOf="@id/power_car"
+            app:layout_constraintTop_toTopOf="@id/power_car" />
+
+        <TextView
+            android:id="@+id/color_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintBottom_toBottomOf="@id/ic_color_car"
+            app:layout_constraintStart_toEndOf="@id/ic_color_car"
+            app:layout_constraintTop_toTopOf="@id/ic_color_car"
+            tools:text="Color" />
+
+        <ImageView
+            android:id="@+id/ic_door_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_door"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/power_car" />
+
+        <TextView
+            android:id="@+id/door_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintBottom_toBottomOf="@id/ic_door_car"
+            app:layout_constraintStart_toEndOf="@id/ic_door_car"
+            app:layout_constraintTop_toTopOf="@id/ic_door_car"
+            tools:text="Number doors" />
+
+        <ImageView
+            android:id="@+id/ic_km_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="180dp"
+            android:src="@drawable/ic_km"
+            app:layout_constraintStart_toStartOf="@id/door_car"
+            app:layout_constraintTop_toTopOf="@id/door_car" />
+
+        <TextView
+            android:id="@+id/km_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintBottom_toBottomOf="@id/ic_km_car"
+            app:layout_constraintStart_toEndOf="@id/ic_km_car"
+            app:layout_constraintTop_toTopOf="@id/ic_km_car"
+            tools:text="Kilometres" />
+
+        <ImageView
+            android:id="@+id/ic_year_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_calendar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/door_car" />
+
+        <TextView
+            android:id="@+id/year_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintBottom_toBottomOf="@id/ic_year_car"
+            app:layout_constraintStart_toEndOf="@id/ic_year_car"
+            app:layout_constraintTop_toTopOf="@id/ic_year_car"
+            tools:text="Year Production" />
+
+        <ImageView
+            android:id="@+id/ic_fuel_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_pump"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/year_car" />
+
+        <TextView
+            android:id="@+id/fuel_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintBottom_toBottomOf="@id/ic_fuel_car"
+            app:layout_constraintStart_toEndOf="@id/ic_fuel_car"
+            app:layout_constraintTop_toTopOf="@id/ic_fuel_car"
+            tools:text="Fuel" />
+
+        <ImageView
+            android:id="@+id/ic_second_fuel_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_second_pump"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fuel_car" />
+
+        <TextView
+            android:id="@+id/second_fuel_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/ic_second_fuel_car"
+            app:layout_constraintStart_toEndOf="@id/ic_second_fuel_car"
+            app:layout_constraintTop_toTopOf="@id/ic_second_fuel_car"
+            tools:text="Second Fuel" />
+
+        <!--<com.google.android.material.button.MaterialButton
+            android:id="@+id/delete_car"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="250dp"
+            android:backgroundTint="@color/primaryColor"
+            android:textColor="@color/white"
+            android:text="@string/delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/year_car" /> -->
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/delete_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/ic_delete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/edit_car"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/edit_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_edit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/share_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_share"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/edit_car" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

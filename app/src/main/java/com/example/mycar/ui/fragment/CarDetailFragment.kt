@@ -126,7 +126,11 @@ class CarDetailFragment : Fragment() {
                 shareCar()
             }
             val observer = Observer<List<MyCarLogo>> {
-                setAndGetUriByBrandParsingListOfLogoAndImageView(viewModel.logoDataApi.value, car.brand,icBrandCar)
+                setAndGetUriByBrandParsingListOfLogoAndImageView(
+                    viewModel.logoDataApi.value,
+                    car.brand,
+                    icBrandCar
+                )
             }
             viewModel.logoDataApi.observe(viewLifecycleOwner, observer)
         }

@@ -34,6 +34,7 @@ interface FuelApiService {
     @GET("type-fuel-car.json")
     suspend fun getFuelInfo(): List<FuelInfo>
 }
+
 /**
  * A public Api object that exposes the lazy-initialized Retrofit service
  */

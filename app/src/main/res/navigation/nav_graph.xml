@@ -37,7 +37,8 @@
         <action
             android:id="@+id/action_addCarFragment_to_carListFragment"
             app:destination="@id/carListFragment" />
-        <argument android:name="id"
+        <argument
+            android:name="id"
             app:argType="long" />
         <argument
             android:name="title"

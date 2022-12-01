@@ -16,7 +16,10 @@ import com.example.mycar.model.MyCar
 import com.example.mycar.network.logo.MyCarLogo
 import com.example.mycar.ui.setAndGetUriByBrandParsingListOfLogoAndImageView
 
-class CarListAdapter(private val clickListener: (MyCar) -> Unit, private val logoDataApi: LiveData<List<MyCarLogo>>) :
+class CarListAdapter(
+    private val clickListener: (MyCar) -> Unit,
+    private val logoDataApi: LiveData<List<MyCarLogo>>
+) :
     ListAdapter<MyCar, CarListAdapter.CarViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarViewHolder {
@@ -41,7 +44,11 @@ class CarListAdapter(private val clickListener: (MyCar) -> Unit, private val log
         RecyclerView.ViewHolder(binding.root) {
         fun bind(car: MyCar, logoDataApi: LiveData<List<MyCarLogo>>) {
             binding.apply {
-                setAndGetUriByBrandParsingListOfLogoAndImageView(logoDataApi.value, car.brand, logoCar)
+                setAndGetUriByBrandParsingListOfLogoAndImageView(
+                    logoDataApi.value,
+                    car.brand,
+                    logoCar
+                )
                 nameCar.text = car.name
                 brandCar.text = car.brand
                 yearCar.text = car.productionYear.toString()
