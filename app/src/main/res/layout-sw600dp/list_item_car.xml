@@ -16,60 +16,71 @@
         android:paddingStart="16dp"
         android:paddingEnd="16dp">
 
+        <ImageView
+            android:id="@+id/logo_car"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:cropToPadding="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.636" />
+
         <TextView
             android:id="@+id/name_car"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="368dp"
+            android:layout_marginTop="28dp"
             android:fontFamily="@font/bangers"
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Name car" />
 
-        <ImageView
-            android:id="@+id/logo_car"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="44dp"
-            android:cropToPadding="false"
-            app:layout_constraintBottom_toBottomOf="@id/name_car"
-            app:layout_constraintStart_toEndOf="@id/name_car" />
-
         <TextView
             android:id="@+id/brand_car"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="368dp"
+            android:layout_marginTop="12dp"
             android:textAppearance="?attr/textAppearanceBody2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/name_car"
             tools:text="Brand Car" />
 
         <TextView
-            android:id="@+id/power_car"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="270dp"
-            android:textAppearance="?attr/textAppearanceBody2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/name_car"
-            tools:text="0kW" />
-
-        <TextView
             android:id="@+id/year_car"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="368dp"
+            android:layout_marginTop="16dp"
             android:textAppearance="?attr/textAppearanceBody2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/brand_car"
             tools:text="Year" />
 
         <TextView
+            android:id="@+id/power_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="640dp"
+            android:layout_marginTop="12dp"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name_car"
+            tools:text="0kW" />
+
+        <TextView
             android:id="@+id/fuel_car"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="270dp"
+            android:layout_marginStart="640dp"
+            android:layout_marginTop="16dp"
             android:textAppearance="?attr/textAppearanceBody2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/brand_car"
@@ -82,6 +93,7 @@
             android:layout_marginLeft="270dp"
             android:textAppearance="?attr/textAppearanceBody2"
             android:visibility="gone"
+            android:layout_marginStart="516dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fuel_car"
             tools:text="Second fuel" />

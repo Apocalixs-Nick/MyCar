@@ -2,5 +2,6 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/bahiana</item>
+        <item>@font/bangers</item>
     </array>
 </resources>

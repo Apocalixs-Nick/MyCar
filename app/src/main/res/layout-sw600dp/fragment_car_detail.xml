@@ -40,7 +40,7 @@
             android:layout_height="32dp"
             android:layout_margin="16dp"
             android:src="@drawable/ic_car"
-            app:layout_constraintStart_toStartOf="@id/name_car"
+            app:layout_constraintStart_toStartOf="@id/image_car"
             app:layout_constraintTop_toBottomOf="@id/name_car" />
 
         <TextView
@@ -58,7 +58,7 @@
             android:id="@+id/ic_places_car"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="172dp"
+            android:layout_marginStart="350dp"
             android:src="@drawable/ic_places"
             app:layout_constraintStart_toStartOf="@id/brand_car"
             app:layout_constraintTop_toTopOf="@id/brand_car" />
@@ -67,7 +67,7 @@
             android:id="@+id/places_car"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="212dp"
+            android:layout_marginStart="391dp"
             android:textAppearance="?attr/textAppearanceBody2"
             app:layout_constraintBottom_toBottomOf="@id/ic_places_car"
             app:layout_constraintStart_toEndOf="@id/ic_brand_car"
@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:src="@drawable/ic_flash"
-            app:layout_constraintStart_toStartOf="@id/name_car"
+            app:layout_constraintStart_toStartOf="@id/image_car"
             app:layout_constraintTop_toBottomOf="@id/brand_car" />
 
         <TextView
@@ -98,7 +98,7 @@
             android:id="@+id/ic_color_car"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="180dp"
+            android:layout_marginStart="358dp"
             android:src="@drawable/ic_color"
             app:layout_constraintStart_toStartOf="@id/power_car"
             app:layout_constraintTop_toTopOf="@id/power_car" />
@@ -120,7 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:src="@drawable/ic_door"
-            app:layout_constraintStart_toStartOf="@id/name_car"
+            app:layout_constraintStart_toStartOf="@id/image_car"
             app:layout_constraintTop_toBottomOf="@id/power_car" />
 
         <TextView
@@ -138,7 +138,7 @@
             android:id="@+id/ic_km_car"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="180dp"
+            android:layout_marginStart="358dp"
             android:src="@drawable/ic_km"
             app:layout_constraintStart_toStartOf="@id/door_car"
             app:layout_constraintTop_toTopOf="@id/door_car" />
@@ -160,7 +160,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:src="@drawable/ic_calendar"
-            app:layout_constraintStart_toStartOf="@id/name_car"
+            app:layout_constraintStart_toStartOf="@id/image_car"
             app:layout_constraintTop_toBottomOf="@id/door_car" />
 
         <TextView
@@ -180,7 +180,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:src="@drawable/ic_pump"
-            app:layout_constraintStart_toStartOf="@id/name_car"
+            app:layout_constraintStart_toStartOf="@id/image_car"
             app:layout_constraintTop_toBottomOf="@id/year_car" />
 
         <TextView
@@ -201,7 +201,7 @@
             android:layout_margin="16dp"
             android:src="@drawable/ic_second_pump"
             android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@id/name_car"
+            app:layout_constraintStart_toStartOf="@id/image_car"
             app:layout_constraintTop_toBottomOf="@id/fuel_car" />
 
         <TextView
