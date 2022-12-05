@@ -32,10 +32,11 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginStart="16dp"
             android:cropToPadding="false"
             app:layout_constraintBottom_toBottomOf="@id/name_car"
-            app:layout_constraintStart_toEndOf="@id/name_car" />
+            app:layout_constraintStart_toEndOf="@id/name_car"
+            app:layout_constraintTop_toTopOf="@+id/name_car" />
 
         <TextView
             android:id="@+id/brand_car"
