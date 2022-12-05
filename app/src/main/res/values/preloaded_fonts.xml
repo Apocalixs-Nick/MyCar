@@ -3,5 +3,6 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/bahiana</item>
         <item>@font/bangers</item>
+        <item>@font/nanum_gothic_bold</item>
     </array>
 </resources>

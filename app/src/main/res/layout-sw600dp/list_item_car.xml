@@ -23,7 +23,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginStart="100dp"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="16dp"
             android:cropToPadding="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,8 +36,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="368dp"
             android:layout_marginTop="28dp"
-            android:fontFamily="@font/bangers"
-            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:fontFamily="@font/nanum_gothic_bold"
+            android:textAppearance="?attr/textAppearanceHeadline5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Name car" />
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="368dp"
             android:layout_marginTop="12dp"
-            android:textAppearance="?attr/textAppearanceBody2"
+            android:textAppearance="?attr/textAppearanceBody1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/name_car"
             tools:text="Brand Car" />
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="368dp"
             android:layout_marginTop="16dp"
-            android:textAppearance="?attr/textAppearanceBody2"
+            android:textAppearance="?attr/textAppearanceBody1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/brand_car"
             tools:text="Year" />
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="640dp"
             android:layout_marginTop="12dp"
-            android:textAppearance="?attr/textAppearanceBody2"
+            android:textAppearance="?attr/textAppearanceBody1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/name_car"
             tools:text="0kW" />
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="640dp"
             android:layout_marginTop="16dp"
-            android:textAppearance="?attr/textAppearanceBody2"
+            android:textAppearance="?attr/textAppearanceBody1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/brand_car"
             tools:text="Fuel" />
@@ -90,12 +90,11 @@
             android:id="@+id/second_fuel_car"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="270dp"
-            android:textAppearance="?attr/textAppearanceBody2"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:layout_marginStart="640dp"
             android:visibility="gone"
-            android:layout_marginStart="516dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fuel_car"
+            app:layout_constraintTop_toBottomOf="@id/year_car"
             tools:text="Second fuel" />
 
         <View
