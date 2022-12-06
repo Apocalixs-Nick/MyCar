@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -46,6 +48,32 @@ class CarDetailFragment : Fragment() {
         CarNotificationViewModelFactory(requireActivity().application)
     }
 
+    private val rotateOpen: Animation by lazy {
+        AnimationUtils.loadAnimation(
+            context,
+            R.anim.rotate_open_anim
+        )
+    }
+    private val rotateClose: Animation by lazy {
+        AnimationUtils.loadAnimation(
+            context,
+            R.anim.rotate_close_anim
+        )
+    }
+    private val fromBottom: Animation by lazy {
+        AnimationUtils.loadAnimation(
+            context,
+            R.anim.from_bottom_animation
+        )
+    }
+    private val toBottom: Animation by lazy {
+        AnimationUtils.loadAnimation(
+            context,
+            R.anim.to_bottom_animation
+        )
+    }
+    private var clicked = false
+
     private lateinit var car: MyCar
 
     private var _binding: FragmentCarDetailBinding? = null
@@ -75,6 +103,42 @@ class CarDetailFragment : Fragment() {
             car = selectCar
             bindCar()
 
+        }
+
+        binding.detailCar?.setOnClickListener {
+            addOnButtonClicked()
+        }
+    }
+
+    private fun addOnButtonClicked() {
+        setVisibility(clicked)
+        setAnimation(clicked)
+        clicked = !clicked
+    }
+
+    private fun setVisibility(clicked: Boolean) {
+        if (!clicked) {
+            binding.editCar.visibility = View.VISIBLE
+            binding.shareCar.visibility = View.VISIBLE
+            binding.deleteCar.visibility = View.VISIBLE
+        } else {
+            binding.editCar.visibility = View.GONE
+            binding.shareCar.visibility = View.GONE
+            binding.deleteCar.visibility = View.GONE
+        }
+    }
+
+    private fun setAnimation(clicked: Boolean) {
+        if (!clicked) {
+            binding.editCar.startAnimation(fromBottom)
+            binding.shareCar.startAnimation(fromBottom)
+            binding.deleteCar.startAnimation(fromBottom)
+            binding.detailCar?.startAnimation(rotateOpen)
+        } else {
+            binding.editCar.startAnimation(toBottom)
+            binding.shareCar.startAnimation(toBottom)
+            binding.deleteCar.startAnimation(toBottom)
+            binding.detailCar?.startAnimation(rotateClose)
         }
     }
 
