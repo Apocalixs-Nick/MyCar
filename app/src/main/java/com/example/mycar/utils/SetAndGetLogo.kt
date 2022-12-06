@@ -1,4 +1,4 @@
-package com.example.mycar.ui
+package com.example.mycar.utils
 
 import android.widget.ImageView
 import com.example.mycar.R

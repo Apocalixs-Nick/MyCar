@@ -3,18 +3,14 @@ package com.example.mycar.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import coil.loadAny
-import com.example.mycar.R
 import com.example.mycar.databinding.ListItemCarBinding
 import com.example.mycar.model.MyCar
 import com.example.mycar.network.logo.MyCarLogo
-import com.example.mycar.ui.setAndGetUriByBrandParsingListOfLogoAndImageView
+import com.example.mycar.utils.setAndGetUriByBrandParsingListOfLogoAndImageView
 
 class CarListAdapter(
     private val clickListener: (MyCar) -> Unit,

@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -21,13 +20,12 @@ import com.example.mycar.R
 import com.example.mycar.databinding.FragmentCarDetailBinding
 import com.example.mycar.model.MyCar
 import com.example.mycar.network.logo.MyCarLogo
-import com.example.mycar.ui.setAndGetUriByBrandParsingListOfLogoAndImageView
+import com.example.mycar.utils.setAndGetUriByBrandParsingListOfLogoAndImageView
 import com.example.mycar.ui.viewmodel.CarNotificationViewModel
 import com.example.mycar.ui.viewmodel.CarNotificationViewModelFactory
 import com.example.mycar.ui.viewmodel.CarViewModel
 import com.example.mycar.ui.viewmodel.CarViewModelFactory
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import java.util.concurrent.TimeUnit
 
 /**
  * A simple [Fragment] subclass.

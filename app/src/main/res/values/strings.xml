@@ -47,4 +47,6 @@
     <string name="blank_km">Blank kM field!</string>
 
     <string name="error_snackbar">Error Snackbar, the fields are full</string>
+    <string name="retry_again">Retry Again</string>
+    <string name="error_message">No internet connection.</string>
 </resources>

@@ -271,6 +271,20 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
     fun getFuel(): List<String> {
         return _fuel.value!!.map { e -> e.nameFuel }.distinct()
     }
+
+    /**
+     * Function for refresh information from network
+     */
+    fun refreshDataFromNetwork() = viewModelScope.launch {
+        try {
+            _brand.value = MyCarApi.retrofitService.getMyCarInfo()
+            _eventNetworkError.value = false
+            _isNetworkErrorShown.value = false
+
+        } catch (networkError: IOException) {
+            _eventNetworkError.value = true
+        }
+    }
 }
 
 

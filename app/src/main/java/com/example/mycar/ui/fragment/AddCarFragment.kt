@@ -27,6 +27,7 @@ import com.example.mycar.ui.viewmodel.CarNotificationViewModel
 import com.example.mycar.ui.viewmodel.CarNotificationViewModelFactory
 import com.example.mycar.ui.viewmodel.CarViewModel
 import com.example.mycar.ui.viewmodel.CarViewModelFactory
+import com.example.mycar.utils.checkForInternet
 import com.google.android.material.snackbar.Snackbar
 import java.util.concurrent.TimeUnit
 
@@ -76,6 +77,7 @@ class AddCarFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        context?.let { swapConstraintIfInternet(it) }
         viewModel.brandAcquisition()
         viewModel.fuelAcquisition()
         binding.imgBtn.setOnClickListener {
@@ -378,6 +380,23 @@ class AddCarFragment : Fragment() {
             binding.fuelCarInput.setText("")
         }
         builderFuel.show()
+    }
+
+    /**
+     * Private function to make the content of the add fragment visible or not if there is a connection or not
+     */
+    private fun swapConstraintIfInternet(context: Context) {
+        if (checkForInternet(context)) {
+            viewModel.refreshDataFromNetwork()
+            binding.layoutAddNewCarWithConnection.visibility = View.VISIBLE
+            binding.layoutAddNewCarWithoutConnection.visibility = View.GONE
+        } else {
+            binding.layoutAddNewCarWithConnection.visibility = View.GONE
+            binding.layoutAddNewCarWithoutConnection.visibility = View.VISIBLE
+            binding.retryAgainErrorConnection.setOnClickListener {
+                swapConstraintIfInternet(context)
+            }
+        }
     }
 
     override fun onDestroyView() {

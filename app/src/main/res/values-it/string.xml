@@ -48,4 +48,6 @@
     <string name="blank_km">Campo kM vuoto!</string>
 
     <string name="error_snackbar">Error Snackbar, i campi sono pieni</string>
+    <string name="retry_again">Riprova</string>
+    <string name="error_message">Connessione ad internet assente.</string>
 </resources>
