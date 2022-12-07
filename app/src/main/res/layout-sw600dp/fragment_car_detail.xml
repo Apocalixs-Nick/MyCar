@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
+    <!--TODO: Adapt tablet detail layouts-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,13 +41,13 @@
             android:id="@+id/ic_brand_car"
             android:layout_width="75dp"
             android:layout_height="75dp"
+            android:contentDescription="@string/brand"
             android:src="@drawable/ic_car"
             app:layout_constraintBottom_toTopOf="@+id/ic_places_car"
             app:layout_constraintEnd_toStartOf="@+id/ic_year_car"
             app:layout_constraintHorizontal_bias="0.18"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name_car"
-            android:contentDescription="@string/brand" />
+            app:layout_constraintTop_toTopOf="@+id/ic_year_car" />
 
         <ImageView
             android:id="@+id/ic_power_car"
@@ -176,12 +177,12 @@
             android:id="@+id/ic_km_car"
             android:layout_width="75dp"
             android:layout_height="75dp"
+            android:contentDescription="@string/kilometres"
             android:src="@drawable/ic_km"
             app:layout_constraintBottom_toTopOf="@+id/ic_places_car"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ic_year_car"
-            app:layout_constraintTop_toBottomOf="@+id/name_car"
-            android:contentDescription="@string/kilometres" />
+            app:layout_constraintTop_toTopOf="@+id/ic_year_car" />
 
         <TextView
             android:id="@+id/fuel_car"
@@ -223,12 +224,11 @@
             android:id="@+id/ic_year_car"
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:layout_marginTop="16dp"
+            android:contentDescription="@string/production_year"
             android:src="@drawable/ic_calendar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name_car"
-            android:contentDescription="@string/production_year" />
+            app:layout_constraintTop_toBottomOf="@+id/name_car" />
 
         <TextView
             android:id="@+id/color_car"

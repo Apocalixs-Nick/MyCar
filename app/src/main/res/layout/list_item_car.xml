@@ -29,15 +29,14 @@
 
         <ImageView
             android:id="@+id/logo_car"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginStart="16dp"
+            android:contentDescription="@string/brand"
             android:cropToPadding="false"
-            app:layout_constraintBottom_toBottomOf="@id/name_car"
-            app:layout_constraintStart_toEndOf="@id/name_car"
-            app:layout_constraintTop_toTopOf="@+id/name_car"
-            android:contentDescription="@string/brand" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/brand_car"
@@ -52,9 +51,9 @@
             android:id="@+id/power_car"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
             android:textAppearance="?attr/textAppearanceBody2"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/name_car"
             tools:text="0kW" />
 

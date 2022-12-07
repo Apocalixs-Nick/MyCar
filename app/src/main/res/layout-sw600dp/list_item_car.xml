@@ -70,9 +70,9 @@
             android:layout_marginEnd="16dp"
             android:textAppearance="?attr/textAppearanceBody1"
             android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="@+id/brand_car"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/brand_car"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="0kW" />
 
         <TextView
