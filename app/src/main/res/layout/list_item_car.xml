@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?attr/textAppearanceBody2"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/name_car"
             app:layout_constraintTop_toBottomOf="@id/name_car"
             tools:text="Brand Car" />
 
@@ -51,9 +51,9 @@
             android:id="@+id/power_car"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="270dp"
+            android:layout_marginEnd="12dp"
             android:textAppearance="?attr/textAppearanceBody2"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/name_car"
             tools:text="0kW" />
 
@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?attr/textAppearanceBody2"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/brand_car"
             app:layout_constraintTop_toBottomOf="@id/brand_car"
             tools:text="Year" />
 
@@ -70,21 +70,20 @@
             android:id="@+id/fuel_car"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="270dp"
             android:textAppearance="?attr/textAppearanceBody2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/brand_car"
+            app:layout_constraintBottom_toBottomOf="@+id/year_car"
+            app:layout_constraintStart_toStartOf="@+id/power_car"
+            app:layout_constraintTop_toTopOf="@+id/year_car"
             tools:text="Fuel" />
 
         <TextView
             android:id="@+id/second_fuel_car"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="270dp"
             android:layout_marginBottom="2dp"
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/view2"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/fuel_car"
             app:layout_constraintTop_toBottomOf="@id/fuel_car"
             tools:text="Second fuel" />
 
