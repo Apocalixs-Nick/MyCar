@@ -20,7 +20,8 @@
             android:cropToPadding="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/import_image" />
 
         <TextView
             android:id="@+id/name_car"
@@ -44,7 +45,8 @@
             android:layout_marginTop="16dp"
             android:src="@drawable/ic_car"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/name_car" />
+            app:layout_constraintTop_toBottomOf="@id/name_car"
+            android:contentDescription="@string/brand" />
 
         <TextView
             android:id="@+id/brand_car"
@@ -66,7 +68,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/ic_brand_car"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/brand_car"
-            app:layout_constraintTop_toBottomOf="@+id/name_car" />
+            app:layout_constraintTop_toBottomOf="@+id/name_car"
+            android:contentDescription="@string/seat_car" />
 
         <TextView
             android:id="@+id/places_car"
@@ -87,7 +90,8 @@
             android:src="@drawable/ic_flash"
             app:layout_constraintEnd_toEndOf="@+id/ic_brand_car"
             app:layout_constraintStart_toStartOf="@+id/ic_brand_car"
-            app:layout_constraintTop_toBottomOf="@+id/ic_brand_car" />
+            app:layout_constraintTop_toBottomOf="@+id/ic_brand_car"
+            android:contentDescription="@string/power_kw" />
 
         <TextView
             android:id="@+id/power_car"
@@ -108,7 +112,8 @@
             android:src="@drawable/ic_color"
             app:layout_constraintEnd_toEndOf="@+id/ic_places_car"
             app:layout_constraintStart_toStartOf="@+id/ic_places_car"
-            app:layout_constraintTop_toBottomOf="@+id/ic_places_car" />
+            app:layout_constraintTop_toBottomOf="@+id/ic_places_car"
+            android:contentDescription="@string/color_car" />
 
         <TextView
             android:id="@+id/color_car"
@@ -129,7 +134,8 @@
             android:src="@drawable/ic_door"
             app:layout_constraintEnd_toEndOf="@+id/ic_power_car"
             app:layout_constraintStart_toStartOf="@+id/ic_power_car"
-            app:layout_constraintTop_toBottomOf="@+id/ic_power_car" />
+            app:layout_constraintTop_toBottomOf="@+id/ic_power_car"
+            android:contentDescription="@string/number_of_doors" />
 
         <TextView
             android:id="@+id/door_car"
@@ -150,7 +156,8 @@
             android:src="@drawable/ic_km"
             app:layout_constraintEnd_toEndOf="@+id/ic_color_car"
             app:layout_constraintStart_toStartOf="@+id/ic_color_car"
-            app:layout_constraintTop_toBottomOf="@+id/ic_color_car" />
+            app:layout_constraintTop_toBottomOf="@+id/ic_color_car"
+            android:contentDescription="@string/kilometres" />
 
         <TextView
             android:id="@+id/km_car"
@@ -171,7 +178,8 @@
             android:src="@drawable/ic_calendar"
             app:layout_constraintEnd_toEndOf="@+id/ic_door_car"
             app:layout_constraintStart_toStartOf="@+id/ic_door_car"
-            app:layout_constraintTop_toBottomOf="@+id/ic_door_car" />
+            app:layout_constraintTop_toBottomOf="@+id/ic_door_car"
+            android:contentDescription="@string/production_year" />
 
         <TextView
             android:id="@+id/year_car"
@@ -192,7 +200,8 @@
             android:src="@drawable/ic_pump"
             app:layout_constraintEnd_toEndOf="@+id/ic_year_car"
             app:layout_constraintStart_toStartOf="@+id/ic_year_car"
-            app:layout_constraintTop_toBottomOf="@+id/ic_year_car" />
+            app:layout_constraintTop_toBottomOf="@+id/ic_year_car"
+            android:contentDescription="@string/fuel" />
 
         <TextView
             android:id="@+id/fuel_car"
@@ -214,7 +223,8 @@
             android:src="@drawable/ic_second_pump"
             app:layout_constraintEnd_toEndOf="@+id/ic_fuel_car"
             app:layout_constraintStart_toStartOf="@+id/ic_fuel_car"
-            app:layout_constraintTop_toBottomOf="@id/fuel_car" />
+            app:layout_constraintTop_toBottomOf="@id/fuel_car"
+            android:contentDescription="@string/second_fuel" />
 
         <TextView
             android:id="@+id/second_fuel_car"
@@ -253,7 +263,8 @@
             android:src="@drawable/ic_delete"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintBottom_toTopOf="@id/detail_car"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/delete" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/edit_car"
@@ -265,7 +276,8 @@
             android:layout_marginBottom="88dp"
             android:src="@drawable/ic_edit"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/information_car" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/detail_car"
@@ -275,7 +287,8 @@
             android:layout_margin="16dp"
             android:src="@drawable/ic_add"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/detail_car" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/share_car"
@@ -287,7 +300,8 @@
             android:src="@drawable/ic_share"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/detail_car" />
+            app:layout_constraintEnd_toStartOf="@id/detail_car"
+            android:contentDescription="@string/share" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

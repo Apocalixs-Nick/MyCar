@@ -31,7 +31,8 @@
                     android:src="@drawable/ic_car_crash"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="@string/import_image">
 
                 </ImageView>
 
@@ -277,8 +278,8 @@
 
                     <ImageView
                         android:id="@+id/preview_image"
-                        android:layout_width="350dp"
-                        android:layout_height="150dp"
+                        android:layout_width="450dp"
+                        android:layout_height="250dp"
                         android:importantForAccessibility="no"
                         app:layout_constraintBottom_toTopOf="@+id/second_fuel_car_label"
                         app:layout_constraintStart_toStartOf="@+id/import_image"

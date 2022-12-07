@@ -36,7 +36,8 @@
             android:cropToPadding="false"
             app:layout_constraintBottom_toBottomOf="@id/name_car"
             app:layout_constraintStart_toEndOf="@id/name_car"
-            app:layout_constraintTop_toTopOf="@+id/name_car" />
+            app:layout_constraintTop_toTopOf="@+id/name_car"
+            android:contentDescription="@string/brand" />
 
         <TextView
             android:id="@+id/brand_car"
