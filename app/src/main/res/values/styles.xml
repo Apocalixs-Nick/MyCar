@@ -4,4 +4,8 @@
     <style name="fast">
         <item name="android:fontFamily">@font/faster_one</item>
     </style>
+
+    <style name="textToolbarTablet">
+        <item name="android:textSize">25sp</item>
+    </style>
 </resources>
