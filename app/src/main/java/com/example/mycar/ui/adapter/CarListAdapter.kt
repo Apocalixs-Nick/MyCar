@@ -57,6 +57,9 @@ class CarListAdapter(
             }
         }
 
+        /**
+         * Private function for control if the second fuel is blank
+         */
         private fun noSecondFuel(car: MyCar): Boolean {
             if (car.secondFuel?.isBlank() == true) {
                 return false

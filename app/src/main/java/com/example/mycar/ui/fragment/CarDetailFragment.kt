@@ -13,7 +13,6 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -23,8 +22,6 @@ import com.example.mycar.databinding.FragmentCarDetailBinding
 import com.example.mycar.model.MyCar
 import com.example.mycar.network.logo.MyCarLogo
 import com.example.mycar.utils.setAndGetUriByBrandParsingListOfLogoAndImageView
-import com.example.mycar.ui.viewmodel.CarNotificationViewModel
-import com.example.mycar.ui.viewmodel.CarNotificationViewModelFactory
 import com.example.mycar.ui.viewmodel.CarViewModel
 import com.example.mycar.ui.viewmodel.CarViewModelFactory
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -44,9 +41,7 @@ class CarDetailFragment : Fragment() {
             (activity?.application as BaseApplication).database.myCarDao()
         )
     }
-    private val viewModelNotification: CarNotificationViewModel by viewModels {
-        CarNotificationViewModelFactory(requireActivity().application)
-    }
+
 
     private val rotateOpen: Animation by lazy {
         AnimationUtils.loadAnimation(
@@ -105,7 +100,7 @@ class CarDetailFragment : Fragment() {
 
         }
 
-        binding.detailCar?.setOnClickListener {
+        binding.detailCar.setOnClickListener {
             addOnButtonClicked()
         }
     }
@@ -133,12 +128,12 @@ class CarDetailFragment : Fragment() {
             binding.editCar.startAnimation(fromBottom)
             binding.shareCar.startAnimation(fromBottom)
             binding.deleteCar.startAnimation(fromBottom)
-            binding.detailCar?.startAnimation(rotateOpen)
+            binding.detailCar.startAnimation(rotateOpen)
         } else {
             binding.editCar.startAnimation(toBottom)
             binding.shareCar.startAnimation(toBottom)
             binding.deleteCar.startAnimation(toBottom)
-            binding.detailCar?.startAnimation(rotateClose)
+            binding.detailCar.startAnimation(rotateClose)
         }
     }
 
@@ -161,7 +156,7 @@ class CarDetailFragment : Fragment() {
             brandCar.text = car.brand
             powerCar.text = car.power.toString() + " kW"
             doorCar.text = car.numberDoors.toString()
-            fuelCar.text = car.fuel.toString()
+            fuelCar.text = car.fuel
             if (noSecondFuel(car)) {
                 binding.icSecondFuelCar.visibility = View.VISIBLE
                 binding.secondFuelCar.visibility = View.VISIBLE
@@ -169,7 +164,7 @@ class CarDetailFragment : Fragment() {
             secondFuelCar.text = car.secondFuel.toString()
             yearCar.text = car.productionYear.toString()
             placesCar.text = car.places.toString()
-            colorCar.text = car.color.toString()
+            colorCar.text = car.color
             kmCar.text = car.kM.toString() + " kM"
             deleteCar.setOnClickListener { showConfirmationDialog() }
             editCar.setOnClickListener { editCar() }
@@ -197,9 +192,9 @@ class CarDetailFragment : Fragment() {
     }
 
     /**
-     * Function for sharing a vehicle
+     * Private function for sharing a vehicle
      */
-    fun shareCar() {
+    private fun shareCar() {
         if (noSecondFuel(car)) {
             context?.let {
                 shareCreation(

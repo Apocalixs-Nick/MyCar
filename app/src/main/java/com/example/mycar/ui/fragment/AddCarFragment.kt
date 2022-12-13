@@ -137,9 +137,9 @@ class AddCarFragment : Fragment() {
     }
 
     /**
-     * Function for the watching the field blank
+     * Private function for the watching the field blank
      */
-    fun snackBarBlank(): Int {
+    private fun snackBarBlank(): Int {
         return when (error.isBlank()) {
             binding.brandCarInput.text.toString().isBlank() -> R.string.blank_brand
             binding.nameCarInput.text.toString().isBlank() -> R.string.blank_model
