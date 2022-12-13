@@ -98,6 +98,7 @@
                         android:inputType="textCapSentences|textAutoCorrect"
                         android:focusable="false"
                         android:longClickable="false"
+                        android:textSize="20sp"
                         android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -117,6 +118,7 @@
                         android:inputType="textCapSentences|textAutoCorrect"
                         android:focusable="false"
                         android:longClickable="false"
+                        android:textSize="20sp"
                         android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -134,6 +136,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:maxLength="4"
+                        android:textSize="20sp"
                         android:inputType="number" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -143,6 +146,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="210dp"
                     android:hint="@string/number_of_doors"
+                    android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/power_car_label">
 
@@ -151,6 +155,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number"
+                        android:textSize="20sp"
                         android:maxLength="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -168,6 +173,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number"
+                        android:textSize="20sp"
                         android:maxLength="4" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -185,6 +191,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number"
+                        android:textSize="20sp"
                         android:maxLength="1" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -204,7 +211,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textCapSentences|textAutoCorrect"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        android:textSize="20sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -223,7 +231,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number"
-                        android:maxLength="7" />
+                        android:maxLength="7"
+                        android:textSize="20sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -242,7 +251,8 @@
                         android:layout_height="wrap_content"
                         android:inputType="textCapSentences|textAutoCorrect"
                         android:focusable="false"
-                        android:longClickable="false" />
+                        android:longClickable="false"
+                        android:textSize="20sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -259,7 +269,8 @@
                         android:id="@+id/second_fuel_car_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textCapSentences|textAutoCorrect" />
+                        android:inputType="textCapSentences|textAutoCorrect"
+                        android:textSize="20sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -307,6 +318,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="100dp"
                         android:layout_marginEnd="8dp"
+                        android:textSize="20sp"
                         android:text="@string/import_image" />
 
                     <com.google.android.material.button.MaterialButton
@@ -315,6 +327,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="100dp"
                         android:layout_marginEnd="8dp"
+                        android:textSize="20sp"
                         android:text="@string/save" />
 
                     <com.google.android.material.button.MaterialButton
