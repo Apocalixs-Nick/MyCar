@@ -5,6 +5,8 @@ The My Car application allows viewing, adding, editing, and deleting cars, with 
 
 ## Screenshots 
 ![AppScreenshotForSmartphoneDarkMode](https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/listCarDarkMode.jpg)
+
+
 ![DetailForSmartphoneDarkMode](https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/detailCarDarkMode.jpg)
 
 ## API Reference
