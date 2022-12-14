@@ -8,6 +8,8 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -96,6 +98,11 @@ class AddCarFragment : Fragment() {
                 deleteCar(car)
             }*/
         } else {
+            binding.nameCarLabel.isEnabled = false
+            binding.nameCarInput.isEnabled = false
+
+            controlBrand()
+
             binding.saveBtn.setOnClickListener {
                 addCar()
             }
@@ -109,6 +116,40 @@ class AddCarFragment : Fragment() {
                 setFuelCar()
             }
         }
+    }
+
+
+    private fun controlBrand() {
+        /**
+         * With addTextChangedListener you are going to add a listener to text that you are going to edit,
+         * and you can apply this listener before, after, or on the edited text
+         */
+        binding.brandCarInput.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                // Unused
+            }
+
+            override fun beforeTextChanged(
+                s: CharSequence?,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
+                // Unused
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // If the brandCarInput field is not empty, enable the nameCarInput field ì, otherwise disable
+                if (s.toString().isNotBlank()) {
+                    binding.nameCarLabel.isEnabled = true
+                    binding.nameCarInput.isEnabled = true
+                } else {
+                    binding.nameCarLabel.isEnabled = false
+                    binding.nameCarInput.isEnabled = false
+                    binding.nameCarInput.setText("")
+                }
+            }
+        })
     }
 
     /**
@@ -253,6 +294,7 @@ class AddCarFragment : Fragment() {
      * Private function for setting fields
      */
     private fun bindCar(car: MyCar) {
+        controlBrand()
         binding.apply {
             nameCarInput.setText(car.name, TextView.BufferType.SPANNABLE)
             brandCarInput.setText(car.brand, TextView.BufferType.SPANNABLE)
@@ -284,7 +326,6 @@ class AddCarFragment : Fragment() {
             binding.brandCarInput.setOnClickListener {
                 setBrandCar()
             }
-
             binding.nameCarInput.setOnClickListener {
                 setModelCar()
             }
