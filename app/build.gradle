@@ -49,6 +49,10 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:3.4.0'
+    androidTestImplementation 'androidx.navigation:navigation-testing:2.5.2'
+
+    debugImplementation 'androidx.fragment:fragment-testing:1.5.3'
 
     // Lifecycle
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
