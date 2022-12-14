@@ -9,4 +9,5 @@ import org.junit.runner.RunWith
 class AddCarFragmentInstrumentedTest {
     @get:Rule()
     val activity = ActivityScenarioRule(MainActivity::class.java)
+    //TODO:Check the addition of a vehicle
 }

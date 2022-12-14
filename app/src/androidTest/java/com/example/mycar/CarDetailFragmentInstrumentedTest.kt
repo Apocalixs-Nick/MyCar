@@ -9,4 +9,5 @@ import org.junit.runner.RunWith
 class CarDetailFragmentInstrumentedTest {
     @get:Rule()
     val activity = ActivityScenarioRule(MainActivity::class.java)
+    //TODO:Check the use of buttons
 }

@@ -9,4 +9,5 @@ import org.junit.runner.RunWith
 class CarListFragmentInstrumentedTest {
     @get:Rule()
     val activity = ActivityScenarioRule(MainActivity::class.java)
+    //TODO:Verify navigation between fragments
 }
