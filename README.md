@@ -4,7 +4,8 @@
 The My Car application allows viewing, adding, editing, and deleting cars, with some information about cars using Room and a local database, using APIs for logos, car makes and models, and fuel types, and workmanager for notifications about coupons for cars entered.
 
 ## Screenshots 
-![AppScreenshotForsmartphoneDarkMode](https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/listCarDarkMode.jpg)
+![AppScreenshotForSmartphoneDarkMode](https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/listCarDarkMode.jpg)
+![DetailForSmartphoneDarkMode](https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/detailCarDarkMode.jpg)
 
 ## API Reference
 
