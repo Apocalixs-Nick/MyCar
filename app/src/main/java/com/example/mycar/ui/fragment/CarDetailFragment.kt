@@ -116,10 +116,16 @@ class CarDetailFragment : Fragment() {
             binding.editCar.visibility = View.VISIBLE
             binding.shareCar.visibility = View.VISIBLE
             binding.deleteCar.visibility = View.VISIBLE
+            binding.editCar.isEnabled = true
+            binding.shareCar.isEnabled = true
+            binding.deleteCar.isEnabled = true
         } else {
             binding.editCar.visibility = View.GONE
             binding.shareCar.visibility = View.GONE
             binding.deleteCar.visibility = View.GONE
+            binding.editCar.isEnabled = false
+            binding.shareCar.isEnabled = false
+            binding.deleteCar.isEnabled = false
         }
     }
 
