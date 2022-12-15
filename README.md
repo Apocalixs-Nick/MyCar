@@ -10,7 +10,7 @@ The My Car application allows you to view, add, edit, and delete cars, with some
 <p align="left">
 <h5><img src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/us-flag.png" height="13">English:</h5>
 <p align="center">
-<img width="150" height="300" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/listCarLightMode.JPG">
+<img width="250" height="350" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/listCarLightMode.JPG">
 
 <img width="250" height="300" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/detailCarLightMode.JPG">
 </p>
