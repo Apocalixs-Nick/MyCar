@@ -31,9 +31,9 @@ The My Car application allows you to view, add, edit, and delete cars, with some
 </p>
 <h5>Horizontal</h5>
 <p align="center">
-<img width="500" height="600" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/listHorizontal.JPG">
+<img width="500" height="500" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/listHorizontal.JPG">
 
-<img width="500" height="600" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/detailHorizontal.JPG">
+<img width="500" height="500" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/detailHorizontal.JPG">
 </p>
 
 ## API Reference
