@@ -1,38 +1,43 @@
 package com.example.mycar
 
-import androidx.navigation.testing.TestNavHostController
-import androidx.test.core.app.ApplicationProvider
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.ext.junit.rules.ActivityScenarioRule
-import androidx.test.ext.junit.runners.AndroidJUnit4
-import org.junit.Rule
-import org.junit.Test
-import org.junit.runner.RunWith
+import androidx.fragment.app.testing.launchFragmentInContainer
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import com.example.mycar.ui.fragment.AddCarFragment
+import com.example.mycar.ui.fragment.CarListFragment
+import org.mockito.Mockito
 
-@RunWith(AndroidJUnit4::class)
-class NavigationInstrumentedTest {
-    @get:Rule()
-    val activity = ActivityScenarioRule(MainActivity::class.java)
+val mockNavController = Mockito.mock(NavController::class.java)
+val themeApplication = R.style.Theme_MyCar
 
-    val navController = TestNavHostController(
-        ApplicationProvider.getApplicationContext()
-    )
-
-    // TODO: To be completed and reviewed if it is the right approach
-    @Test
-    fun navigateTest() {
-        val navigateItems = setOf (
-            R.id.action_carListFragment_to_addCarFragment,
-            R.id.action_addCarFragment_to_carListFragment,
-            R.id.action_carListFragment_to_carDetailFragment,
-            R.id.action_carDetailFragment_to_addCarFragment
-        )
-
-        navigateItems.forEach {
-            onView(withId(it))
-                .perform(click())
+/**
+ * Function that returns a fragment and a simulated NavController object
+ */
+fun mockAddCarFragment(): NavController {
+    launchFragmentInContainer(themeResId = R.style.Theme_MyCar) {
+        AddCarFragment().also { fragment ->
+            fragment.viewLifecycleOwnerLiveData.observeForever { viewLifecycleOwner ->
+                if (viewLifecycleOwner != null) {
+                    Navigation.setViewNavController(fragment.requireView(), mockNavController)
+                }
+            }
         }
     }
+    return mockNavController
+}
+
+/**
+ * Function that starts from the main screen
+ */
+fun startCarListFragment(): NavController {
+    launchFragmentInContainer<CarListFragment>(themeResId = themeApplication) {
+        CarListFragment().also { fragment ->
+            fragment.viewLifecycleOwnerLiveData.observeForever { viewLifecycleOwner ->
+                if (viewLifecycleOwner != null) {
+                    Navigation.setViewNavController(fragment.requireView(), mockNavController)
+                }
+            }
+        }
+    }
+    return mockNavController
 }

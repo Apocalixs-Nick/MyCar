@@ -44,13 +44,15 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.test.espresso:espresso-contrib:3.5.0'
 
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
     androidTestImplementation 'androidx.navigation:navigation-testing:2.5.2'
-
+    testImplementation 'org.mockito:mockito-core:2.24.5'
+    androidTestImplementation 'org.mockito:mockito-android:2.24.5'
     debugImplementation 'androidx.fragment:fragment-testing:1.5.3'
 
     // Lifecycle
@@ -91,4 +93,7 @@ dependencies {
     implementation "io.coil-kt:coil:1.1.1"
 
     implementation "androidx.slidingpanelayout:slidingpanelayout:1.2.0-beta01"
+
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test:rules:1.4.0'
 }

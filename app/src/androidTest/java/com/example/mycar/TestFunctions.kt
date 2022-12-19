@@ -1,8 +1,24 @@
 package com.example.mycar
 
+import androidx.fragment.app.testing.launchFragmentInContainer
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.recyclerview.widget.RecyclerView
+import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.*
+import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.platform.app.InstrumentationRegistry
+import com.example.mycar.ui.fragment.AddCarFragment
+import junit.framework.Assert
+import org.hamcrest.Matchers.hasToString
+import org.hamcrest.Matchers.startsWith
+import org.mockito.Mockito
 
 
 //To review to see if it can serve
@@ -107,7 +123,6 @@ fun navigateToListToDetailDelete() {
 
 fun addNewCar() {
     navigateToListToAdd()
-
 }
 
 fun updateCar() {
@@ -120,4 +135,94 @@ fun shareCar() {
 
 fun deleteCar() {
     navigateToListToDetailDelete()
+}
+
+fun clickTextInputWriteString(idInput: Int, string: String) {
+    onView(withId(idInput))
+        .perform(typeText(string))
+}
+
+//to review
+fun clickTextInputListBrand(idInput: Int, textToSearch: String) {
+    clickId(idInput)
+    // Open alert dialog
+    onView(withId(R.id.brand_car)).perform(click())
+    // Select model?
+    onView(withText(textToSearch)).perform(click())
+}
+
+fun clickTextInputListModel(idInput: Int, textToSearch: String) {
+    clickId(idInput)
+    onData(hasToString(startsWith(textToSearch))).inAdapterView(withId(R.id.name_car)).perform(click())
+}
+
+fun clickTextInputListFuel(idInput: Int, textToSearch: String) {
+    clickId(idInput)
+    onData(hasToString(startsWith(textToSearch))).inAdapterView(withId(R.id.fuel_car)).perform(click())
+}
+
+/**
+ * Function that takes a boolean value as input to enable and disable wifi
+ * via a shell command through the uiAutomation object
+ */
+fun enableWifi(enable: Boolean){
+    when (enable)
+    {
+        true -> InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand("svc wifi enable")
+        false -> InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand("svc wifi disable")
+    }
+}
+
+/**
+ * Function that takes a boolean value as input to enable and disable cellular data
+ * via a shell command through the uiAutomation object
+ */
+fun enableCellularData(enable: Boolean){
+    when (enable)
+    {
+        true -> InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand("svc data enable")
+        false -> InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand("svc data disable")
+    }
+}
+
+/**
+ * Function that takes an ID as input and checks whether or not it is visible on the screen
+ */
+fun checkIfVisible(id: Int){
+    onView(withId(id)).check(matches(ViewMatchers.isDisplayed()))
+}
+
+/**
+ * Function used to verify that the current location is the expected location by taking the current id and the destination id
+ */
+fun check_current_location_is_expected(currentLocation: Int?, expectedLocation: Int) {
+    Assert.assertEquals(
+        currentLocation,
+        expectedLocation
+    )
+}
+
+/**
+ * Support function that is used to simulate clicking on a specific tab in a RecyclerView view
+ */
+fun clickItem(idCard: Int) {
+    onView(withId(R.id.recycler_view)).perform(
+        RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(idCard, click())
+    )
+}
+
+/**
+ * Function to hide the virtual keyboard on an Android device
+ */
+fun hideKeyboard() {
+    onView(ViewMatchers.isRoot()).perform(closeSoftKeyboard())
+}
+
+/**
+ * Function to scroll view
+ */
+fun scrollTo(id: Int) {
+    onView(withId(id))
+        .perform(scrollTo())
+        .check(matches(isDisplayed()))
 }
