@@ -8,32 +8,32 @@ The My Car application allows you to view, add, edit, and delete cars, with some
 
 ## Screenshots
 <p align="left">
-<h5><img src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/us-flag.png" height="13">English:</h5>
+<h5><img src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/img/us-flag.png" height="13">English:</h5>
 <p align="center">
-<img width="150" height="300" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/listCarLightMode.JPG">
+<img width="150" height="300" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/img/listCarLightMode.JPG">
 
-<img width="150" height="300" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/detailCarLightMode.JPG">
+<img width="150" height="300" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/img/detailCarLightMode.JPG">
 </p>
 
-<h5><img src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/it-flag.png" height="13">Italian:</h5>
+<h5><img src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/img//it-flag.png" height="13">Italian:</h5>
 <p align="center">
-<img width="150" height="300" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/listCarDarkMode.jpg">
+<img width="150" height="300" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/img/listCarDarkMode.jpg">
 
-<img width="150" height="300" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/detailCarDarkMode.jpg">
+<img width="150" height="300" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/img/detailCarDarkMode.jpg">
 </p>
 
 <h5>For 600dp+ devices:</h5>
 <h5>Vertical</h5>
 <p align="center">
-<img width="345" height="450" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/listVertical.JPG">
+<img width="345" height="450" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/img/listVertical.JPG">
 
-<img width="345" height="450" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/detailVertical.JPG">
+<img width="345" height="450" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/img/detailVertical.JPG">
 </p>
 <h5>Horizontal</h5>
 <p align="center">
-<img width="500" height="500" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/listHorizontal.JPG">
+<img width="500" height="500" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/img/listHorizontal.JPG">
 
-<img width="500" height="500" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/app/src/main/res/img/detailHorizontal.JPG">
+<img width="500" height="500" src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/img/detailHorizontal.JPG">
 </p>
 
 ## API Reference
