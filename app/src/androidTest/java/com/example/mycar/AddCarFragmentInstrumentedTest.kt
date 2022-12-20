@@ -32,7 +32,7 @@ class AddCarFragmentInstrumentedTest {
     fun addNewCarWithInternet() {
         clickId(R.id.add_car)
         Thread.sleep(1000)
-        clickTextInputListBrand(R.id.brand_car_input, brand[0])
+        clickTextInputListBrand(R.id.brand_car_input, car[0].brand)
         //clickId(R.id.brand_car_input)
         //clickString(car[0].brand)
         //clickTextInputWriteString(R.id.brand_car_input, car[0].brand)

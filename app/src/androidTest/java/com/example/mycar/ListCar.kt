@@ -65,5 +65,7 @@ val ListCarDao = listOf<MyCar>(
 )
 
 val ListBrand = listOf<String>(
-    "ACURA"
+    "ACURA",
+    "AUDI",
+    "FIAT"
 )

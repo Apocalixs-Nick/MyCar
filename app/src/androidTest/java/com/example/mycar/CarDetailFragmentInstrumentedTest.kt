@@ -1,6 +1,13 @@
 package com.example.mycar
 
 import android.app.AlertDialog
+import androidx.test.espresso.Espresso
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.typeTextIntoFocusedView
+import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
@@ -16,7 +23,6 @@ import kotlin.coroutines.coroutineContext
 class CarDetailFragmentInstrumentedTest {
     @get:Rule()
     val activity = ActivityScenarioRule(MainActivity::class.java)
-    //TODO:Check the use of buttons
 
     private lateinit var uiDevice: UiDevice
 
@@ -27,7 +33,7 @@ class CarDetailFragmentInstrumentedTest {
 
     @Test//IT WORKS
     fun clickDetail() {
-        clickItem(6)
+        clickItem(2)
         clickId(R.id.detail_car)
     }
 
@@ -92,5 +98,13 @@ class CarDetailFragmentInstrumentedTest {
 
         clickDetail()
         clickId(R.id.delete_car)
+        onView(withText(R.string.yes)).perform(click())
+    }
+
+    @Test//IT WORKS
+    fun clickFabNoDelete() {
+        clickDetail()
+        clickId(R.id.delete_car)
+        onView(withText(R.string.no)).perform(click())
     }
 }

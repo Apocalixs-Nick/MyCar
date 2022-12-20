@@ -163,15 +163,21 @@ fun clickTextInputWriteString(idInput: Int, string: String) {
 fun clickTextInputListBrand(idInput: Int, brand: String) {
     clickId(idInput)
     // Open alert dialog
-    val listBrandCar = ListBrand
+    /*val listBrandCar = ListBrand
     val items = arrayOfNulls<CharSequence>(listBrandCar.size)
     for (i in listBrandCar.indices) {
         items[i] = listBrandCar[i]
-    }
-    onView(withText(items.size)).perform(click())
+    }*/
+    /*onView(withText(items)).perform(click())
     Thread.sleep(5000)
     // Select model?
-    onView(withText(brand)).perform(click())
+    onView(withText(brand)).perform(click())*/
+
+    onData(hasToString(startsWith(brand))).inAdapterView(withText(R.id.brand_car))
+        .perform(click())
+        .perform(closeSoftKeyboard())
+        .perform(scrollTo())
+    onView(withText("OK")).perform(click())
 }
 
 fun clickTextInputListModel(idInput: Int, model: String) {
