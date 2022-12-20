@@ -101,7 +101,7 @@ class AddCarFragment : Fragment() {
             binding.nameCarLabel.isEnabled = false
             binding.nameCarInput.isEnabled = false
 
-            controlBrand()
+            controlBrandAdd()
 
             binding.saveBtn.setOnClickListener {
                 addCar()
@@ -119,7 +119,7 @@ class AddCarFragment : Fragment() {
     }
 
 
-    private fun controlBrand() {
+    private fun controlBrandAdd() {
         /**
          * With addTextChangedListener you are going to add a listener to text that you are going to edit,
          * and you can apply this listener before, after, or on the edited text
@@ -143,6 +143,7 @@ class AddCarFragment : Fragment() {
                 if (s.toString().isNotBlank()) {
                     binding.nameCarLabel.isEnabled = true
                     binding.nameCarInput.isEnabled = true
+                    binding.nameCarInput.setText("")
                 } else {
                     binding.nameCarLabel.isEnabled = false
                     binding.nameCarInput.isEnabled = false
@@ -151,6 +152,45 @@ class AddCarFragment : Fragment() {
             }
         })
     }
+
+    private fun controlBrandUpdate() {
+        /**
+         * With addTextChangedListener you are going to add a listener to text that you are going to edit,
+         * and you can apply this listener before, after, or on the edited text
+         */
+        binding.brandCarInput.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                // Unused
+            }
+
+            override fun beforeTextChanged(
+                s: CharSequence?,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
+                // Unused
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // If the brandCarInput field is not empty, enable the nameCarInput field ì, otherwise disable
+                if (s.toString().isNotBlank()) {
+                    binding.nameCarLabel.isEnabled = true
+                    binding.nameCarInput.isEnabled = true
+                    if (binding.brandCarInput.text.toString() != car.brand) {
+                        binding.nameCarInput.setText("")
+                    } else {
+                        binding.nameCarInput.setText(binding.nameCarInput.text.toString())
+                    }
+                } else {
+                    binding.nameCarLabel.isEnabled = false
+                    binding.nameCarInput.isEnabled = false
+                    binding.nameCarInput.setText("")
+                }
+            }
+        })
+    }
+
 
     /**
      * Private function for adding a new car
@@ -294,10 +334,10 @@ class AddCarFragment : Fragment() {
      * Private function for setting fields
      */
     private fun bindCar(car: MyCar) {
-        controlBrand()
+        controlBrandUpdate()
         binding.apply {
-            nameCarInput.setText(car.name, TextView.BufferType.SPANNABLE)
             brandCarInput.setText(car.brand, TextView.BufferType.SPANNABLE)
+            nameCarInput.setText(car.name, TextView.BufferType.SPANNABLE)
             doorsCarInput.setText(car.numberDoors.toString(), TextView.BufferType.SPANNABLE)
             fuelCarInput.setText(car.fuel, TextView.BufferType.SPANNABLE)
             if (noSecondFuel(car)) {
