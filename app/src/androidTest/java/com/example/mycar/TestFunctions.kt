@@ -10,7 +10,6 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Assert.assertEquals
 
-
 fun goToAddFragmentFromHome() {
     onView(withId(R.id.action_carListFragment_to_addCarFragment))
         .perform(click())
@@ -159,6 +158,33 @@ fun clickTextInputListFuel(idInput: Int, fuel: String) {
     clickId(idInput)
     onView(withText(fuel)).perform(click())
     onView(withText(R.string.Ok)).perform(click())
+}
+
+/**
+ * Function used for click brand input and cancel brand
+ */
+fun clickCancelTextInputListBrand(idInput: Int, brand: String) {
+    clickId(idInput)
+    onView(withText(brand)).perform(click())
+    onView(withText(R.string.cancel)).perform(click())
+}
+
+/**
+ * Function used for click model input and cancel model
+ */
+fun clickCancelTextInputListModel(idInput: Int, model: String) {
+    clickId(idInput)
+    onView(withText(model)).perform(click())
+    onView(withText(R.string.cancel)).perform(click())
+}
+
+/**
+ * Function used for click fuel input and cancel fuel
+ */
+fun clickCancelTextInputListFuel(idInput: Int, fuel: String) {
+    clickId(idInput)
+    onView(withText(fuel)).perform(click())
+    onView(withText(R.string.cancel)).perform(click())
 }
 
 /**

@@ -1,20 +1,10 @@
 package com.example.mycar
 
-import android.view.View
-import androidx.fragment.app.testing.launchFragmentInContainer
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.testing.TestNavHostController
-import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.mycar.ui.fragment.AddCarFragmentDirections
-import com.example.mycar.ui.fragment.CarListFragment
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito
-import org.mockito.Mockito.verify
 
 @RunWith(AndroidJUnit4::class)
 class AddCarFragmentInstrumentedTest {
@@ -29,6 +19,12 @@ class AddCarFragmentInstrumentedTest {
     fun addNewCarWithInternet() {
         clickId(R.id.add_car)
         Thread.sleep(1000)
+        clickTextInputListBrand(R.id.brand_car_input, car[0].brand)
+        Thread.sleep(3000)
+        clickTextInputListModel(R.id.name_car_input, car[0].name)
+        Thread.sleep(1000)
+        clickCancelTextInputListBrand(R.id.brand_car_input, car[0].brand)
+        Thread.sleep(3000)
         clickTextInputListBrand(R.id.brand_car_input, car[0].brand)
         Thread.sleep(3000)
         clickTextInputListModel(R.id.name_car_input, car[0].name)
@@ -53,6 +49,10 @@ class AddCarFragmentInstrumentedTest {
         scrollTo(R.id.layout_add_new_car_with_connection)
         clickTextInputListFuel(R.id.fuel_car_input, car[0].fuel)
         Thread.sleep(2000)
+        clickCancelTextInputListFuel(R.id.fuel_car_input, car[0].fuel)
+        Thread.sleep(2000)
+        clickTextInputListFuel(R.id.fuel_car_input, car[0].fuel)
+        Thread.sleep(2000)
         scrollTo(R.id.layout_add_new_car_with_connection)
         clickTextInputWriteString(R.id.second_fuel_car_input, car[0].secondFuel.toString())
         Thread.sleep(1000)
@@ -72,13 +72,11 @@ class AddCarFragmentInstrumentedTest {
     fun addNewControlInternet() {
         enableWifi(false)
         enableCellularData(false)
-        //goToAdd()
         clickId(R.id.add_car)
         checkIfVisible(R.id.image_error_connection)
         enableWifi(true)
         enableCellularData(true)
         clickId(R.id.retry_again_error_connection)
         Thread.sleep(3000)
-        //checkIfVisible(R.id.brand_car_input)
     }
 }
