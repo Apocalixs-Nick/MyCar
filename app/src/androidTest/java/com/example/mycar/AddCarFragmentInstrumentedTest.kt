@@ -25,6 +25,7 @@ class AddCarFragmentInstrumentedTest {
     val mockNavController = Mockito.mock(NavController::class.java)
 
     val brand = ListBrand
+
     /**
      * Function for adding a car by taking the information from the ListCar list
      */
@@ -36,8 +37,8 @@ class AddCarFragmentInstrumentedTest {
         //clickId(R.id.brand_car_input)
         //clickString(car[0].brand)
         //clickTextInputWriteString(R.id.brand_car_input, car[0].brand)
-        Thread.sleep(1000)
-        clickTextInputWriteString(R.id.name_car_input, car[0].name)
+        Thread.sleep(3000)
+        clickTextInputListModel(R.id.name_car_input, car[0].name)
         Thread.sleep(1000)
         clickTextInputWriteString(R.id.power_car_input, car[0].power.toString())
         Thread.sleep(1000)
@@ -57,10 +58,10 @@ class AddCarFragmentInstrumentedTest {
         hideKeyboard()
         Thread.sleep(1000)
         scrollTo(R.id.layout_add_new_car_with_connection)
-        clickTextInputWriteString(R.id.fuel_car_input, car[0].fuel)
-        Thread.sleep(1000)
-        hideKeyboard()
-        Thread.sleep(1000)
+        clickTextInputListFuel(R.id.fuel_car_input, car[0].fuel)
+        Thread.sleep(2000)
+        //hideKeyboard()
+        //Thread.sleep(1000)
         scrollTo(R.id.layout_add_new_car_with_connection)
         clickTextInputWriteString(R.id.second_fuel_car_input, car[0].secondFuel.toString())
         Thread.sleep(1000)

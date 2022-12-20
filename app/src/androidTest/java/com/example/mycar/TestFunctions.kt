@@ -173,21 +173,24 @@ fun clickTextInputListBrand(idInput: Int, brand: String) {
     // Select model?
     onView(withText(brand)).perform(click())*/
 
-    onData(hasToString(startsWith(brand))).inAdapterView(withText(R.id.brand_car))
-        .perform(click())
-        .perform(closeSoftKeyboard())
-        .perform(scrollTo())
+    onView(withText(brand)).perform(click())
     onView(withText("OK")).perform(click())
 }
 
 fun clickTextInputListModel(idInput: Int, model: String) {
     clickId(idInput)
-    onData(hasToString(startsWith(model))).inAdapterView(withId(R.id.name_car)).perform(click())
+    /*onData(hasToString(startsWith(model))).inAdapterView(withId(R.id.name_car))
+        .perform(click())*/
+    onView(withText(model)).perform(click())
+    onView(withText("OK")).perform(click())
 }
 
 fun clickTextInputListFuel(idInput: Int, fuel: String) {
     clickId(idInput)
-    onData(hasToString(startsWith(fuel))).inAdapterView(withId(R.id.fuel_car)).perform(click())
+    /*onData(hasToString(startsWith(fuel))).inAdapterView(withId(R.id.fuel_car))
+        .perform(click())*/
+    onView(withText(fuel)).perform(click())
+    onView(withText("OK")).perform(click())
 }
 
 /**
