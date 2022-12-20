@@ -1,31 +1,16 @@
 package com.example.mycar
 
-import android.view.View
-import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.testing.launchFragmentInContainer
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.*
-import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.platform.app.InstrumentationRegistry
-import com.example.mycar.ui.fragment.AddCarFragment
-import com.example.mycar.ui.viewmodel.CarViewModel
-import com.example.mycar.ui.viewmodel.CarViewModelFactory
-import org.hamcrest.Matchers.hasToString
-import org.hamcrest.Matchers.startsWith
 import org.junit.Assert.assertEquals
-import org.mockito.Mockito
 
 
-//To review to see if it can serve
 fun goToAddFragmentFromHome() {
     onView(withId(R.id.action_carListFragment_to_addCarFragment))
         .perform(click())
@@ -67,30 +52,18 @@ fun clickAddNewCar() {
 }
 
 fun clickFloatingDetail() {
-    /*onView(withId(R.id.detail_car))
-        .perform(click())
-        .check(matches(isDisplayed()))*/
     clickId(R.id.detail_car)
 }
 
 fun clickEditFloatingDetail() {
-    /*onView(withId(R.id.edit_car))
-        .perform(click())
-        .check(matches(isDisplayed()))*/
     clickId(R.id.edit_car)
 }
 
 fun clickShareFloatingDetail() {
-    /*onView(withId(R.id.share_car))
-        .perform(click())
-        .check(matches(isDisplayed()))*/
     clickId(R.id.share_car)
 }
 
 fun clickDeleteFloatingDetail() {
-    /*onView(withId(R.id.delete_car))
-        .perform(click())
-        .check(matches(isDisplayed()))*/
     clickId(R.id.delete_car)
 }
 
@@ -104,7 +77,6 @@ fun clickString(input: String){
         .perform(click())
 }
 
-//TODO: Review this function
 fun navigateToListToAdd() {
     goToHome()
     clickAddNewCar()
@@ -154,43 +126,39 @@ fun deleteCar() {
     navigateToListToDetailDelete()
 }
 
+/**
+ * Function used for write in text input
+ */
 fun clickTextInputWriteString(idInput: Int, string: String) {
     onView(withId(idInput))
         .perform(typeText(string))
 }
 
-//to review
+/**
+ * Function used for click brand input and select brand
+ */
 fun clickTextInputListBrand(idInput: Int, brand: String) {
     clickId(idInput)
-    // Open alert dialog
-    /*val listBrandCar = ListBrand
-    val items = arrayOfNulls<CharSequence>(listBrandCar.size)
-    for (i in listBrandCar.indices) {
-        items[i] = listBrandCar[i]
-    }*/
-    /*onView(withText(items)).perform(click())
-    Thread.sleep(5000)
-    // Select model?
-    onView(withText(brand)).perform(click())*/
-
     onView(withText(brand)).perform(click())
-    onView(withText("OK")).perform(click())
+    onView(withText(R.string.Ok)).perform(click())
 }
 
+/**
+ * Function used for click model input and select model
+ */
 fun clickTextInputListModel(idInput: Int, model: String) {
     clickId(idInput)
-    /*onData(hasToString(startsWith(model))).inAdapterView(withId(R.id.name_car))
-        .perform(click())*/
     onView(withText(model)).perform(click())
-    onView(withText("OK")).perform(click())
+    onView(withText(R.string.Ok)).perform(click())
 }
 
+/**
+ * Function used for click fuel input and select fuel
+ */
 fun clickTextInputListFuel(idInput: Int, fuel: String) {
     clickId(idInput)
-    /*onData(hasToString(startsWith(fuel))).inAdapterView(withId(R.id.fuel_car))
-        .perform(click())*/
     onView(withText(fuel)).perform(click())
-    onView(withText("OK")).perform(click())
+    onView(withText(R.string.Ok)).perform(click())
 }
 
 /**
@@ -247,7 +215,7 @@ fun clickItem(idCard: Int) {
  * Function to hide the virtual keyboard on an Android device
  */
 fun hideKeyboard() {
-    onView(ViewMatchers.isRoot()).perform(closeSoftKeyboard())
+    onView(isRoot()).perform(closeSoftKeyboard())
 }
 
 /**

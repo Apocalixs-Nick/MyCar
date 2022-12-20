@@ -20,23 +20,16 @@ import org.mockito.Mockito.verify
 class AddCarFragmentInstrumentedTest {
     @get:Rule()
     val activity = ActivityScenarioRule(MainActivity::class.java)
-    //TODO:Check the addition of a vehicle
     val car = ListCar
-    val mockNavController = Mockito.mock(NavController::class.java)
-
-    val brand = ListBrand
 
     /**
      * Function for adding a car by taking the information from the ListCar list
      */
-    @Test//TO REVIEW - IT WORKS BUT CRASHES WHEN CLICK FOR ALERT DIALOG
+    @Test//IT WORKS ONLY ON PHYSICAL DEVICES
     fun addNewCarWithInternet() {
         clickId(R.id.add_car)
         Thread.sleep(1000)
         clickTextInputListBrand(R.id.brand_car_input, car[0].brand)
-        //clickId(R.id.brand_car_input)
-        //clickString(car[0].brand)
-        //clickTextInputWriteString(R.id.brand_car_input, car[0].brand)
         Thread.sleep(3000)
         clickTextInputListModel(R.id.name_car_input, car[0].name)
         Thread.sleep(1000)
@@ -60,8 +53,6 @@ class AddCarFragmentInstrumentedTest {
         scrollTo(R.id.layout_add_new_car_with_connection)
         clickTextInputListFuel(R.id.fuel_car_input, car[0].fuel)
         Thread.sleep(2000)
-        //hideKeyboard()
-        //Thread.sleep(1000)
         scrollTo(R.id.layout_add_new_car_with_connection)
         clickTextInputWriteString(R.id.second_fuel_car_input, car[0].secondFuel.toString())
         Thread.sleep(1000)
@@ -72,11 +63,6 @@ class AddCarFragmentInstrumentedTest {
         scrollTo(R.id.linearLayout)
         clickId(R.id.save_btn)
         Thread.sleep(1000)
-        //scrollTo(R.id.layout_add_new_car_with_connection)
-        //Thread.sleep(1000)
-        /*verify(navController).navigate(
-            AddCarFragmentDirections.actionAddCarFragmentToCarListFragment()
-        )*/
     }
 
     /**

@@ -39,17 +39,8 @@ class CarDetailFragmentInstrumentedTest {
 
     @Test//IT WORKS WITH NOTIFICATION
     fun clickFabEditWithNotification() {
-       /*val mockNavController = startCarListFragment()
-        clickItem(0)
-        verify(mockNavController).navigate(
-            CarListFragmentDirections.actionCarListFragmentToCarDetailFragment(
-                1
-            )
-        )
-        clickFloatingDetail()*/
         clickDetail()
         clickId(R.id.edit_car)
-        //clickEditFloatingDetail()
         scrollTo(R.id.layout_add_new_car_with_connection)
         clearTextInput(R.id.km_car_input)
         clickTextInputWriteString(R.id.km_car_input, "150000")
@@ -58,8 +49,6 @@ class CarDetailFragmentInstrumentedTest {
         scrollTo(R.id.linearLayout2)
         scrollTo(R.id.linearLayout)
         clickId(R.id.save_btn)
-        /*clickDetail()
-        Thread.sleep(3000)*/
         uiDevice.pressHome()
         uiDevice.openNotification()
         uiDevice.wait(androidx.test.uiautomator.Until.hasObject(By.textContains("Panda")), 5)
@@ -67,35 +56,12 @@ class CarDetailFragmentInstrumentedTest {
 
     @Test//IT WORKS
     fun clickFabShare() {
-        /*val mockNavController = startCarListFragment()
-        clickItem(0)
-        verify(mockNavController).navigate(
-            CarListFragmentDirections.actionCarListFragmentToCarDetailFragment(
-                1
-            )
-
-        )
-
-        clickFloatingDetail()
-        clickShareFloatingDetail()*/
-
         clickDetail()
         clickId(R.id.share_car)
     }
 
     @Test//IT WORKS
     fun clickFabDelete() {
-        /*val mockNavController = startCarListFragment()
-        clickItem(0)
-        verify(mockNavController).navigate(
-            CarListFragmentDirections.actionCarListFragmentToCarDetailFragment(
-                1
-            )
-        )
-        clickFloatingDetail()
-        clickDeleteFloatingDetail()
-        clickId(R.string.yes)*/
-
         clickDetail()
         clickId(R.id.delete_car)
         onView(withText(R.string.yes)).perform(click())

@@ -28,8 +28,7 @@ class NavigationTest {
 
     val theme = R.style.Theme_MyCar
 
-    //IT WORKS
-    @Test
+    @Test//IT WORKS
     fun navigationFromHomeFragmentToAddFragment() {
         val homeFragmentScenario =
             launchFragmentInContainer<CarListFragment>(themeResId = theme)
@@ -44,8 +43,7 @@ class NavigationTest {
         )
     }
 
-    //IT WORKS
-    @Test
+    @Test//IT WORKS
     fun navigationFromHomeFragmentToCarDetailFragment() {
         val mockNavController = startCarListFragment()
         clickItem(0)
