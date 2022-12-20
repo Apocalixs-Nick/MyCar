@@ -1,12 +1,20 @@
 package com.example.mycar
 
+import android.content.Context
 import androidx.room.Room
+import androidx.sqlite.db.SupportSQLiteCompat.Api16Impl.cancel
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.UiDevice
+import app.cash.turbine.test
+import com.example.mycar.data.MyCarDao
 import com.example.mycar.data.MyCarDatabase
 import com.example.mycar.model.MyCar
 import kotlinx.coroutines.*
+import org.junit.After
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -16,40 +24,78 @@ import java.util.concurrent.CountDownLatch
 class CarListFragmentInstrumentedTest {
     @get:Rule()
     val activity = ActivityScenarioRule(MainActivity::class.java)
-    //TODO:Verify navigation between fragments
-    val database = Room.inMemoryDatabaseBuilder(
-        ApplicationProvider.getApplicationContext(),
-        MyCarDatabase::class.java
-    ).allowMainThreadQueries().build()
-    val myCarDao = database.myCarDao()
 
-    @Test//IDK NOW
-    fun addAndDisplayingVehicleInTheHome() = runBlocking {
-        clickId(R.id.add_car)
-        val car = MyCar(
-            name = "Panda",
-            brand = "FIAT",
-            power = 45,
-            fuel = "Gasoline",
-            secondFuel = "",
-            numberDoors = 5,
-            productionYear = 2012,
-            image = R.id.ic_brand_car.toString().encodeToByteArray(),
-            places = 5,
-            color = "Yellow",
-            kM = 2580
-        )
-        myCarDao.insert(car)
-        val latch = CountDownLatch(1)
-        val job = async(Dispatchers.IO) {
-            myCarDao.getCars().collect {
+    lateinit var carDb: MyCarDatabase
+    lateinit var carDao: MyCarDao
+    val context = ApplicationProvider.getApplicationContext<Context>()
+
+
+    @Before
+    fun setUpDatabase() {
+        carDb = Room.inMemoryDatabaseBuilder(context, MyCarDatabase::class.java).build()
+        carDao = carDb.myCarDao()
+    }
+
+    @After
+    fun closeDatabase() {
+        carDb.close()
+    }
+
+    /**
+     * Test to verify the operation of insert() and getCars()
+     */
+    @Test
+    fun addDatabase() = runBlocking {
+        val car = ListCarDao[0]
+        carDao.insert(car)
+        carDao.getCars().test {
+            val list = awaitItem()
+            suspend {
+                assert(list.contains(car))
             }
+            cancel()
         }
-        withContext(Dispatchers.IO) {
-            latch.await()
+    }
+    /**
+     * Test to verify the operation of insert() and getCars()
+     * and update the car with the return in the stream
+     */
+    @Test
+    fun updateCarShouldReturnIteminFlow() = runBlocking {
+        val carRandom1 = ListCarDao[0]
+        val carRandom2 = ListCarDao[1]
+        val carRandom3 = ListCarDao[2]
+        carDao.insert(carRandom1)
+        carDao.insert(carRandom2)
+        carDao.getCars().test {
+            val list = awaitItem()
+            suspend {
+                assert(list.size == 2)
+                assert(list.contains(carRandom3))
+            }
+            cancel()
         }
-        job.cancelAndJoin()
-        //Continue to see if you view the vehicle?
+    }
+
+    /**
+     * Test to verify the operation of insert() and getCars()
+     * and delete the car that should not be in the stream
+     */
+    @Test
+    fun deletedCarShouldNotBePresentInFlow() = runBlocking {
+        val car = ListCarDao[0]
+        val car1 = ListCarDao[1]
+        carDao.insert(car)
+        carDao.insert(car1)
+        carDao.delete(car)
+        carDao.getCars().test {
+            val list = awaitItem()
+            suspend {
+                assert(list.size == 1)
+                assert(list.contains(car1))
+            }
+            cancel()
+        }
     }
 
 }

@@ -1,5 +1,7 @@
 package com.example.mycar
 
+import android.view.View
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -15,9 +17,11 @@ import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.mycar.ui.fragment.AddCarFragment
-import junit.framework.Assert
+import com.example.mycar.ui.viewmodel.CarViewModel
+import com.example.mycar.ui.viewmodel.CarViewModelFactory
 import org.hamcrest.Matchers.hasToString
 import org.hamcrest.Matchers.startsWith
+import org.junit.Assert.assertEquals
 import org.mockito.Mockito
 
 
@@ -63,27 +67,40 @@ fun clickAddNewCar() {
 }
 
 fun clickFloatingDetail() {
-    onView(withId(R.id.detail_car))
+    /*onView(withId(R.id.detail_car))
         .perform(click())
+        .check(matches(isDisplayed()))*/
+    clickId(R.id.detail_car)
 }
 
 fun clickEditFloatingDetail() {
-    onView(withId(R.id.edit_car))
+    /*onView(withId(R.id.edit_car))
         .perform(click())
+        .check(matches(isDisplayed()))*/
+    clickId(R.id.edit_car)
 }
 
 fun clickShareFloatingDetail() {
-    onView(withId(R.id.share_car))
+    /*onView(withId(R.id.share_car))
         .perform(click())
+        .check(matches(isDisplayed()))*/
+    clickId(R.id.share_car)
 }
 
 fun clickDeleteFloatingDetail() {
-    onView(withId(R.id.delete_car))
+    /*onView(withId(R.id.delete_car))
         .perform(click())
+        .check(matches(isDisplayed()))*/
+    clickId(R.id.delete_car)
 }
 
 fun clickId(idInput: Int){
     onView(withId(idInput))
+        .perform(click())
+}
+
+fun clickString(input: String){
+    onView(withText(input))
         .perform(click())
 }
 
@@ -143,22 +160,28 @@ fun clickTextInputWriteString(idInput: Int, string: String) {
 }
 
 //to review
-fun clickTextInputListBrand(idInput: Int, textToSearch: String) {
+fun clickTextInputListBrand(idInput: Int, brand: String) {
     clickId(idInput)
     // Open alert dialog
-    onView(withId(R.id.brand_car)).perform(click())
+    val listBrandCar = ListBrand
+    val items = arrayOfNulls<CharSequence>(listBrandCar.size)
+    for (i in listBrandCar.indices) {
+        items[i] = listBrandCar[i]
+    }
+    onView(withText(items.size)).perform(click())
+    Thread.sleep(5000)
     // Select model?
-    onView(withText(textToSearch)).perform(click())
+    onView(withText(brand)).perform(click())
 }
 
-fun clickTextInputListModel(idInput: Int, textToSearch: String) {
+fun clickTextInputListModel(idInput: Int, model: String) {
     clickId(idInput)
-    onData(hasToString(startsWith(textToSearch))).inAdapterView(withId(R.id.name_car)).perform(click())
+    onData(hasToString(startsWith(model))).inAdapterView(withId(R.id.name_car)).perform(click())
 }
 
-fun clickTextInputListFuel(idInput: Int, textToSearch: String) {
+fun clickTextInputListFuel(idInput: Int, fuel: String) {
     clickId(idInput)
-    onData(hasToString(startsWith(textToSearch))).inAdapterView(withId(R.id.fuel_car)).perform(click())
+    onData(hasToString(startsWith(fuel))).inAdapterView(withId(R.id.fuel_car)).perform(click())
 }
 
 /**
@@ -196,7 +219,7 @@ fun checkIfVisible(id: Int){
  * Function used to verify that the current location is the expected location by taking the current id and the destination id
  */
 fun check_current_location_is_expected(currentLocation: Int?, expectedLocation: Int) {
-    Assert.assertEquals(
+    assertEquals(
         currentLocation,
         expectedLocation
     )
@@ -225,4 +248,11 @@ fun scrollTo(id: Int) {
     onView(withId(id))
         .perform(scrollTo())
         .check(matches(isDisplayed()))
+}
+
+/**
+ * Function for clear text input
+ */
+fun clearTextInput(idTextInput: Int) {
+    onView(withId(idTextInput)).perform(clearText())
 }

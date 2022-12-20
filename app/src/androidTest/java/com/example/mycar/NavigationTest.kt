@@ -28,22 +28,6 @@ class NavigationTest {
 
     val theme = R.style.Theme_MyCar
 
-    // TODO: To be completed and reviewed if it is the right approach
-    //TO REVIEW MAYBE THERE IS NO NEED
-    @Test
-    fun navigateTest() {
-        val navigateItems = setOf (
-            R.id.carListFragment,
-            R.id.addCarFragment,
-            R.id.carDetailFragment
-        )
-
-        navigateItems.forEach {
-            onView(withId((it)))
-                .perform(click())
-        }
-    }
-
     //IT WORKS
     @Test
     fun navigationFromHomeFragmentToAddFragment() {

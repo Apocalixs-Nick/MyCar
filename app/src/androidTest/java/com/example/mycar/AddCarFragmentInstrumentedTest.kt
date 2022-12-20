@@ -1,5 +1,6 @@
 package com.example.mycar
 
+import android.view.View
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -23,13 +24,18 @@ class AddCarFragmentInstrumentedTest {
     val car = ListCar
     val mockNavController = Mockito.mock(NavController::class.java)
 
+    val brand = ListBrand
     /**
      * Function for adding a car by taking the information from the ListCar list
      */
-    @Test//TO REVIEW - IT WORKS BUT CRASHES AFTER ADDING
+    @Test//TO REVIEW - IT WORKS BUT CRASHES WHEN CLICK FOR ALERT DIALOG
     fun addNewCarWithInternet() {
         clickId(R.id.add_car)
-        clickTextInputWriteString(R.id.brand_car_input, car[0].brand)
+        Thread.sleep(1000)
+        clickTextInputListBrand(R.id.brand_car_input, brand[0])
+        //clickId(R.id.brand_car_input)
+        //clickString(car[0].brand)
+        //clickTextInputWriteString(R.id.brand_car_input, car[0].brand)
         Thread.sleep(1000)
         clickTextInputWriteString(R.id.name_car_input, car[0].name)
         Thread.sleep(1000)
@@ -64,11 +70,10 @@ class AddCarFragmentInstrumentedTest {
         scrollTo(R.id.linearLayout2)
         scrollTo(R.id.linearLayout)
         clickId(R.id.save_btn)
-        hideKeyboard()
         Thread.sleep(1000)
-        scrollTo(R.id.layout_add_new_car_with_connection)
-        Thread.sleep(1000)
-        /*verify(mockNavController).navigate(
+        //scrollTo(R.id.layout_add_new_car_with_connection)
+        //Thread.sleep(1000)
+        /*verify(navController).navigate(
             AddCarFragmentDirections.actionAddCarFragmentToCarListFragment()
         )*/
     }
