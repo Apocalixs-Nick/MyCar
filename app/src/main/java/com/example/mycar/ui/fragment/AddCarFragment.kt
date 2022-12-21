@@ -4,6 +4,7 @@ import android.app.Activity.RESULT_OK
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.content.DialogInterface.BUTTON_POSITIVE
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -397,7 +398,11 @@ class AddCarFragment : Fragment() {
             viewModel.checkedItemBrand = which
         }
         builder.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
-            binding.brandCarInput.setText(items[viewModel.checkedItemBrand].toString())
+            if (viewModel.checkedItemBrand != -1) {
+                binding.brandCarInput.setText(items[viewModel.checkedItemBrand].toString())
+            } else {
+                binding.brandCarInput.setText("")
+            }
         }
         builder.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
             binding.brandCarInput.setText("")
@@ -426,7 +431,11 @@ class AddCarFragment : Fragment() {
             viewModel.checkedItemModel = which
         }
         builderModel.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
-            binding.nameCarInput.setText(itemsCar[viewModel.checkedItemModel].toString())
+            if (viewModel.checkedItemModel != -1) {
+                binding.nameCarInput.setText(itemsCar[viewModel.checkedItemModel].toString())
+            } else {
+                binding.nameCarInput.setText("")
+            }
         }
         builderModel.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
             binding.nameCarInput.setText("")
@@ -455,7 +464,11 @@ class AddCarFragment : Fragment() {
             viewModel.checkedItemFuel = which
         }
         builderFuel.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
-            binding.fuelCarInput.setText(itemsFuel[viewModel.checkedItemFuel].toString())
+            if (viewModel.checkedItemFuel != -1) {
+                binding.fuelCarInput.setText(itemsFuel[viewModel.checkedItemFuel].toString())
+            } else {
+                binding.fuelCarInput.setText("")
+            }
         }
         builderFuel.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
             binding.fuelCarInput.setText("")
