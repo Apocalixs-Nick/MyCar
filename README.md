@@ -4,7 +4,13 @@
  <img src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/img/MyCarLogo.JPG">
 </p>
 
-The My Car application allows you to view, add, edit, and delete cars, with some car information using Room and a local database, using the API for logos, car makes and models, and fuel types, and the workmanager for car service notifications when mileage is 150,000 or more. The app has also been adapted for devices with 600dp+ resolution, and specific colors have been added as the phone theme changes.
+The My Car application allows you to view, add, edit, and delete cars, with some car information using Room and a local database, using the API for logos, car makes and models, and fuel types, and the workmanager for car service notifications when mileage is 150,000 or more.
+In adding and modifying a vehicle there are minimum and maximum values to be met:
+- power field: min. 1k - max. 9999kw
+- doors field: min. 1 - max. 9
+- years field: min. 1800 - max. 2050
+- seat field: min. 1 - max. 9
+The app has also been adapted for devices with 600dp+ resolution, and specific colors have been added as the phone theme changes.
 
 ## Screenshots
 <p align="left">
