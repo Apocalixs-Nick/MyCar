@@ -10,6 +10,7 @@ In adding and modifying a vehicle there are minimum and maximum values to be met
 - doors field: min. 1 - max. 9
 - years field: min. 1800 - max. 2050
 - seat field: min. 1 - max. 9
+
 The app has also been adapted for devices with 600dp+ resolution, and specific colors have been added as the phone theme changes.
 
 ## Screenshots
