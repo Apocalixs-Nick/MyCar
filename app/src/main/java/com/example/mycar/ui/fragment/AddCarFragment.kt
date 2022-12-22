@@ -4,7 +4,6 @@ import android.app.Activity.RESULT_OK
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
-import android.content.DialogInterface.BUTTON_POSITIVE
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
