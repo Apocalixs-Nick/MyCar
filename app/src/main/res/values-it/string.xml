@@ -55,4 +55,8 @@
     <string name="error_door">Il numero di porte deve essere compresa tra 1 e 9.</string>
     <string name="error_year">L\'anno di produzione deve essere compresa tra 1800 e 2050.</string>
     <string name="error_seat">I posti auto deve essere compresi tra 1 e 9.</string>
+
+    <string name="no_brand">Devi aggiungere il brand per aggiungere l\'auto.</string>
+    <string name="no_model">Devi aggiungere il modello per aggiungere l\'auto.</string>
+    <string name="no_fuel">Devi aggiungere il combustibile per aggiungere l\'auto.</string>
 </resources>

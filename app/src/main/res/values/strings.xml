@@ -54,4 +54,8 @@
     <string name="error_door">The number of ports should be between 1 and 9.</string>
     <string name="error_year">The year of production must be between 1800 and 2050.</string>
     <string name="error_seat">Car seats must be between 1 and 9.</string>
+
+    <string name="no_brand">You have to add the brand to add the car.</string>
+    <string name="no_model">You have to add the model to add the car.</string>
+    <string name="no_fuel">You have to add the fuel to add the car.</string>
 </resources>
