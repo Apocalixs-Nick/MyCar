@@ -50,4 +50,9 @@
     <string name="error_snackbar">Error Snackbar, i campi sono pieni</string>
     <string name="retry_again">Riprova</string>
     <string name="error_message">Connessione ad internet assente.</string>
+
+    <string name="error_power">La potenza deve essere compresa tra 1kW e 9999 kW.</string>
+    <string name="error_door">Il numero di porte deve essere compresa tra 1 e 9.</string>
+    <string name="error_year">L\'anno di produzione deve essere compresa tra 1800 e 2050.</string>
+    <string name="error_seat">I posti auto deve essere compresi tra 1 e 9.</string>
 </resources>

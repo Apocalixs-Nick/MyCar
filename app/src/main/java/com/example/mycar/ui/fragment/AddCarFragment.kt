@@ -231,7 +231,10 @@ class AddCarFragment : Fragment() {
             binding.placesCarInput.text.toString().isBlank() -> R.string.blank_places
             binding.colorCarInput.text.toString().isBlank() -> R.string.blank_color
             binding.kmCarInput.text.toString().isBlank() -> R.string.blank_km
-            binding.fuelCarInput.text.toString().isBlank() -> R.string.blank_fuel
+            (binding.powerCarInput.text.toString().toInt() < 1 || binding.powerCarInput.text.toString().toInt() > 9999) -> R.string.error_power
+            (binding.doorsCarInput.text.toString().toInt() < 1 || binding.doorsCarInput.text.toString().toInt() > 9) -> R.string.error_door
+            (binding.yearCarInput.text.toString().toInt() < 1800 || binding.yearCarInput.text.toString().toInt() > 2050) -> R.string.error_year
+            (binding.placesCarInput.text.toString().toInt() < 1 || binding.placesCarInput.text.toString().toInt() > 9) -> R.string.error_seat
             else -> R.string.error_snackbar
         }
     }
@@ -301,15 +304,15 @@ class AddCarFragment : Fragment() {
      */
     private fun isValidEntry(): Boolean {
         return viewModel.isValidEntry(
-            binding.nameCarInput.text.toString(),
-            binding.brandCarInput.text.toString(),
-            binding.doorsCarInput.text.toString(),
-            binding.powerCarInput.text.toString(),
-            binding.fuelCarInput.text.toString(),
-            binding.yearCarInput.text.toString(),
-            binding.placesCarInput.text.toString(),
-            binding.colorCarInput.text.toString(),
-            binding.kmCarInput.text.toString()
+            name = binding.nameCarInput.text.toString(),
+            brand = binding.brandCarInput.text.toString(),
+            numberDoors = binding.doorsCarInput.text.toString(),
+            power = binding.powerCarInput.text.toString(),
+            fuel = binding.fuelCarInput.text.toString(),
+            productionYear = binding.yearCarInput.text.toString(),
+            places = binding.placesCarInput.text.toString(),
+            color = binding.colorCarInput.text.toString(),
+            km = binding.kmCarInput.text.toString()
         )
     }
 
