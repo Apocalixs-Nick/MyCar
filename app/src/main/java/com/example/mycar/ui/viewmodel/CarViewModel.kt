@@ -90,8 +90,19 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
         color: String,
         km: String
     ): Boolean {
-
         if ((name.isBlank() || brand.isBlank() || power.isBlank() || fuel.isBlank() || numberDoors.isBlank() || productionYear.isBlank() || places.isBlank() || color.isBlank() || km.isBlank())) {
+            return false
+        }
+        if (power.toInt() < 1 || power.toInt() > 9999) {
+            return false
+        }
+        if (numberDoors.toInt() < 1 || numberDoors.toInt() > 9) {
+            return false
+        }
+        if (productionYear.toInt() < 1800 || productionYear.toInt() > 2050) {
+            return false
+        }
+        if (places.toInt() < 1 || places.toInt() > 9) {
             return false
         }
         return true

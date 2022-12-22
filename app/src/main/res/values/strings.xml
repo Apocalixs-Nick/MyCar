@@ -49,4 +49,9 @@
     <string name="error_snackbar">Error Snackbar, the fields are full</string>
     <string name="retry_again">Retry Again</string>
     <string name="error_message">No internet connection.</string>
+
+    <string name="error_power">The power must be between 1kW and 9999 kW.</string>
+    <string name="error_door">The number of ports should be between 1 and 9.</string>
+    <string name="error_year">The year of production must be between 1800 and 2050.</string>
+    <string name="error_seat">Car seats must be between 1 and 9.</string>
 </resources>
