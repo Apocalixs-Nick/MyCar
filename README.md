@@ -62,7 +62,7 @@ https://github.com/ElyesDer/Vehicule-data-DB.git
 
 Install MyCar on Android
 
-[MyCar.apk](https://github.com/Apocalixs-Nick/NewMyCar/releases/download/1.0.5/app-debug.apk)
+[MyCar.apk](https://github.com/Apocalixs-Nick/NewMyCar/releases/download/1.0.6/app-debug.apk)
 
 ## License
 
