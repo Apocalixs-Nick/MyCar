@@ -58,4 +58,7 @@
     <string name="no_brand">You have to add the brand to add the car.</string>
     <string name="no_model">You have to add the model to add the car.</string>
     <string name="no_fuel">You have to add the fuel to add the car.</string>
+    <string name="no_color">You have to add the color to add the car.</string>
+
+    <string name="type_color">Choose car color</string>
 </resources>

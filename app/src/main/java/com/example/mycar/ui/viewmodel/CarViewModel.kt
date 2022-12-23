@@ -23,12 +23,6 @@ enum class LogoApiStatus {
     DONE
 }
 
-enum class FuelApiStatus {
-    LOADING,
-    ERROR,
-    DONE
-}
-
 class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
 
     //Variable for the acquisition of all the cars of the database
@@ -60,10 +54,6 @@ class CarViewModel(private val myCarDao: MyCarDao) : ViewModel() {
 
     val fuel: LiveData<List<FuelInfo>>
         get() = _fuel
-
-    // Status Fuel Api
-    private val _statusFuelApi = MutableLiveData<FuelApiStatus>()
-    val statusFuelApi: LiveData<FuelApiStatus> = _statusFuelApi
 
     // Status Logo Api
     private val _statusLogApi = MutableLiveData<LogoApiStatus>()
