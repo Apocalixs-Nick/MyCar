@@ -30,6 +30,7 @@ import com.example.mycar.ui.viewmodel.CarNotificationViewModelFactory
 import com.example.mycar.ui.viewmodel.CarViewModel
 import com.example.mycar.ui.viewmodel.CarViewModelFactory
 import com.example.mycar.utils.checkForInternet
+import com.example.mycar.utils.enum.ColorCar
 import com.google.android.material.snackbar.Snackbar
 import java.util.concurrent.TimeUnit
 
@@ -111,6 +112,9 @@ class AddCarFragment : Fragment() {
             }
             binding.nameCarInput.setOnClickListener {
                 setModelCar()
+            }
+            binding.colorCarInput.setOnClickListener {
+                setColorCar()
             }
             binding.fuelCarInput.setOnClickListener {
                 setFuelCar()
@@ -230,10 +234,18 @@ class AddCarFragment : Fragment() {
             binding.placesCarInput.text.toString().isBlank() -> R.string.blank_places
             binding.colorCarInput.text.toString().isBlank() -> R.string.blank_color
             binding.kmCarInput.text.toString().isBlank() -> R.string.blank_km
-            (binding.powerCarInput.text.toString().toInt() < 1 || binding.powerCarInput.text.toString().toInt() > 9999) -> R.string.error_power
-            (binding.doorsCarInput.text.toString().toInt() < 1 || binding.doorsCarInput.text.toString().toInt() > 9) -> R.string.error_door
-            (binding.yearCarInput.text.toString().toInt() < 1800 || binding.yearCarInput.text.toString().toInt() > 2050) -> R.string.error_year
-            (binding.placesCarInput.text.toString().toInt() < 1 || binding.placesCarInput.text.toString().toInt() > 9) -> R.string.error_seat
+            (binding.powerCarInput.text.toString()
+                .toInt() < 1 || binding.powerCarInput.text.toString()
+                .toInt() > 9999) -> R.string.error_power
+            (binding.doorsCarInput.text.toString()
+                .toInt() < 1 || binding.doorsCarInput.text.toString()
+                .toInt() > 9) -> R.string.error_door
+            (binding.yearCarInput.text.toString()
+                .toInt() < 1800 || binding.yearCarInput.text.toString()
+                .toInt() > 2050) -> R.string.error_year
+            (binding.placesCarInput.text.toString()
+                .toInt() < 1 || binding.placesCarInput.text.toString()
+                .toInt() > 9) -> R.string.error_seat
             else -> R.string.error_snackbar
         }
     }
@@ -372,6 +384,9 @@ class AddCarFragment : Fragment() {
             binding.nameCarInput.setOnClickListener {
                 setModelCar()
             }
+            binding.colorCarInput.setOnClickListener {
+                setColorCar()
+            }
             binding.fuelCarInput.setOnClickListener {
                 setFuelCar()
             }
@@ -445,6 +460,41 @@ class AddCarFragment : Fragment() {
             binding.nameCarInput.setText("")
         }
         builderModel.show()
+    }
+
+    /**
+     * Private function for the appearance of an AlertDialog to select the color
+     */
+    private fun setColorCar() {
+        var checkedColorFuel = -1
+        val listColorCar = ColorCar.values()
+        val itemsColor = arrayOfNulls<CharSequence>(listColorCar.size)
+        for (i in listColorCar.indices) {
+            itemsColor[i] = listColorCar[i].toString()
+        }
+        val builderColor: AlertDialog.Builder = AlertDialog.Builder(context)
+        builderColor.setTitle(R.string.type_color)
+        builderColor.setSingleChoiceItems(
+            itemsColor,
+            checkedColorFuel
+        ) { _: DialogInterface, which ->
+            checkedColorFuel = which
+        }
+        builderColor.setItems(itemsColor) { _: DialogInterface, which ->
+            checkedColorFuel = which
+        }
+        builderColor.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
+            if (checkedColorFuel != -1) {
+                binding.colorCarInput.setText(itemsColor[checkedColorFuel].toString())
+            } else {
+                binding.colorCarInput.setText("")
+                view?.let { Snackbar.make(it, R.string.no_color, Snackbar.LENGTH_SHORT).show() }
+            }
+        }
+        builderColor.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
+            binding.colorCarInput.setText("")
+        }
+        builderColor.show()
     }
 
     /**

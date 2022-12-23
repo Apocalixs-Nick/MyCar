@@ -59,4 +59,7 @@
     <string name="no_brand">Devi aggiungere il brand per aggiungere l\'auto.</string>
     <string name="no_model">Devi aggiungere il modello per aggiungere l\'auto.</string>
     <string name="no_fuel">Devi aggiungere il combustibile per aggiungere l\'auto.</string>
+    <string name="no_color">Devi aggiungere un colore per aggiungere l\'auto.</string>
+
+    <string name="type_color">Scegli il colore dell\'auto</string>
 </resources>

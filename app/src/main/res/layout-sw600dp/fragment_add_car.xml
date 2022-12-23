@@ -137,6 +137,7 @@
                         android:layout_height="wrap_content"
                         android:maxLength="4"
                         android:textSize="20sp"
+                        android:longClickable="false"
                         android:inputType="number" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -156,6 +157,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:textSize="20sp"
+                        android:longClickable="false"
                         android:maxLength="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -174,6 +176,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:textSize="20sp"
+                        android:longClickable="false"
                         android:maxLength="4" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -192,6 +195,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:textSize="20sp"
+                        android:longClickable="false"
                         android:maxLength="1" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -212,6 +216,8 @@
                         android:layout_height="wrap_content"
                         android:inputType="textCapSentences|textAutoCorrect"
                         android:singleLine="true"
+                        android:focusable="false"
+                        android:longClickable="false"
                         android:textSize="20sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -232,6 +238,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:maxLength="7"
+                        android:longClickable="false"
                         android:textSize="20sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -269,6 +276,7 @@
                         android:id="@+id/second_fuel_car_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:longClickable="false"
                         android:inputType="textCapSentences|textAutoCorrect"
                         android:textSize="20sp" />
 
