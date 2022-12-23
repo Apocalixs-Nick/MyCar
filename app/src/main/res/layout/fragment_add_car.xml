@@ -282,16 +282,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/second_fuel_car_label">
 
-                    <ImageView
-                        android:id="@+id/preview_image"
-                        android:layout_width="350dp"
-                        android:layout_height="150dp"
-                        android:importantForAccessibility="no"
-                        app:layout_constraintBottom_toTopOf="@+id/second_fuel_car_label"
-                        app:layout_constraintStart_toStartOf="@+id/import_image"
-                        app:layout_constraintTop_toBottomOf="@+id/import_image"
-                        app:srcCompat="@drawable/ic_car" />
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -306,13 +296,13 @@
                     app:layout_constraintTop_toBottomOf="@id/preview_image"
                     app:layout_constraintTop_toTopOf="@id/preview_image">
 
-                    <com.google.android.material.button.MaterialButton
+                    <!--<com.google.android.material.button.MaterialButton
                         android:id="@+id/img_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="100dp"
                         android:layout_marginEnd="8dp"
-                        android:text="@string/import_image" />
+                        android:text="@string/import_image" />-->
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/save_btn"
@@ -331,6 +321,19 @@
                         android:visibility="gone" />
 
                 </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/preview_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:importantForAccessibility="no"
+                    app:layout_anchor="@+id/linearLayout2"
+                    app:layout_anchorGravity="center"
+                    app:layout_constraintBottom_toTopOf="@+id/second_fuel_car_label"
+                    app:layout_constraintStart_toStartOf="@+id/import_image"
+                    app:layout_constraintEnd_toStartOf="@+id/save_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/import_image"
+                    app:srcCompat="@drawable/ic_add_car" />
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
