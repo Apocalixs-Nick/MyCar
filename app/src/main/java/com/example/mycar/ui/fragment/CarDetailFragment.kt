@@ -271,4 +271,9 @@ class CarDetailFragment : Fragment() {
         )
         this.findNavController().navigate(action)
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        clicked = false
+    }
 }
