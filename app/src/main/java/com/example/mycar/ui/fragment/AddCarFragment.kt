@@ -83,7 +83,7 @@ class AddCarFragment : Fragment() {
         context?.let { swapConstraintIfInternet(it) }
         viewModel.brandAcquisition()
         viewModel.fuelAcquisition()
-        binding.imgBtn.setOnClickListener {
+        binding.previewImage.setOnClickListener {
             imageChooser()
         }
         val id = navigation.id
