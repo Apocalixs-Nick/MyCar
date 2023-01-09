@@ -31,6 +31,7 @@ import com.example.mycar.ui.viewmodel.CarViewModel
 import com.example.mycar.ui.viewmodel.CarViewModelFactory
 import com.example.mycar.utils.checkForInternet
 import com.example.mycar.utils.enum.ColorCar
+import com.example.mycar.utils.enum.DefaultKm
 import com.google.android.material.snackbar.Snackbar
 import java.util.concurrent.TimeUnit
 
@@ -115,6 +116,9 @@ class AddCarFragment : Fragment() {
             }
             binding.colorCarInput.setOnClickListener {
                 setColorCar()
+            }
+            binding.kmCarInput.setOnClickListener {
+                setKmCar()
             }
             binding.fuelCarInput.setOnClickListener {
                 setFuelCar()
@@ -387,6 +391,9 @@ class AddCarFragment : Fragment() {
             binding.colorCarInput.setOnClickListener {
                 setColorCar()
             }
+            binding.kmCarInput.setOnClickListener {
+                setKmCar()
+            }
             binding.fuelCarInput.setOnClickListener {
                 setFuelCar()
             }
@@ -493,6 +500,41 @@ class AddCarFragment : Fragment() {
         }
         builderColor.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
             binding.colorCarInput.setText("")
+        }
+        builderColor.show()
+    }
+
+    /**
+     * Private function for the appearance of an AlertDialog to select the km
+     */
+    private fun setKmCar() {
+        var checkedKm = -1
+        val listKmCar = DefaultKm.values()
+        val itemsKm = arrayOfNulls<CharSequence>(listKmCar.size)
+        for (i in listKmCar.indices) {
+            itemsKm[i] = listKmCar[i].km
+        }
+        val builderColor: AlertDialog.Builder = AlertDialog.Builder(context)
+        builderColor.setTitle(R.string.default_km)
+        builderColor.setSingleChoiceItems(
+            itemsKm,
+            checkedKm
+        ) { _: DialogInterface, which ->
+            checkedKm = which
+        }
+        builderColor.setItems(itemsKm) { _: DialogInterface, which ->
+            checkedKm = which
+        }
+        builderColor.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
+            if (checkedKm != -1) {
+                binding.kmCarInput.setText(itemsKm[checkedKm])
+            } else {
+                binding.kmCarInput.setText("")
+                view?.let { Snackbar.make(it, R.string.no_km, Snackbar.LENGTH_SHORT).show() }
+            }
+        }
+        builderColor.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
+            binding.kmCarInput.setText("")
         }
         builderColor.show()
     }
