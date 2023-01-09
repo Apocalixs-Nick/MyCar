@@ -424,6 +424,7 @@ class AddCarFragment : Fragment() {
         builder.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
             if (viewModel.checkedItemBrand != -1) {
                 binding.brandCarInput.setText(items[viewModel.checkedItemBrand].toString())
+                viewModel.checkedItemBrand = -1
             } else {
                 binding.brandCarInput.setText("")
                 view?.let { Snackbar.make(it, R.string.no_brand, Snackbar.LENGTH_SHORT).show() }
@@ -458,6 +459,7 @@ class AddCarFragment : Fragment() {
         builderModel.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
             if (viewModel.checkedItemModel != -1) {
                 binding.nameCarInput.setText(itemsCar[viewModel.checkedItemModel].toString())
+                viewModel.checkedItemModel = -1
             } else {
                 binding.nameCarInput.setText("")
                 view?.let { Snackbar.make(it, R.string.no_model, Snackbar.LENGTH_SHORT).show() }
@@ -562,6 +564,7 @@ class AddCarFragment : Fragment() {
         builderFuel.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
             if (viewModel.checkedItemFuel != -1) {
                 binding.fuelCarInput.setText(itemsFuel[viewModel.checkedItemFuel].toString())
+                viewModel.checkedItemFuel = -1
             } else {
                 binding.fuelCarInput.setText("")
                 view?.let { Snackbar.make(it, R.string.no_fuel, Snackbar.LENGTH_SHORT).show() }
