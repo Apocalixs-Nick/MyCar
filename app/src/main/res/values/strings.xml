@@ -61,4 +61,7 @@
     <string name="no_color">You have to add the color to add the car.</string>
 
     <string name="type_color">Choose car color</string>
+
+    <string name="default_km">Choose car Km</string>
+    <string name="no_km">You have to add the Km to add the car.</string>
 </resources>
