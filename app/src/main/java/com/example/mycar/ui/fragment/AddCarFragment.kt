@@ -514,18 +514,18 @@ class AddCarFragment : Fragment() {
         for (i in listKmCar.indices) {
             itemsKm[i] = listKmCar[i].km
         }
-        val builderColor: AlertDialog.Builder = AlertDialog.Builder(context)
-        builderColor.setTitle(R.string.default_km)
-        builderColor.setSingleChoiceItems(
+        val builderKm: AlertDialog.Builder = AlertDialog.Builder(context)
+        builderKm.setTitle(R.string.default_km)
+        builderKm.setSingleChoiceItems(
             itemsKm,
             checkedKm
         ) { _: DialogInterface, which ->
             checkedKm = which
         }
-        builderColor.setItems(itemsKm) { _: DialogInterface, which ->
+        builderKm.setItems(itemsKm) { _: DialogInterface, which ->
             checkedKm = which
         }
-        builderColor.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
+        builderKm.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
             if (checkedKm != -1) {
                 binding.kmCarInput.setText(itemsKm[checkedKm])
             } else {
@@ -533,10 +533,10 @@ class AddCarFragment : Fragment() {
                 view?.let { Snackbar.make(it, R.string.no_km, Snackbar.LENGTH_SHORT).show() }
             }
         }
-        builderColor.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
+        builderKm.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
             binding.kmCarInput.setText("")
         }
-        builderColor.show()
+        builderKm.show()
     }
 
     /**
