@@ -64,4 +64,5 @@
 
     <string name="default_km">Choose car Km</string>
     <string name="no_km">You have to add the Km to add the car.</string>
+    <string name="github">GitHub</string>
 </resources>

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -38,8 +39,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        if (navController.currentDestination?.id == R.id.carListFragment) {
+            menuInflater.inflate(R.menu.github, menu)
+            return true
+        }
         menuInflater.inflate(R.menu.github, menu)
-        return true
+        return false
+        /*menuInflater.inflate(R.menu.github, menu)
+        return true*/
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyCar</string>
+    <string name="detail_car">Détails Car</string>
+    <string name="information_car">Mise en œuvre des données sur les voitures</string>
+    <string name="name_model">Modèle*</string>
+    <string name="brand">Marque*</string>
+    <string name="power_kw">Puissance(kW)*</string>
+    <string name="kw">kW</string>
+    <string name="number_of_doors">Nombre de portes*</string>
+    <string name="production_year">Année de production*</string>
+    <string name="fuel">Carburant*</string>
+    <string name="save">Sauvez</string>
+    <string name="delete">Supprimer</string>
+    <string name="delete_question">Vous êtes sûr de vouloir supprimer la voiture ?</string>
+    <string name="no">Non</string>
+    <string name="yes">Oui</string>
+    <string name="edit_fragment_title">Modifier la voiture</string>
+    <string name="add_car">Ajouter une voiture</string>
+    <string name="import_image">Importer l\'image</string>
+    <string name="second_fuel">Deuxième carburant(Facultatif)</string>
+
+    <string name="choose_car">Choisissez la marque de votre voiture</string>
+    <string name="Ok">Ok</string>
+    <string name="cancel">Annuler</string>
+    <string name="color_car">Voiture de couleur*</string>
+    <string name="seat_car">Voiture à siège*</string>
+    <string name="search_car">Choisissez votre voiture</string>
+    <string name="kilometres">Kilomètres*</string>
+    <string name="share_car">Bonjour, regardez ma voiture située dans l\'application MyCar.</string>
+    <string name="car">Ma voiture:</string>
+    <string name="share">Voiture de partage</string>
+    <string name="sharing_not_available">Partage non disponible</string>
+
+    <string name="channel_name">car_channel</string>
+    <string name="channel_description">car_reminder</string>
+    <string name="type_fuel">Choisissez votre carburant</string>
+    <string name="labels_blank">Attention! Les champs obligatoires sont vides.</string>
+
+    <string name="blank_brand">Champ de marque vierge!</string>
+    <string name="blank_model">Champ modèle vierge!</string>
+    <string name="blank_power">Champ électrique vide!</string>
+    <string name="blank_door">Champ de portes vides!</string>
+    <string name="blank_fuel">Champ de carburant vierge!</string>
+    <string name="blank_year">Champ d\'année vierge!</string>
+    <string name="blank_places">Champ d\'emplacements vides!</string>
+    <string name="blank_color">Champ de couleur vierge!</string>
+    <string name="blank_km">Un champ de kM vierge!</string>
+
+    <string name="error_snackbar">Erreur Snackbar, les champs sont pleins</string>
+    <string name="retry_again">Réessayer</string>
+    <string name="error_message">Pas de connexion internet.</string>
+
+    <string name="error_power">La puissance doit être comprise entre 1kW et 9999 kW.</string>
+    <string name="error_door">Le nombre de ports doit être compris entre 1 et 9.</string>
+    <string name="error_year">L\'année de production doit être comprise entre 1800 et 2050.</string>
+    <string name="error_seat">Les sièges auto doivent avoir entre 1 et 9 ans.</string>
+
+    <string name="no_brand">Vous devez ajouter la marque pour ajouter la voiture.</string>
+    <string name="no_model">Vous devez ajouter le modèle pour ajouter la voiture.</string>
+    <string name="no_fuel">Vous devez ajouter le carburant pour ajouter la voiture.</string>
+    <string name="no_color">Vous devez ajouter la couleur pour ajouter la voiture.</string>
+
+    <string name="type_color">Choisissez la couleur de la voiture</string>
+
+    <string name="default_km">Choisir la voiture Km</string>
+    <string name="no_km">Vous devez ajouter les kilomètres pour ajouter la voiture.</string>
+    <string name="github">GitHub</string>
+</resources>

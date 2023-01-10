@@ -65,4 +65,5 @@
 
     <string name="default_km">Scegli i Km dell\'auto</string>
     <string name="no_km">Devi aggiungere i Km per aggiungere l\'auto</string>
+    <string name="github">GitHub</string>
 </resources>

@@ -5,7 +5,7 @@
     tools:context="com.example.forage.MainActivity">
     <item
         android:id="@+id/action_git"
-        android:title="GitHub"
+        android:title="@string/github"
         android:icon="@drawable/ic_github"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom"/>
 </menu>
