@@ -66,4 +66,7 @@
     <string name="default_km">Auto wählen Km</string>
     <string name="no_km">Sie müssen die km hinzufügen, um das Auto hinzuzufügen.</string>
     <string name="github">GitHub</string>
+
+    <string name="default_year">Fahrzeugjahr wählen</string>
+    <string name="no_year">Sie müssen das Produktionsjahr hinzufügen, um das Auto hinzuzufügen.</string>
 </resources>

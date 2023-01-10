@@ -65,4 +65,7 @@
     <string name="default_km">Choose car Km</string>
     <string name="no_km">You have to add the Km to add the car.</string>
     <string name="github">GitHub</string>
+
+    <string name="default_year">Choose car year</string>
+    <string name="no_year">You have to add the year of production to add the car.</string>
 </resources>
