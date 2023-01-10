@@ -32,6 +32,7 @@ import com.example.mycar.ui.viewmodel.CarViewModelFactory
 import com.example.mycar.utils.checkForInternet
 import com.example.mycar.utils.enum.ColorCar
 import com.example.mycar.utils.enum.DefaultKm
+import com.example.mycar.utils.enum.DefaultYear
 import com.google.android.material.snackbar.Snackbar
 import java.util.concurrent.TimeUnit
 
@@ -113,6 +114,9 @@ class AddCarFragment : Fragment() {
             }
             binding.nameCarInput.setOnClickListener {
                 setModelCar()
+            }
+            binding.yearCarInput.setOnClickListener {
+                setYearCar()
             }
             binding.colorCarInput.setOnClickListener {
                 setColorCar()
@@ -388,6 +392,9 @@ class AddCarFragment : Fragment() {
             binding.nameCarInput.setOnClickListener {
                 setModelCar()
             }
+            binding.yearCarInput.setOnClickListener {
+                setYearCar()
+            }
             binding.colorCarInput.setOnClickListener {
                 setColorCar()
             }
@@ -469,6 +476,41 @@ class AddCarFragment : Fragment() {
             binding.nameCarInput.setText("")
         }
         builderModel.show()
+    }
+
+    /**
+     * Private function for the appearance of an AlertDialog to select the year
+     */
+    private fun setYearCar() {
+        var checkedYear = -1
+        val listYearCar = DefaultYear.values()
+        val itemsYear = arrayOfNulls<CharSequence>(listYearCar.size)
+        for (i in listYearCar.indices) {
+            itemsYear[i] = listYearCar[i].year
+        }
+        val builderYear: AlertDialog.Builder = AlertDialog.Builder(context)
+        builderYear.setTitle(R.string.default_year)
+        builderYear.setSingleChoiceItems(
+            itemsYear,
+            checkedYear
+        ) { _: DialogInterface, which ->
+            checkedYear = which
+        }
+        builderYear.setItems(itemsYear) { _: DialogInterface, which ->
+            checkedYear = which
+        }
+        builderYear.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
+            if (checkedYear != -1) {
+                binding.yearCarInput.setText(itemsYear[checkedYear])
+            } else {
+                binding.yearCarInput.setText("")
+                view?.let { Snackbar.make(it, R.string.no_year, Snackbar.LENGTH_SHORT).show() }
+            }
+        }
+        builderYear.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
+            binding.yearCarInput.setText("")
+        }
+        builderYear.show()
     }
 
     /**
