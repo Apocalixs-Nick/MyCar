@@ -37,14 +37,14 @@ class MainActivity : AppCompatActivity() {
                 || super.onSupportNavigateUp()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+    /*override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        if (navController.currentDestination?.id == R.id.carListFragment) {
+        if (navController.currentDestination?.id == R.id.nav_host_fragment_content_main) {
             menuInflater.inflate(R.menu.github, menu)
             return true
         }
-        menuInflater.inflate(R.menu.github, menu)
+        //onSupportNavigateUp()
         return false
         /*menuInflater.inflate(R.menu.github, menu)
         return true*/
@@ -62,5 +62,5 @@ class MainActivity : AppCompatActivity() {
             R.id.action_git -> true
             else -> super.onOptionsItemSelected(item)
         }
-    }
+    }*/
 }

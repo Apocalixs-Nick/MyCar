@@ -27,5 +27,42 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:contentDescription="@string/add_car" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/linkedin"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="88dp"
+            android:layout_marginBottom="88dp"
+            android:src="@drawable/ic_linkedin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_add"
+            app:layout_constraintBottom_toTopOf="@id/add_car"
+            app:layout_constraintEnd_toEndOf="@id/add_car"
+            app:layout_constraintStart_toStartOf="@+id/add_car" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/git"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_github"
+            app:layout_constraintBottom_toBottomOf="@id/add_car"
+            app:layout_constraintEnd_toEndOf="@id/add_car"
+            app:layout_constraintEnd_toStartOf="@id/add_car"
+            app:layout_constraintTop_toTopOf="@+id/add_car" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

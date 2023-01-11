@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.fragment.CarListFragment">
@@ -26,6 +27,43 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:contentDescription="@string/add_car" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/linkedin"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="88dp"
+            android:layout_marginBottom="88dp"
+            android:src="@drawable/ic_linkedin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_add"
+            app:layout_constraintBottom_toTopOf="@id/add_car"
+            app:layout_constraintEnd_toEndOf="@id/add_car"
+            app:layout_constraintStart_toStartOf="@+id/add_car" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/git"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_github"
+            app:layout_constraintBottom_toBottomOf="@id/add_car"
+            app:layout_constraintEnd_toEndOf="@id/add_car"
+            app:layout_constraintEnd_toStartOf="@id/add_car"
+            app:layout_constraintTop_toTopOf="@+id/add_car" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
