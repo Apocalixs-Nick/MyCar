@@ -13,6 +13,13 @@ In adding and modifying a vehicle there are minimum and maximum values to be met
 
 The app has also been adapted for devices with 600dp+ resolution, and specific colors have been added as the phone theme changes.
 
+This app is avaible in this languange:
+- English
+- Italian
+- French
+- German
+- Russian
+
 ## Screenshots
 <p align="left">
 <h5><img src="https://github.com/Apocalixs-Nick/NewMyCar/blob/main/img/us-flag.png" height="13">English:</h5>
