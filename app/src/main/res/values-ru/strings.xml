@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">МойКар</string>
+    <string name="detail_car">Детали Машина</string>
+    <string name="information_car">Реализация данных об автомобиле</string>
+    <string name="name_model">Модель*</string>
+    <string name="brand">Бренд*</string>
+    <string name="power_kw">Мощность (кВт)*</string>
+    <string name="kw">кВт</string>
+    <string name="number_of_doors">Количество дверей*</string>
+    <string name="production_year">Год выпуска*</string>
+    <string name="fuel">Топливо*</string>
+    <string name="save">Сохранить</string>
+    <string name="delete">Удалить</string>
+    <string name="delete_question">Вы уверены, что хотите удалить машину?</string>
+    <string name="no">Нет</string>
+    <string name="yes">Да</string>
+    <string name="edit_fragment_title">Редактировать автомобиль</string>
+    <string name="add_car">Добавить автомобиль</string>
+    <string name="import_image">Импортное изображение</string>
+    <string name="second_fuel">Второе топливо(по желанию))</string>
+
+    <string name="choose_car">Выберите марку вашего автомобиля</string>
+    <string name="Ok">Хорошо</string>
+    <string name="cancel">Отмена</string>
+    <string name="color_car">Цветной автомобиль*</string>
+    <string name="seat_car">Сидячий автомобиль*</string>
+    <string name="search_car">Выберите свой автомобиль</string>
+    <string name="kilometres">Километры*</string>
+    <string name="share_car">Здравствуйте, посмотрите на мой автомобиль, расположенный в приложении МойКар</string>
+    <string name="car">Моя машина:</string>
+    <string name="share">Поделиться автомобилем</string>
+    <string name="sharing_not_available">Поделиться автомобилем</string>
+
+    <string name="channel_name">car_channel</string>
+    <string name="channel_description">car_reminder</string>
+    <string name="type_fuel">Выберите топливо</string>
+    <string name="labels_blank">Внимание! Обязательные поля пустые.</string>
+
+    <string name="blank_brand">Пустое поле бренда!</string>
+    <string name="blank_model">Пустое поле модели!</string>
+    <string name="blank_power">Пустое силовое поле!</string>
+    <string name="blank_door">Пустое поле для дверей!</string>
+    <string name="blank_fuel">Пустое топливное поле!</string>
+    <string name="blank_year">Пустое поле года!</string>
+    <string name="blank_places">Пустое поле!</string>
+    <string name="blank_color">Пустое цветовое поле!</string>
+    <string name="blank_km">Пустое поле КМ!</string>
+
+    <string name="error_snackbar">Ошибка закусочной, поля заполнены</string>
+    <string name="retry_again">Повторите попытку</string>
+    <string name="error_message">Отсутствие подключения к Интернету.</string>
+
+    <string name="error_power">Мощность должна быть в диапазоне от 1 кВт до 9999 кВт.</string>
+    <string name="error_door">Количество портов должно быть от 1 до 9.</string>
+    <string name="error_year">Год производства должен быть между 1800 и 2050.</string>
+    <string name="error_seat">Автокресла должны быть от 1 до 9.</string>
+
+    <string name="no_brand">Вы должны добавить марку, чтобы добавить автомобиль.</string>
+    <string name="no_model">Вы должны добавить модель, чтобы добавить автомобиль.</string>
+    <string name="no_fuel">Вы должны добавить топливо, чтобы добавить автомобиль.</string>
+    <string name="no_color">Вы должны добавить цвет, чтобы добавить автомобиль.</string>
+
+    <string name="type_color">Выберите цвет автомобиля</string>
+
+    <string name="default_km">Выберите автомобиль Км</string>
+    <string name="no_km">Вы должны добавить километраж, чтобы добавить автомобиль.</string>
+    <string name="github">GitHub</string>
+
+    <string name="default_year">Выберите год выпуска автомобиля</string>
+    <string name="no_year">Чтобы добавить автомобиль, необходимо добавить год выпуска.</string>
+</resources>
