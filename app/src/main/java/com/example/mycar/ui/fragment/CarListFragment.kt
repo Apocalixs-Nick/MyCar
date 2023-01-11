@@ -102,7 +102,7 @@ class CarListFragment : Fragment() {
             }
             binding.recyclerView.layoutManager = LinearLayoutManager(context)
             binding.recyclerView.adapter = adapter
-            binding.add?.setOnClickListener {
+            binding.add.setOnClickListener {
                 val addAction = CarListFragmentDirections.actionCarListFragmentToAddCarFragment(
                     id = 0,
                     getString(R.string.add_car)
@@ -111,13 +111,13 @@ class CarListFragment : Fragment() {
                     addAction
                 )
             }
-            binding.linkedin?.setOnClickListener {
+            binding.linkedin.setOnClickListener {
                 val url = "https://www.linkedin.com/in/nicola-piccirillo-05a76b254"
                 val i = Intent(Intent.ACTION_VIEW)
                 i.data = Uri.parse(url)
                 startActivity(i)
             }
-            binding.git?.setOnClickListener {
+            binding.git.setOnClickListener {
                 val url = "https://github.com/Apocalixs-Nick"
                 val i = Intent(Intent.ACTION_VIEW)
                 i.data = Uri.parse(url)
@@ -141,32 +141,32 @@ class CarListFragment : Fragment() {
 
     private fun setVisibility(clicked: Boolean) {
         if (!clicked) {
-            binding.add?.visibility = View.VISIBLE
-            binding.git?.visibility = View.VISIBLE
-            binding.linkedin?.visibility = View.VISIBLE
-            binding.add?.isEnabled = true
-            binding.git?.isEnabled = true
-            binding.linkedin?.isEnabled = true
+            binding.add.visibility = View.VISIBLE
+            binding.git.visibility = View.VISIBLE
+            binding.linkedin.visibility = View.VISIBLE
+            binding.add.isEnabled = true
+            binding.git.isEnabled = true
+            binding.linkedin.isEnabled = true
         } else {
-            binding.add?.visibility = View.GONE
-            binding.git?.visibility = View.GONE
-            binding.linkedin?.visibility = View.GONE
-            binding.add?.isEnabled = false
-            binding.git?.isEnabled = false
-            binding.linkedin?.isEnabled = false
+            binding.add.visibility = View.GONE
+            binding.git.visibility = View.GONE
+            binding.linkedin.visibility = View.GONE
+            binding.add.isEnabled = false
+            binding.git.isEnabled = false
+            binding.linkedin.isEnabled = false
         }
     }
 
     private fun setAnimation(clicked: Boolean) {
         if (!clicked) {
-            binding.add?.startAnimation(fromBottom)
-            binding.git?.startAnimation(fromBottom)
-            binding.linkedin?.startAnimation(fromBottom)
+            binding.add.startAnimation(fromBottom)
+            binding.git.startAnimation(fromBottom)
+            binding.linkedin.startAnimation(fromBottom)
             binding.addCar.startAnimation(rotateOpen)
         } else {
-            binding.add?.startAnimation(toBottom)
-            binding.git?.startAnimation(toBottom)
-            binding.linkedin?.startAnimation(toBottom)
+            binding.add.startAnimation(toBottom)
+            binding.git.startAnimation(toBottom)
+            binding.linkedin.startAnimation(toBottom)
             binding.addCar.startAnimation(rotateClose)
         }
     }
