@@ -69,4 +69,8 @@
 
     <string name="default_year">Выберите год выпуска автомобиля</string>
     <string name="no_year">Чтобы добавить автомобиль, необходимо добавить год выпуска.</string>
+    <string name="default_door">Выберите количество дверей автомобиля</string>
+    <string name="no_door">Вы должны добавить дверь, чтобы добавить автомобиль.</string>
+    <string name="default_seat">Выберите количество автомобильных кресел</string>
+    <string name="no_seat">Вы должны добавить сиденье, чтобы добавить автомобиль.</string>
 </resources>

@@ -64,9 +64,13 @@
     <string name="type_color">Scegli il colore dell\'auto</string>
 
     <string name="default_km">Scegli i Km dell\'auto</string>
-    <string name="no_km">Devi aggiungere i Km per aggiungere l\'auto</string>
+    <string name="no_km">Devi aggiungere i Km per aggiungere l\'auto.</string>
     <string name="github">GitHub</string>
 
     <string name="default_year">Scegli l\'anno di produzione dell\'auto</string>
-    <string name="no_year">Devi aggiungere l\'anno di produzione per aggiungere l\'auto</string>
+    <string name="no_year">Devi aggiungere l\'anno di produzione per aggiungere l\'auto.</string>
+    <string name="default_door">Scegli il numero delle portiere dell\'auto</string>
+    <string name="no_door">Devi aggiungere le portiere per aggiungere l\'auto.</string>
+    <string name="default_seat">Scegli il numero di sedili dell\'auto</string>
+    <string name="no_seat">Devi aggiungere il numero di sedili per aggiungere l\'auto.</string>
 </resources>

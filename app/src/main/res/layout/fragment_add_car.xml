@@ -150,6 +150,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:longClickable="false"
+                        android:focusable="false"
                         android:maxLength="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -186,6 +187,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:longClickable="false"
+                        android:focusable="false"
                         android:maxLength="1" />
 
                 </com.google.android.material.textfield.TextInputLayout>
