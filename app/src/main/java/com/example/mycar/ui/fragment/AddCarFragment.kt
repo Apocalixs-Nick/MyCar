@@ -30,9 +30,7 @@ import com.example.mycar.ui.viewmodel.CarNotificationViewModelFactory
 import com.example.mycar.ui.viewmodel.CarViewModel
 import com.example.mycar.ui.viewmodel.CarViewModelFactory
 import com.example.mycar.utils.checkForInternet
-import com.example.mycar.utils.enum.ColorCar
-import com.example.mycar.utils.enum.DefaultKm
-import com.example.mycar.utils.enum.DefaultYear
+import com.example.mycar.utils.enum.*
 import com.google.android.material.snackbar.Snackbar
 import java.util.concurrent.TimeUnit
 
@@ -115,8 +113,14 @@ class AddCarFragment : Fragment() {
             binding.nameCarInput.setOnClickListener {
                 setModelCar()
             }
+            binding.doorsCarInput.setOnClickListener {
+                setDoorCar()
+            }
             binding.yearCarInput.setOnClickListener {
                 setYearCar()
+            }
+            binding.placesCarInput.setOnClickListener {
+                setSeatCar()
             }
             binding.colorCarInput.setOnClickListener {
                 setColorCar()
@@ -392,8 +396,14 @@ class AddCarFragment : Fragment() {
             binding.nameCarInput.setOnClickListener {
                 setModelCar()
             }
+            binding.doorsCarInput.setOnClickListener {
+                setDoorCar()
+            }
             binding.yearCarInput.setOnClickListener {
                 setYearCar()
+            }
+            binding.placesCarInput.setOnClickListener {
+                setSeatCar()
             }
             binding.colorCarInput.setOnClickListener {
                 setColorCar()
@@ -479,6 +489,41 @@ class AddCarFragment : Fragment() {
     }
 
     /**
+     * Private function for the appearance of an AlertDialog to select the door
+     */
+    private fun setDoorCar() {
+        var checkedDoor = -1
+        val listDoorCar = DefaultDoor.values()
+        val itemsDoor = arrayOfNulls<CharSequence>(listDoorCar.size)
+        for (i in listDoorCar.indices) {
+            itemsDoor[i] = listDoorCar[i].door
+        }
+        val builderDoor: AlertDialog.Builder = AlertDialog.Builder(context)
+        builderDoor.setTitle(R.string.default_door)
+        builderDoor.setSingleChoiceItems(
+            itemsDoor,
+            checkedDoor
+        ) { _: DialogInterface, which ->
+            checkedDoor = which
+        }
+        builderDoor.setItems(itemsDoor) { _: DialogInterface, which ->
+            checkedDoor = which
+        }
+        builderDoor.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
+            if (checkedDoor != -1) {
+                binding.doorsCarInput.setText(itemsDoor[checkedDoor])
+            } else {
+                binding.doorsCarInput.setText("")
+                view?.let { Snackbar.make(it, R.string.no_door, Snackbar.LENGTH_SHORT).show() }
+            }
+        }
+        builderDoor.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
+            binding.doorsCarInput.setText("")
+        }
+        builderDoor.show()
+    }
+
+    /**
      * Private function for the appearance of an AlertDialog to select the year
      */
     private fun setYearCar() {
@@ -511,6 +556,41 @@ class AddCarFragment : Fragment() {
             binding.yearCarInput.setText("")
         }
         builderYear.show()
+    }
+
+    /**
+     * Private function for the appearance of an AlertDialog to select the seat
+     */
+    private fun setSeatCar() {
+        var checkedSeat = -1
+        val listSeatCar = DefaultSeat.values()
+        val itemsSeat = arrayOfNulls<CharSequence>(listSeatCar.size)
+        for (i in listSeatCar.indices) {
+            itemsSeat[i] = listSeatCar[i].seat
+        }
+        val builderSeat: AlertDialog.Builder = AlertDialog.Builder(context)
+        builderSeat.setTitle(R.string.default_seat)
+        builderSeat.setSingleChoiceItems(
+            itemsSeat,
+            checkedSeat
+        ) { _: DialogInterface, which ->
+            checkedSeat = which
+        }
+        builderSeat.setItems(itemsSeat) { _: DialogInterface, which ->
+            checkedSeat = which
+        }
+        builderSeat.setPositiveButton(R.string.Ok) { _: DialogInterface, _ ->
+            if (checkedSeat != -1) {
+                binding.placesCarInput.setText(itemsSeat[checkedSeat])
+            } else {
+                binding.placesCarInput.setText("")
+                view?.let { Snackbar.make(it, R.string.no_seat, Snackbar.LENGTH_SHORT).show() }
+            }
+        }
+        builderSeat.setNegativeButton(R.string.cancel) { _: DialogInterface, _ ->
+            binding.placesCarInput.setText("")
+        }
+        builderSeat.show()
     }
 
     /**

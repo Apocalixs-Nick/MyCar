@@ -69,4 +69,8 @@
 
     <string name="default_year">Fahrzeugjahr wählen</string>
     <string name="no_year">Sie müssen das Produktionsjahr hinzufügen, um das Auto hinzuzufügen.</string>
+    <string name="default_door">Wählen Sie die Anzahl der Kabinentüren</string>
+    <string name="no_door">Sie müssen die Tür hinzufügen, um das Auto hinzuzufügen.</string>
+    <string name="default_seat">Wählen Sie die Anzahl der Autositze</string>
+    <string name="no_seat">Sie müssen den Sitz hinzufügen, um das Auto hinzuzufügen.</string>
 </resources>
