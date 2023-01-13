@@ -19,6 +19,7 @@ This app is avaible in this languange:
 - French
 - German
 - Russian
+- Chinese
 
 ## Screenshots
 <p align="left">
@@ -69,7 +70,7 @@ https://github.com/ElyesDer/Vehicule-data-DB.git
 
 Install MyCar on Android
 
-[MyCar](https://github.com/Apocalixs-Nick/NewMyCar/releases/download/1.1.5/my-car.apk)
+[MyCar](https://github.com/Apocalixs-Nick/NewMyCar/releases/download/1.1.6/my-car.apk)
 
 ## License
 
