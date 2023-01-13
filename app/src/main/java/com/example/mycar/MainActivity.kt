@@ -36,31 +36,4 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
     }
-
-    /*override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        if (navController.currentDestination?.id == R.id.nav_host_fragment_content_main) {
-            menuInflater.inflate(R.menu.github, menu)
-            return true
-        }
-        //onSupportNavigateUp()
-        return false
-        /*menuInflater.inflate(R.menu.github, menu)
-        return true*/
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        val url = "https://github.com/Apocalixs-Nick"
-        val i = Intent(Intent.ACTION_VIEW)
-        i.data = Uri.parse(url)
-        startActivity(i)
-        return when (item.itemId) {
-            R.id.action_git -> true
-            else -> super.onOptionsItemSelected(item)
-        }
-    }*/
 }
