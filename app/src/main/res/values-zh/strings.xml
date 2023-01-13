@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">我的汽车</string>
+    <string name="detail_car">细节 车</string>
+    <string name="information_car">汽车数据的实施</string>
+    <string name="name_model">模型*</string>
+    <string name="brand">品牌*</string>
+    <string name="power_kw">功率(千瓦)*</string>
+    <string name="kw">千瓦</string>
+    <string name="number_of_doors">门的数量*</string>
+    <string name="production_year">生产年份*</string>
+    <string name="fuel">燃油*</string>
+    <string name="save">拯救</string>
+    <string name="delete">删除</string>
+    <string name="delete_question">你确定你要删除这辆车吗？</string>
+    <string name="no">没有</string>
+    <string name="yes">是</string>
+    <string name="edit_fragment_title">编辑汽车</string>
+    <string name="add_car">添加汽车</string>
+    <string name="import_image">进口图片</string>
+    <string name="second_fuel">第二种燃料(可选)</string>
+
+    <string name="choose_car">选择你的汽车品牌</string>
+    <string name="Ok">好的</string>
+    <string name="cancel">取消</string>
+    <string name="color_car">彩色汽车*</string>
+    <string name="seat_car">座位车*</string>
+    <string name="search_car">选择你的车</string>
+    <string name="kilometres">千米*</string>
+    <string name="share_car">你好，看看我的车在MyCar应用程序中的位置</string>
+    <string name="car">我的车:</string>
+    <string name="share">共享汽车</string>
+    <string name="sharing_not_available">不提供分享</string>
+
+    <string name="channel_name">car_channel</string>
+    <string name="channel_description">car_reminder</string>
+    <string name="type_fuel">选择你的燃料</string>
+    <string name="labels_blank">警告! 必填项目为空白。</string>
+
+    <string name="blank_brand">空白的品牌领域!</string>
+    <string name="blank_model">空白的模型字段!</string>
+    <string name="blank_power">空白的动力场!</string>
+    <string name="blank_door">空白的门栏!</string>
+    <string name="blank_fuel">空白的燃料场!</string>
+    <string name="blank_year">空白的年场!</string>
+    <string name="blank_places">空白的地方领域!</string>
+    <string name="blank_color">空白的颜色区域!</string>
+    <string name="blank_km">空白的千米领域!</string>
+
+    <string name="error_snackbar">错误 小吃店，字段已满</string>
+    <string name="retry_again">再次重试</string>
+    <string name="error_message">没有互联网连接。</string>
+
+    <string name="error_power">功率必须在1千瓦和9999千瓦之间。</string>
+    <string name="error_door">端口的数量应该在1到9之间。</string>
+    <string name="error_year">生产年份必须在1800至2050年之间。</string>
+    <string name="error_seat">汽车座椅必须在1到9之间。</string>
+
+    <string name="no_brand">你必须添加品牌才能添加汽车。</string>
+    <string name="no_model">你必须添加模型才能添加汽车。</string>
+    <string name="no_fuel">你必须添加燃料来添加汽车。</string>
+    <string name="no_color">你必须添加颜色才能添加汽车。</string>
+
+    <string name="type_color">选择汽车颜色</string>
+
+    <string name="default_km">选择汽车公里数</string>
+    <string name="no_km">你必须添加公里数才能添加汽车。</string>
+    <string name="github">GitHub</string>
+
+    <string name="default_year">选择汽车年份</string>
+    <string name="no_year">你必须加上生产年份才能添加汽车。</string>
+    <string name="default_door">选择车门的数量</string>
+    <string name="no_door">你必须添加门才能添加汽车。</string>
+    <string name="default_seat">选择汽车座椅的数量</string>
+    <string name="no_seat">你必须添加座椅才能添加汽车。</string>
+</resources>
